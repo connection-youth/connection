@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "node .circleci/deploy.js"
+    "deploy": "node .circleci/deploy.js",
+    "lint:style": "vue-cli-service lint:style"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -15,6 +16,7 @@
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
+    "@ascendancyy/vue-cli-plugin-stylelint": "^1.1.2",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
@@ -26,6 +28,9 @@
     "node-sass": "^4.9.0",
     "node-sftp-deploy": "^1.0.3",
     "sass-loader": "^7.1.0",
+    "stylelint-config-airbnb": "0.0.0",
+    "stylelint-order": "^3.0.1",
+    "stylelint-scss": "^3.9.2",
     "vue-template-compiler": "^2.6.10"
   }
 }

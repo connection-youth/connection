@@ -9,8 +9,9 @@
 
 <style lang="scss" scoped>
 .index {
+
   &__wip {
-    margin: 0.5rem;
+    margin: .5rem;
     font-size: 1.5rem;
   }
 }
