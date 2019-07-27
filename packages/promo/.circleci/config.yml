@@ -1,9 +1,14 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:12
-    working_directory: ~/repo
+
+jobs:
+  build:
+    executor: default
     steps:
       - checkout
       - restore_cache:
@@ -26,11 +31,22 @@ jobs:
           name: build
           command: |
             npm run build
+  deploy:
+    executor: default
+    steps:
+      - run:
+          name: build
+          command: |
+            npm run deploy
+
+workflows:
+  test-and-deploy:
+    jobs:
+      - build
       - deploy:
-          name: Deploy
           filters:
             branches:
               only:
                 - master
-          command: |
-            npm run deploy
+          requires:
+            - build
