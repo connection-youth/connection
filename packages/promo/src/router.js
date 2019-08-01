@@ -11,5 +11,21 @@ export default new Router({
       name: 'index',
       component: Index,
     },
+    {
+      path: '/about',
+      name: 'about',
+    },
+    {
+      path: '/join',
+      name: 'join',
+    },
+    {
+      path: '/news',
+      name: 'news',
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+    },
   ],
 });

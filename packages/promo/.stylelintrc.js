@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  'extends': 'stylelint-config-airbnb'
-}
+  extends: 'stylelint-config-airbnb',
+};

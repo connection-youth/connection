@@ -10,6 +10,8 @@ jobs:
   build:
     executor: default
     steps:
+      - attach_workspace:
+          at: ~/
       - checkout
       - restore_cache:
           keys:
@@ -31,9 +33,15 @@ jobs:
           name: build
           command: |
             npm run build
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - repo
   deploy:
     executor: default
     steps:
+      - attach_workspace:
+          at: ~/
       - run:
           name: build
           command: |
