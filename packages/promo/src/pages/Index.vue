@@ -1,13 +1,28 @@
 <script>
+import DefaultHeader from '../components/DefaultHeader.vue';
+
 export default {
+  components: {
+    DefaultHeader,
+  },
   data() {
     return {
+      options: {
+        duration: 100,
+      },
       notice: [
         { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
         { title: '커넥션 웹페이지 공지사항 12345', date: '19.07.26' },
         { title: '커넥션 웹페이지 공지사항 abcde', date: '19.07.26' },
         { title: '커넥션 웹페이지 공지사항 ㄱㄴㄷㄹㅁㅂㅅ', date: '19.07.26' },
         { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
+      ],
+      news: [
+        { title: '커넥션 웹페이지 소식', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식 12345', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식 abcde', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식 ㄱㄴㄷㄹㅁㅂㅅ', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식', date: '19.07.26' },
       ],
     };
   },
@@ -16,92 +31,123 @@ export default {
 
 <template>
   <div class="index">
-    <div class="index__wrap">
-      <div class="box-list">
-        <div class="box">
-          <div class="box__top">
-            <div class="box__tabs">
-              <span class="box__tab selected">공지사항</span>
-            </div>
-            <span class="box__more">더보기</span>
-          </div>
-          <div class="box__list">
-            <div
-              class="box__item"
-              v-for="(item, key) in notice"
-              :key="key"
-            >
-              <span class="box__item-title">
-                {{ item.title }}
-              </span>
-              <span class="box__item-date">
-                {{ item.date }}
-              </span>
+    <div class="fullpage-container">
+      <div class="fullpage-wp" v-fullpage="options" ref="landing">
+        <div class="page-1 page">
+          <default-header />
+          <div class="index__wrap">
+            <div class="box-list">
+              <div class="box">
+                <div class="box__top">
+                  <div class="box__tabs">
+                    <span class="box__tab selected">공지사항</span>
+                  </div>
+                  <span class="box__more">더보기</span>
+                </div>
+                <div class="box__list">
+                  <div
+                    class="box__item"
+                    v-for="(item, key) in notice"
+                    :key="key"
+                  >
+                    <span class="box__item-title">
+                      {{ item.title }}
+                    </span>
+                    <span class="box__item-date">
+                      {{ item.date }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="box">
+                <div class="box__top">
+                  <div class="box__tabs">
+                    <span class="box__tab selected">보도자료</span>
+                    <span class="box__tab">외부공시</span>
+                  </div>
+                  <span class="box__more">더보기</span>
+                </div>
+                <div class="box__list">
+                  <div
+                    class="box__item"
+                    v-for="(item, key) in news"
+                    :key="key"
+                  >
+                    <span class="box__item-title">
+                      {{ item.title }}
+                    </span>
+                    <span class="box__item-date">
+                      {{ item.date }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="box">
+                <div class="box__top">
+                  <div class="box__tabs">
+                    <span class="box__tab selected">행사/활동 정보</span>
+                  </div>
+                  <span class="box__more">더보기</span>
+                </div>
+                <div class="box__gallery">
+                  <div class="box__gallery-row">
+                    <div class="box__image" />
+                    <div class="box__image" />
+                  </div>
+                  <div class="box__gallery-row">
+                    <div class="box__image" />
+                    <div class="box__image" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="box">
-          <div class="box__top">
-            <div class="box__tabs">
-              <span class="box__tab selected">보도자료</span>
-              <span class="box__tab">외부공시</span>
-            </div>
-            <span class="box__more">더보기</span>
-          </div>
-          <div class="box__list">
-            <div
-              class="box__item"
-              v-for="(item, key) in notice"
-              :key="key"
-            >
-              <span class="box__item-title">
-                {{ item.title }}
-              </span>
-              <span class="box__item-date">
-                {{ item.date }}
-              </span>
+        <div class="page-2 page">
+          <div class="index__wrap">
+            <div class="section">
+              <h1 class="section__title">
+                Connection?
+              </h1>
+              <h2 class="section__desc">
+                커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다
+              </h2>
+              <p class="section__info">
+                커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+              </p>
+              <youth-button
+                class="section__button"
+              >
+                더 보러가기
+              </youth-button>
             </div>
           </div>
-        </div>
-        <div class="box">
-          <div class="box__top">
-            <div class="box__tabs">
-              <span class="box__tab selected">행사/활동 정보</span>
+          <div class="bottom">
+            <div class="bottom__illust-wrap">
+              <img
+                class="bottom__illust"
+                :src="require('../assets/index/illust.png')"
+              >
             </div>
-            <span class="box__more">더보기</span>
-          </div>
-          <div class="box__gallery">
-            <div class="box__gallery-row">
-              <div class="box__image" />
-              <div class="box__image" />
-            </div>
-            <div class="box__gallery-row">
-              <div class="box__image" />
-              <div class="box__image" />
-            </div>
+            <youth-footer>
+              FOOTER
+            </youth-footer>
           </div>
         </div>
-      </div>
-      <div class="section">
-        <h1 class="section__title">
-          Connection?
-        </h1>
-        <h2 class="section__desc">
-          커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다
-        </h2>
-        <p class="section__info">
-          커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
-        </p>
-        <img
-          class="section__illust"
-          :src="require('../assets/index/illust.png')"
-        >
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.fullpage-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .index {
 
   &__wrap {
@@ -237,11 +283,29 @@ export default {
     color: #575757;
   }
 
+  &__button {
+    margin-top: 2.5rem;
+  }
+}
+
+.bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+
+  &__illust-wrap {
+    bottom: 5rem;
+    width: 65%;
+    // height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    padding-bottom: 4.7rem;
+  }
+
   &__illust {
-    position: absolute;
-    z-index: -1;
-    width: 87%;
-    right: 0;
+    width: 90%;
   }
 }
 </style>

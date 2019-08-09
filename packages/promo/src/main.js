@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import VueFullpage from 'fullpage-vue';
+
 import App from './App.vue';
 import router from './router';
 
@@ -7,8 +9,11 @@ import Youth from './youth';
 
 // eslint-disable-next-line import/extensions
 import 'reset-css';
+import 'fullpage-vue/src/fullpage.css';
 
 Vue.config.productionTip = false;
+
+Vue.use(VueFullpage);
 Vue.use(Youth);
 
 new Vue({
