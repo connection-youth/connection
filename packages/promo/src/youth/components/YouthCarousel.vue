@@ -81,11 +81,12 @@ export default {
 <style lang="scss" scoped>
 .carousel {
   position: relative;
+  height: 32rem;
 
   &__image {
     position: absolute;
     top: 0;
-    height: 25rem;
+    height: 100%;
     width: 100%;
     object-fit: cover;
     z-index: -1;
@@ -94,7 +95,7 @@ export default {
   &__image-cover {
     position: absolute;
     top: 0;
-    height: 25rem;
+    height: 100%;
     width: 100%;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
   }
