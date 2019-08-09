@@ -45,8 +45,8 @@ export default {
   width: 100%;
   background-color: white;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .16);
-  padding-top: 2.7rem;
-  padding-bottom: 2.2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -62,7 +62,7 @@ export default {
   }
 
   &__logo {
-    height: 2.7rem;
+    height: 2.5rem;
   }
 
   &__nav-list {
@@ -74,11 +74,11 @@ export default {
   &__nav-item {
     display: flex;
     align-self: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     display: inline-flex;
     font-family: SegoeUI;
     text-transform: uppercase;
-    margin-left: 3.2rem;
+    margin-left: 3rem;
     cursor: pointer;
   }
 

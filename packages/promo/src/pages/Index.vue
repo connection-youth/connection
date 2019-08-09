@@ -82,6 +82,21 @@ export default {
           </div>
         </div>
       </div>
+      <div class="section">
+        <h1 class="section__title">
+          Connection?
+        </h1>
+        <h2 class="section__desc">
+          커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다
+        </h2>
+        <p class="section__info">
+          커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+        </p>
+        <img
+          class="section__illust"
+          :src="require('../assets/index/illust.png')"
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -97,7 +112,7 @@ export default {
   }
 
   .box-list {
-    padding-top: 2.5rem;
+    padding-top: 2.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -112,13 +127,13 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1.2px solid #d9d9d9;
-    padding-bottom: .6rem;
+    padding-bottom: .5rem;
   }
 
   &__tab {
     cursor: pointer;
     color: #a4a4a4;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: normal;
     line-height: 1.63;
@@ -132,7 +147,7 @@ export default {
 
   &__more {
     cursor: pointer;
-    font-size: 1rem;
+    font-size: .9rem;
     font-family: "Noto Sans KR", sans-serif;
     line-height: 2;
     color: #575757;
@@ -142,15 +157,15 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: .7rem;
-    padding-bottom: .7rem;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
     border-bottom: .5px solid #d9d9d9;
   }
 
   &__item-title {
     cursor: pointer;
     color: #575757;
-    font-size: 1rem;
+    font-size: .8rem;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;
     line-height: 1.5;
@@ -158,7 +173,7 @@ export default {
 
   &__item-date {
     color: #575757;
-    font-size: 1rem;
+    font-size: .8rem;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: normal;
     line-height: 1.5;
@@ -187,6 +202,46 @@ export default {
     border: .5px solid #707070;
     object-fit: cover;
     background-color: white;
+  }
+}
+
+.section {
+  margin-top: 6.2rem;
+  position: relative;
+
+  &__title {
+    font-size: 5rem;
+    font-family: "Futura";
+    font-weight: bold;
+    line-height: 1.1;
+  }
+
+  &__desc {
+    font-size: 1.6rem;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #575757;
+  }
+
+  &__desc strong {
+    font-weight: bold;
+  }
+
+  &__info {
+    font-size: 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: normal;
+    line-height: 1.65;
+    letter-spacing: .08px;
+    color: #575757;
+  }
+
+  &__illust {
+    position: absolute;
+    z-index: -1;
+    width: 87%;
+    right: 0;
   }
 }
 </style>

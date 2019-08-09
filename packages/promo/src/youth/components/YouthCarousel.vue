@@ -81,7 +81,7 @@ export default {
 <style lang="scss" scoped>
 .carousel {
   position: relative;
-  height: 32rem;
+  height: 25rem;
 
   &__image {
     position: absolute;
@@ -116,12 +116,12 @@ export default {
   }
 
   &__welcome-title {
-    font-size: 4rem;
+    font-size: 5rem;
     font-family: "Futura";
   }
 
   &__welcome-rest {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
     line-height: 1.47;
