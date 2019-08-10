@@ -4,6 +4,7 @@ import VueFullpage from 'fullpage-vue';
 import App from './App.vue';
 import router from './router';
 
+import './style.scss';
 import './fonts.scss';
 import Youth from './youth';
 

@@ -10,6 +10,13 @@ export default {
       options: {
         duration: 100,
       },
+      carousels: [
+        { title: '2019 학생 주도 세미나', date: '2019.07.07' },
+        { title: '2020 학생 주도 세미나', date: '2020.07.07' },
+        { title: '2021 학생 주도 세미나', date: '2021.07.07' },
+        { title: '2022 학생 주도 세미나', date: '2022.07.07' },
+        { title: '2023 학생 주도 세미나', date: '2023.07.07' },
+      ],
       notice: [
         { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
         { title: '커넥션 웹페이지 공지사항 12345', date: '19.07.26' },
@@ -34,7 +41,9 @@ export default {
     <div class="fullpage-container">
       <div class="fullpage-wp" v-fullpage="options" ref="landing">
         <div class="page-1 page">
-          <default-header />
+          <default-header>
+            <youth-carousel :carousels="carousels" />
+          </default-header>
           <div class="index__wrap">
             <div class="box-list">
               <div class="box">
