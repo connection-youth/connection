@@ -27,6 +27,7 @@ export default {
 
   &__wrap {
     width: 65%;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
