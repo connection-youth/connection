@@ -50,6 +50,28 @@ export default {
         </div>
         <div class="board__main">
           <div class="board__filter">
+            <div class="board__select category">
+              <select>
+                <option disabled value="" selected>카테고리</option>
+              </select>
+            </div>
+            <div class="board__select type">
+              <select>
+                <option>제목</option>
+                <option>내용</option>
+                <option>제목+내용</option>
+              </select>
+            </div>
+            <div class="board__search-wrap">
+              <input
+                class="board__input"
+                placeholder="검색하고자 하는 내용을 입력하세요"
+              />
+              <img
+                class="board__search"
+                :src="require('../assets/icons/search-solid.svg')"
+              />
+            </div>
           </div>
           <div class="board__list">
           </div>
@@ -93,6 +115,79 @@ export default {
 
   &__main {
     flex: 1 1;
+    padding-right: .5rem;
+  }
+
+  &__filter {
+    margin-top: 1rem;
+    text-align: right;
+  }
+
+  &__select {
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border: .5px solid #a4a4a4;
+    background-color: #fff;
+    display: inline-block;
+    background-image: url("../assets/icons/arrow-down.svg");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: .5rem;
+
+    &.category {
+      width: 7rem;
+      margin-right: .2rem;
+    }
+
+    &.type {
+      width: 4rem;
+    }
+  }
+
+  &__select select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    color: #a4a4a4;
+    font-size: 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+    line-height: 1.47;
+    outline: none;
+  }
+
+  &__input {
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    width: 40%;
+    border: .5px solid #a4a4a4;
+    color: #a4a4a4;
+    background-color: #fff;
+    font-size: 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+    line-height: 1.47;
+    margin-left: .204rem;
+  }
+
+  &__input::placeholder {
+    color: #a4a4a4;
+  }
+
+  &__search-wrap {
+    display: inline;
+    position: relative;
+  }
+
+  &__search {
+    position: absolute;
+    right: .7rem;
+    top: 2%;
+    width: 1rem;
   }
 }
 
@@ -118,6 +213,11 @@ export default {
     &.selected {
       color: #298fe3;
     }
+  }
+
+  &__input {
+    border: .5px solid #a4a4a4;
+    background-color: #fff;
   }
 }
 </style>
