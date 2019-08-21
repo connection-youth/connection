@@ -14,6 +14,10 @@ export default {
       type: Number,
       default: 0,
     },
+    list: {
+      type: Array,
+      default: () => [],
+    },
   },
   components: {
     DefaultPage,
@@ -74,6 +78,37 @@ export default {
             </div>
           </div>
           <div class="board__list">
+            <span class="board__result">전체 132건</span>
+            <table class="table">
+              <thead
+                class="table__head"
+              >
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>카테고리</th>
+                  <th>첨부</th>
+                  <th>등록자</th>
+                  <th>등록일</th>
+                  <th>조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="table__post"
+                  v-for="(post, idx) in list"
+                  :key="idx"
+                >
+                  <td>{{ post.id }}</td>
+                  <td>{{ post.title }}</td>
+                  <td>{{ post.category }}</td>
+                  <td></td>
+                  <td>{{ post.author }}</td>
+                  <td>{{ post.date }}</td>
+                  <td>{{ post.views }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -115,7 +150,8 @@ export default {
 
   &__main {
     flex: 1 1;
-    padding-right: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   &__filter {
@@ -218,6 +254,23 @@ export default {
   &__input {
     border: .5px solid #a4a4a4;
     background-color: #fff;
+  }
+}
+
+.table {
+  width: 100%;
+  font-size: .9rem;
+  color: #575757;
+
+  &__head {
+    width: 100%;
+    background-color: #f2f2f2;
+  }
+
+  &__post td {
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    border-bottom: .5px solid #d9d9d9;
   }
 }
 </style>
