@@ -22,7 +22,7 @@ export default new Router({
     },
     {
       path: '/news/notice',
-      name: 'Notice',
+      name: 'news',
       component: Notice,
     },
     {

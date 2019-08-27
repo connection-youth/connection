@@ -1,14 +1,12 @@
 <script>
+// eslint-disable-next-line
+import navlist from '../navlist.json';
+
 export default {
   name: 'DefaultHeader',
   data() {
     return {
-      navlist: [
-        { name: 'about', routeName: 'about' },
-        { name: 'join', routeName: 'join' },
-        { name: 'news', routeName: 'news' },
-        { name: 'contact us', routeName: 'contact' },
-      ],
+      navlist,
     };
   },
 };

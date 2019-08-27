@@ -7,6 +7,16 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      hover: null,
+    };
+  },
+  methods: {
+    onHover(item) {
+      this.hover = item.name;
+    },
+  },
 };
 </script>
 
@@ -24,15 +34,29 @@ export default {
       <ul class="navbar__nav-list">
         <li
           class="navbar__nav-item"
-          v-for="(item, idx) in navlist"
+          v-for="(navItem, idx) in navlist"
           :key="idx"
         >
           <router-link
-            :to="{ name: item.routeName }"
             class="navbar__nav-link"
+            @mouseover="onHover(navItem)"
+            :to="{ name: navItem.routeName }"
           >
-            {{ item.name }}
+            {{ navItem.name }}
           </router-link>
+          <div
+            v-if="navItem.dropdown && hover === navItem.name"
+            class="navbar__nav-dropdown"
+          >
+            <router-link
+              v-for="(item, key) in navItem.dropdown"
+              :key="key"
+              :to="{ name: item.routeName }"
+              class="navbar__nav-dropdown-item"
+            >
+              {{ item.name }}
+            </router-link>
+          </div>
         </li>
       </ul>
     </div>
@@ -72,6 +96,7 @@ export default {
   }
 
   &__nav-item {
+    position: relative;
     display: flex;
     align-self: center;
     font-size: 1.1rem;
@@ -87,6 +112,39 @@ export default {
     text-decoration: none;
     margin-bottom: .3rem;
     user-select: none;
+  }
+
+  &__nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2rem;
+    left: -3.5rem;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .16);
+    min-width: 9rem;
+    z-index: 1;
+    padding: 0 1rem;
+    padding-bottom: .5rem;
+  }
+
+  &__nav-dropdown-item {
+    padding: .7rem 0;
+    color: #575757;
+    font-size: 1rem;
+    font-family: "Noto Sans KR", sans-serif;
+    line-height: 1.43;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: #298fe3;
+    }
+
+    &:not(:last-child) {
+      border-bottom: solid .5px rgba(0, 0, 0, .16);
+    }
   }
 }
 </style>
