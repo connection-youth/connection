@@ -39,7 +39,7 @@ export default {
         >
           <router-link
             class="navbar__nav-link"
-            @mouseover="onHover(navItem)"
+            @mouseover.native="onHover(navItem)"
             :to="{ name: navItem.routeName }"
           >
             {{ navItem.name }}

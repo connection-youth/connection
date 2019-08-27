@@ -126,6 +126,7 @@ export default {
               </p>
               <youth-button
                 class="section__button"
+                @click="$router.push({ name: 'about' })"
               >
                 더 보러가기
               </youth-button>
