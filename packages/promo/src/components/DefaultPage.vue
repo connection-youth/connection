@@ -24,6 +24,7 @@ export default {
       <div class="page__top">
         <h1 class="page__top-title">
           {{ title }}
+          <figure class="page__circle" />
         </h1>
         <p class="page__top-navi">
           {{ navi }}
@@ -62,6 +63,15 @@ export default {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;
     line-height: 1.48;
+  }
+
+  &__circle {
+    display: inline-block;
+    vertical-align: top;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #298fe3;
   }
 
   &__top-navi {
