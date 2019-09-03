@@ -1,5 +1,5 @@
 <script>
-import DefaultHeader from '../components/DefaultHeader.vue';
+import DefaultHeader from '../components/DefaultHeader';
 
 export default {
   components: {

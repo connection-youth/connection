@@ -1,4 +1,4 @@
-export { default as YouthButton } from './YouthButton.vue';
-export { default as YouthCarousel } from './YouthCarousel.vue';
-export { default as YouthNavbar } from './YouthNavbar.vue';
-export { default as YouthFooter } from './YouthFooter.vue';
+export { default as YouthButton } from './YouthButton';
+export { default as YouthCarousel } from './YouthCarousel';
+export { default as YouthNavbar } from './YouthNavbar';
+export { default as YouthFooter } from './YouthFooter';

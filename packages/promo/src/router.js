@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './pages/Index.vue';
 import Notice from './pages/Notice.vue';
+import Contact from './pages/Contact.vue';
 
 Vue.use(Router);
 
@@ -28,6 +29,7 @@ export default new Router({
     {
       path: '/contact',
       name: 'contact',
+      component: Contact,
     },
   ],
 });

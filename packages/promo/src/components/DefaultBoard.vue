@@ -1,9 +1,12 @@
 <script>
-import DefaultPage from './DefaultPage.vue';
+import DefaultPage from './DefaultPage';
 
 export default {
   props: {
     title: {
+      type: String,
+    },
+    navi: {
       type: String,
     },
     sidemenu: {
@@ -27,15 +30,10 @@ export default {
 
 <template>
   <div class="board">
-    <default-page>
-      <div class="board__top">
-        <h1 class="board__top-title">
-          {{ title }}
-        </h1>
-        <p class="board__top-navi">
-          Connection > News > {{ title }}
-        </p>
-      </div>
+    <default-page
+      :title="title"
+      :navi="navi"
+    >
       <div class="board__content">
         <div class="sidemenu">
           <!-- TODO: render as component -->
@@ -119,29 +117,6 @@ export default {
 <style lang="scss" scoped>
 .board {
   height: 100%;
-
-  &__top {
-    margin-top: 2.5rem;
-    padding-left: .5rem;
-    padding-bottom: 1rem;
-    border-bottom: .5px solid #d9d9d9;
-  }
-
-  &__top-title {
-    color: #575757;
-    font-size: 1.3rem;
-    font-family: "Noto Sans KR", sans-serif;
-    font-weight: 500;
-    line-height: 1.48;
-  }
-
-  &__top-navi {
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: .9rem;
-    font-weight: normal;
-    line-height: 1.47;
-    color: #a4a4a4;
-  }
 
   &__content {
     display: flex;

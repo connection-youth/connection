@@ -16,6 +16,9 @@ export default {
     onHover(item) {
       this.hover = item.name;
     },
+    onLeave() {
+      this.hover = null;
+    },
   },
 };
 </script>
@@ -46,6 +49,7 @@ export default {
           </router-link>
           <div
             v-if="navItem.dropdown && hover === navItem.name"
+            @mouseleave.native="onLeave(navItem)"
             class="navbar__nav-dropdown"
           >
             <router-link

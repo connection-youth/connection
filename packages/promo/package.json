@@ -14,7 +14,8 @@
     "fullpage-vue": "^1.8.3",
     "reset-css": "^4.0.1",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "^1.1.2",

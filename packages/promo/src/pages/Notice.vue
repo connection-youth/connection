@@ -1,5 +1,5 @@
 <script>
-import DefaultBoard from '../components/DefaultBoard.vue';
+import DefaultBoard from '../components/DefaultBoard';
 
 export default {
   components: {
@@ -41,6 +41,7 @@ export default {
 <template>
   <default-board
     title="공지사항"
+    navi="Connection > News > 공지사항"
     :sidemenu="sidemenu"
     :list="list"
   />
