@@ -34,7 +34,10 @@ export default {
           />
         </router-link>
       </div>
-      <ul class="navbar__nav-list">
+      <ul
+        class="navbar__nav-list"
+        @mouseleave="onLeave(navItem)"
+      >
         <li
           class="navbar__nav-item"
           v-for="(navItem, idx) in navlist"
@@ -49,7 +52,6 @@ export default {
           </router-link>
           <div
             v-if="navItem.dropdown && hover === navItem.name"
-            @mouseleave.native="onLeave(navItem)"
             class="navbar__nav-dropdown"
           >
             <router-link
