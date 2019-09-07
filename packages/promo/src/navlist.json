@@ -45,23 +45,27 @@
   },
   {
     "name": "news",
-    "routeName": "news",
+    "routeName": "notice",
     "dropdown": [
       {
         "name": "공지사항",
+        "routeName": "notice"
+      },
+      {
+        "name": "소식",
         "routeName": "news"
       },
       {
-        "name": "행사/활동 정보",
+        "name": "외부 행사 정보",
         "routeName": "newsEvent"
-      },
-      {
-        "name": "외부공시",
-        "routeName": "newsExternal"
       },
       {
         "name": "보도자료",
         "routeName": "newsReport"
+      },
+      {
+        "name": "외부공시",
+        "routeName": "newsExternal"
       }
     ]
   },

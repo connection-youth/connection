@@ -190,7 +190,6 @@ export default {
     cursor: pointer;
     color: #a4a4a4;
     font-size: 1rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: normal;
     line-height: 1.63;
     margin-right: .8rem;
@@ -204,7 +203,6 @@ export default {
   &__more {
     cursor: pointer;
     font-size: .9rem;
-    font-family: "Noto Sans KR", sans-serif;
     line-height: 2;
     color: #575757;
   }
@@ -222,7 +220,6 @@ export default {
     cursor: pointer;
     color: #575757;
     font-size: .8rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;
     line-height: 1.5;
   }
@@ -230,7 +227,6 @@ export default {
   &__item-date {
     color: #575757;
     font-size: .8rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: normal;
     line-height: 1.5;
   }
@@ -274,7 +270,6 @@ export default {
 
   &__desc {
     font-size: 1.6rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: normal;
     line-height: 1.5;
     color: #575757;
@@ -286,7 +281,6 @@ export default {
 
   &__info {
     font-size: 1rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: normal;
     line-height: 1.65;
     letter-spacing: .08px;

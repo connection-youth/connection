@@ -122,7 +122,6 @@ export default {
 
   &__welcome-rest {
     font-size: 1.7rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
     line-height: 1.47;
   }
@@ -131,7 +130,6 @@ export default {
     display: flex;
     flex-direction: column;
     padding-bottom: 2rem;
-    font-family: "Noto Sans KR", sans-serif;
   }
 
   &__meta-title {

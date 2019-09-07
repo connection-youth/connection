@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from './pages/Index.vue';
-import Notice from './pages/Notice.vue';
-import Contact from './pages/Contact.vue';
+import Index from './pages/Index';
+import Notice from './pages/Notice';
+import Contact from './pages/Contact';
 
 Vue.use(Router);
 
@@ -23,7 +23,7 @@ export default new Router({
     },
     {
       path: '/news/notice',
-      name: 'news',
+      name: 'notice',
       component: Notice,
     },
     {

@@ -30,7 +30,6 @@ export default {
   border-radius: 2.5rem;
   color: #298fe3;
   font-size: .9rem;
-  font-family: "Noto Sans KR", sans-serif;
   line-height: 1.53;
   letter-spacing: .07px;
   transition: .5s background-color ease;

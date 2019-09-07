@@ -79,7 +79,6 @@ export default {
     border-top: .5px solid #298fe3;
     border-bottom: .5px solid #d9d9d9;
     font-size: 1.5rem;
-    font-family: "Noto Sans KR", sans-serif;
     line-height: 1.48;
     color: #575757;
     font-weight: 400;
@@ -102,7 +101,6 @@ export default {
 
   &__item-row {
     line-height: 1.43;
-    font-family: "Noto Sans KR", sans-serif;
     color: #575757;
     font-weight: normal;
   }

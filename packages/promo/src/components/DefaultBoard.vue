@@ -76,7 +76,7 @@ export default {
             </div>
           </div>
           <div class="board__list">
-            <span class="board__result">전체 132건</span>
+            <p class="board__result">전체 132건</p>
             <table class="table">
               <thead
                 class="table__head"
@@ -100,7 +100,7 @@ export default {
                   <td>{{ post.id }}</td>
                   <td>{{ post.title }}</td>
                   <td>{{ post.category }}</td>
-                  <td></td>
+                  <td>-</td>
                   <td>{{ post.author }}</td>
                   <td>{{ post.date }}</td>
                   <td>{{ post.views }}</td>
@@ -153,7 +153,7 @@ export default {
     }
 
     &.type {
-      width: 4rem;
+      width: 5rem;
     }
   }
 
@@ -165,7 +165,6 @@ export default {
     -webkit-appearance: none;
     color: #a4a4a4;
     font-size: 1rem;
-    font-family: "Noto Sans KR", sans-serif;
     line-height: 1.47;
     outline: none;
   }
@@ -180,7 +179,6 @@ export default {
     color: #a4a4a4;
     background-color: #fff;
     font-size: 1rem;
-    font-family: "Noto Sans KR", sans-serif;
     line-height: 1.47;
     margin-left: .204rem;
   }
@@ -197,8 +195,13 @@ export default {
   &__search {
     position: absolute;
     right: .7rem;
-    top: 2%;
+    top: .3rem;
     width: 1rem;
+  }
+
+  &__result {
+    font-size: .8rem;
+    margin: .5rem 0;
   }
 }
 
@@ -217,7 +220,6 @@ export default {
     padding-bottom: .8rem;
     color: #575757;
     font-size: 1rem;
-    font-family: "Noto Sans KR", sans-serif;
     line-height: 1.47;
     cursor: pointer;
 
@@ -234,18 +236,54 @@ export default {
 
 .table {
   width: 100%;
-  font-size: .9rem;
+  font-size: .8rem;
   color: #575757;
 
   &__head {
     width: 100%;
     background-color: #f2f2f2;
+    border-top: .5px solid #707070;
+    border-bottom: .5px solid #d9d9d9;
+
+    th {
+      padding: .4rem 0;
+      text-align: center;
+    }
+
+    th:first-child {
+      padding-left: .3rem;
+    }
+
+    th:nth-child(2) {
+      width: 50%;
+    }
+
+    th:nth-child(4) {
+      width: 8%;
+    }
+
+    th:nth-child(5) {
+      width: 10%;
+    }
+
+    th:last-child {
+      padding-right: .3rem;
+    }
   }
 
-  &__post td {
-    padding-top: .8rem;
-    padding-bottom: .8rem;
-    border-bottom: .5px solid #d9d9d9;
+  &__post {
+
+    td {
+      padding-top: .8rem;
+      padding-bottom: .8rem;
+      border-bottom: .5px solid #d9d9d9;
+      text-align: center;
+    }
+
+    td:nth-child(2) {
+      text-align: left;
+      padding: 0 .8rem;
+    }
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <script>
 import DefaultBoard from '../components/DefaultBoard';
+import navlist from '../navlist.json';
 
 export default {
   components: {
@@ -7,16 +8,11 @@ export default {
   },
   data() {
     return {
-      sidemenu: [
-        { name: '공지사항' },
-        { name: '행사/활동 정보' },
-        { name: '외부공시' },
-        { name: '보도자료' },
-      ],
+      sidemenu: [],
       list: [
         {
           id: 130,
-          title: '커넥션 공지사항 커넥션 공지사항 커넥션 공지사항 커넥션 공지사항',
+          title: '커넥션 공지사항 커넥션 공지사항',
           category: '카테고리',
           attachment: false,
           author: '관리자',
@@ -25,7 +21,7 @@ export default {
         },
         {
           id: 130,
-          title: '커넥션 공지사항 커넥션 공지사항 커넥션 공지사항 커넥션 공지사항',
+          title: '커넥션 공지사항 커넥션 공지사항',
           category: '카테고리',
           attachment: false,
           author: '관리자',
@@ -34,6 +30,9 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    this.sidemenu = navlist.find(nav => nav.name === 'news').dropdown;
   },
 };
 </script>

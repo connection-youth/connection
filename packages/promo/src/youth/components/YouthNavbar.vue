@@ -139,7 +139,6 @@ export default {
     padding: .7rem 0;
     color: #575757;
     font-size: 1rem;
-    font-family: "Noto Sans KR", sans-serif;
     line-height: 1.43;
     text-decoration: none;
 

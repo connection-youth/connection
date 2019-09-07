@@ -60,7 +60,6 @@ export default {
   &__top-title {
     color: #575757;
     font-size: 1.3rem;
-    font-family: "Noto Sans KR", sans-serif;
     font-weight: 500;
     line-height: 1.48;
   }
@@ -75,7 +74,6 @@ export default {
   }
 
   &__top-navi {
-    font-family: "Noto Sans KR", sans-serif;
     font-size: .9rem;
     font-weight: normal;
     line-height: 1.47;
