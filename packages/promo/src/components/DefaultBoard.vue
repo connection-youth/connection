@@ -6,21 +6,17 @@ export default {
     title: {
       type: String,
     },
-    navi: {
-      type: String,
-    },
     sidemenu: {
       type: Array,
       default: () => [],
-    },
-    selected: {
-      type: Number,
-      default: 0,
     },
     list: {
       type: Array,
       default: () => [],
     },
+  },
+  created() {
+    this.selected = this.sidemenu.findIndex(menu => menu.name === this.title);
   },
   components: {
     DefaultPage,
@@ -32,7 +28,7 @@ export default {
   <div class="board">
     <default-page
       :title="title"
-      :navi="navi"
+      :navi="`Connection > News > ${title}`"
     >
       <div class="board__content">
         <div class="sidemenu">
@@ -45,6 +41,7 @@ export default {
               v-for="(item, idx) in sidemenu"
               :key="idx"
               :class="{ selected: (idx == selected) }"
+              @click="$router.push({ name: item.routeName })"
             >
               {{ item.name }}
             </li>

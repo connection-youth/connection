@@ -1,6 +1,6 @@
 <script>
-import DefaultBoard from '../components/DefaultBoard';
-import navlist from '../navlist.json';
+import DefaultBoard from '../../components/DefaultBoard';
+import navlist from '../../navlist.json';
 
 export default {
   components: {
@@ -39,8 +39,7 @@ export default {
 
 <template>
   <default-board
-    title="공지사항"
-    navi="Connection > News > 공지사항"
+    title="외부공시"
     :sidemenu="sidemenu"
     :list="list"
   />
