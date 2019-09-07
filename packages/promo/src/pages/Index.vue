@@ -31,7 +31,13 @@ export default {
         { title: '커넥션 웹페이지 소식 ㄱㄴㄷㄹㅁㅂㅅ', date: '19.07.26' },
         { title: '커넥션 웹페이지 소식', date: '19.07.26' },
       ],
+      tab: 0,
     };
+  },
+  methods: {
+    onSelectTab(idx) {
+      this.tab = idx;
+    },
   },
 };
 </script>
@@ -49,9 +55,17 @@ export default {
               <div class="box">
                 <div class="box__top">
                   <div class="box__tabs">
-                    <span class="box__tab selected">공지사항</span>
+                    <span class="box__tab selected">
+                      공지사항
+                      <figure class="box__circle" />
+                    </span>
                   </div>
-                  <span class="box__more">더보기</span>
+                  <span
+                    class="box__more"
+                    @click="$router.push({ name: 'notice' })"
+                  >
+                    더보기
+                  </span>
                 </div>
                 <div class="box__list">
                   <div
@@ -71,10 +85,35 @@ export default {
               <div class="box">
                 <div class="box__top">
                   <div class="box__tabs">
-                    <span class="box__tab selected">보도자료</span>
-                    <span class="box__tab">외부공시</span>
+                    <span
+                      class="box__tab"
+                      :class="{ selected: (tab === 0) }"
+                      @click="onSelectTab(0)"
+                    >
+                      보도자료
+                      <figure
+                        class="box__circle"
+                        v-if="tab === 0"
+                      />
+                    </span>
+                    <span
+                      class="box__tab"
+                      :class="{ selected: (tab === 1) }"
+                      @click="onSelectTab(1)"
+                    >
+                      외부공시
+                      <figure
+                        class="box__circle"
+                        v-if="tab === 1"
+                      />
+                    </span>
                   </div>
-                  <span class="box__more">더보기</span>
+                  <span
+                    class="box__more"
+                    @click="$router.push({ name: (tab) ? 'newsExternal' : 'newsReport' })"
+                  >
+                    더보기
+                  </span>
                 </div>
                 <div class="box__list">
                   <div
@@ -94,9 +133,16 @@ export default {
               <div class="box">
                 <div class="box__top">
                   <div class="box__tabs">
-                    <span class="box__tab selected">행사/활동 정보</span>
+                    <span class="box__tab selected">
+                      행사/활동 정보
+                    </span>
                   </div>
-                  <span class="box__more">더보기</span>
+                  <span
+                    class="box__more"
+                    @click="$router.push({ name: 'newsEvent' })"
+                  >
+                    더보기
+                  </span>
                 </div>
                 <div class="box__gallery">
                   <div class="box__gallery-row">
@@ -254,6 +300,15 @@ export default {
     border: .5px solid #707070;
     object-fit: cover;
     background-color: white;
+  }
+
+  &__circle {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #298fe3;
   }
 }
 
