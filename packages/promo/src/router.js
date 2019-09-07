@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './pages/Index';
+import { JoinForm } from './pages/join';
 import { Notice, NewsReport, NewsExternal } from './pages/news';
 import Contact from './pages/Contact';
 
@@ -19,8 +20,9 @@ export default new Router({
       name: 'about',
     },
     {
-      path: '/join',
-      name: 'join',
+      path: '/join/form',
+      name: 'joinForm',
+      component: JoinForm,
     },
     {
       // 공지사항

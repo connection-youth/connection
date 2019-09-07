@@ -1,10 +1,10 @@
 <script>
-import DefaultHeader from './DefaultHeader';
+import DefaultContent from './DefaultContent';
 
 export default {
   name: 'DefaultPage',
   components: {
-    DefaultHeader,
+    DefaultContent,
   },
   props: {
     title: {
@@ -13,28 +13,30 @@ export default {
     navi: {
       type: String,
     },
+    sidemenu: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>
 
 <template>
   <div class="page">
-    <default-header />
-    <div class="page__wrap">
-      <div class="page__top">
-        <h1 class="page__top-title">
-          {{ title }}
-          <figure class="page__circle" />
-        </h1>
-        <p class="page__top-navi">
-          {{ navi }}
-        </p>
+    <default-content
+      :title="title"
+      :navi="navi"
+    >
+      <div class="page__content">
+        <youth-sidemenu
+          :title="title"
+          :sidemenu="sidemenu"
+        />
+        <div class="page__main">
+          <slot />
+        </div>
       </div>
-      <slot />
-    </div>
-    <youth-footer>
-      FOOTER
-    </youth-footer>
+    </default-content>
   </div>
 </template>
 
@@ -42,42 +44,15 @@ export default {
 .page {
   height: 100%;
 
-  &__wrap {
-    width: 65%;
+  &__content {
+    display: flex;
     height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-between;
   }
 
-  &__top {
-    margin-top: 2.5rem;
-    padding-left: .5rem;
-    padding-bottom: 1rem;
-    border-bottom: .5px solid #d9d9d9;
-  }
-
-  &__top-title {
-    color: #575757;
-    font-size: 1.3rem;
-    font-weight: 500;
-    line-height: 1.48;
-  }
-
-  &__circle {
-    display: inline-block;
-    vertical-align: top;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #298fe3;
-  }
-
-  &__top-navi {
-    font-size: .9rem;
-    font-weight: normal;
-    line-height: 1.47;
-    color: #a4a4a4;
+  &__main {
+    flex: 1 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 </style>

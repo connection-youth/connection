@@ -2,6 +2,9 @@
 import DefaultPage from './DefaultPage';
 
 export default {
+  components: {
+    DefaultPage,
+  },
   props: {
     title: {
       type: String,
@@ -15,12 +18,6 @@ export default {
       default: () => [],
     },
   },
-  created() {
-    this.selected = this.sidemenu.findIndex(menu => menu.name === this.title);
-  },
-  components: {
-    DefaultPage,
-  },
 };
 </script>
 
@@ -29,82 +26,65 @@ export default {
     <default-page
       :title="title"
       :navi="`Connection > News > ${title}`"
+      :sidemenu="sidemenu"
     >
-      <div class="board__content">
-        <div class="sidemenu">
-          <!-- TODO: render as component -->
-          <ul
-            class="sidemenu__list"
-          >
-            <li
-              class="sidemenu__item"
-              v-for="(item, idx) in sidemenu"
-              :key="idx"
-              :class="{ selected: (idx == selected) }"
-              @click="$router.push({ name: item.routeName })"
-            >
-              {{ item.name }}
-            </li>
-          </ul>
+      <div class="board">
+        <div class="board__filter">
+          <div class="board__select category">
+            <select>
+              <option disabled value="" selected>카테고리</option>
+            </select>
+          </div>
+          <div class="board__select type">
+            <select>
+              <option>제목</option>
+              <option>내용</option>
+              <option>제목+내용</option>
+            </select>
+          </div>
+          <div class="board__search-wrap">
+            <input
+              class="board__input"
+              placeholder="검색하고자 하는 내용을 입력하세요"
+            />
+            <img
+              class="board__search"
+              :src="require('../assets/icons/search-solid.svg')"
+            />
+          </div>
         </div>
-        <div class="board__main">
-          <div class="board__filter">
-            <div class="board__select category">
-              <select>
-                <option disabled value="" selected>카테고리</option>
-              </select>
-            </div>
-            <div class="board__select type">
-              <select>
-                <option>제목</option>
-                <option>내용</option>
-                <option>제목+내용</option>
-              </select>
-            </div>
-            <div class="board__search-wrap">
-              <input
-                class="board__input"
-                placeholder="검색하고자 하는 내용을 입력하세요"
-              />
-              <img
-                class="board__search"
-                :src="require('../assets/icons/search-solid.svg')"
-              />
-            </div>
-          </div>
-          <div class="board__list">
-            <p class="board__result">전체 132건</p>
-            <table class="table">
-              <thead
-                class="table__head"
+        <div class="board__list">
+          <p class="board__result">전체 132건</p>
+          <table class="table">
+            <thead
+              class="table__head"
+            >
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>카테고리</th>
+                <th>첨부</th>
+                <th>등록자</th>
+                <th>등록일</th>
+                <th>조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="table__post"
+                v-for="(post, idx) in list"
+                :key="idx"
               >
-                <tr>
-                  <th>번호</th>
-                  <th>제목</th>
-                  <th>카테고리</th>
-                  <th>첨부</th>
-                  <th>등록자</th>
-                  <th>등록일</th>
-                  <th>조회수</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  class="table__post"
-                  v-for="(post, idx) in list"
-                  :key="idx"
-                >
-                  <td>{{ post.id }}</td>
-                  <td>{{ post.title }}</td>
-                  <td>{{ post.category }}</td>
-                  <td>-</td>
-                  <td>{{ post.author }}</td>
-                  <td>{{ post.date }}</td>
-                  <td>{{ post.views }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.category }}</td>
+                <td>-</td>
+                <td>{{ post.author }}</td>
+                <td>{{ post.date }}</td>
+                <td>{{ post.views }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </default-page>
@@ -199,35 +179,6 @@ export default {
   &__result {
     font-size: .8rem;
     margin: .5rem 0;
-  }
-}
-
-.sidemenu {
-  flex-shrink: 0;
-  width: 13rem;
-  border-right: .5px solid #d9d9d9;
-  padding-left: .5rem;
-
-  &__list {
-    margin-top: .5rem;
-  }
-
-  &__item {
-    padding-top: .8rem;
-    padding-bottom: .8rem;
-    color: #575757;
-    font-size: 1rem;
-    line-height: 1.47;
-    cursor: pointer;
-
-    &.selected {
-      color: #298fe3;
-    }
-  }
-
-  &__input {
-    border: .5px solid #a4a4a4;
-    background-color: #fff;
   }
 }
 

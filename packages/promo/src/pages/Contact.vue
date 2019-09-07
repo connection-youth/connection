@@ -1,10 +1,10 @@
 <script>
-import DefaultPage from '../components/DefaultPage';
+import DefaultContent from '../components/DefaultContent';
 import DimigoMap from '../components/DimigoMap';
 
 export default {
   components: {
-    DefaultPage,
+    DefaultContent,
     DimigoMap,
   },
   data() {
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <default-page
+  <default-content
     title="Contact Us"
     navi="Contact Us"
   >
@@ -55,7 +55,7 @@ export default {
         <dimigo-map />
       </div>
     </div>
-  </default-page>
+  </default-content>
 </template>
 
 <style lang="scss" scoped>
