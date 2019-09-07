@@ -9,6 +9,13 @@ export default {
   data() {
     return {
       sidemenu: [],
+      form: [
+        [
+          { name: 'name', placeholder: '이름' },
+          { name: 'tel', placeholder: "전화번호('-' 제외하고 입력)" },
+          { name: 'email', placeholder: '이메일' },
+        ],
+      ],
     };
   },
   created() {
@@ -24,6 +31,108 @@ export default {
     :sidemenu="sidemenu"
   >
     <div class="join">
+      <div class="join__notice">
+        <h1 class="join__title">
+          <span class="connection">커넥션</span> 멤버 가입 신청 페이지입니다.
+        </h1>
+        <p class="join__desc">신청서 작성 후 완료 버튼을 눌러주세요.<br />
+        내부 협의를 거쳐 최종 가입 여부를 안내 드립니다. (1~3주 이내)</p>
+      </div>
+      <div class="join__form">
+        <div class="join__row">
+          <div
+            class="join__field"
+            v-for="(item, key) in form[0]"
+            :key="key"
+          >
+            <span class="join__key">{{ item.placeholder }}</span>
+            <input class="join__input" :placeholder="item.placeholder" />
+          </div>
+        </div>
+        <div class="join__row">
+          <div class="join__select">
+            <span class="join__key"></span>
+            <select>
+              <option disabled value="" selected>사는지역</option>
+            </select>
+          </div>
+          <div class="join__select">
+            <span class="join__key"></span>
+            <select>
+              <option disabled value="" selected>관심분야</option>
+            </select>
+          </div>
+          <div>
+            <span class="join__key">학교</span>
+            <input class="join__input" :placeholder="학교" />
+          </div>
+        </div>
+        <textarea placeholder="이력" />
+        <textarea placeholder="자기소개" />
+        <textarea placeholder="바라는 점" />
+        <div class="join__upload-box">
+          <p>포트폴리오 업로드 (선택 사항)</p>
+          <div
+            class="join__upload-button"
+          >
+          </div>
+          <span class="join__upload-filename"></span>
+        </div>
+      </div>
+      <div class="join__submit-box">
+        <button class="join__submit">완료</button>
+      </div>
     </div>
   </default-page>
 </template>
+
+<style lang="scss" scoped>
+.join {
+  margin-top: 1rem;
+
+  &__notice {
+    width: 100%;
+    color: #575757;
+    line-height: 1.55;
+    padding-bottom: .8rem;
+    border-bottom: .5px solid #707070;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+
+    span.connection {
+      color: #298fe3;
+    }
+  }
+
+  &__desc {
+    margin-top: .5rem;
+    font-size: .8rem;
+  }
+
+  &__form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__submit-box {
+    text-align: right;
+    margin-top: 3rem;
+  }
+
+  &__submit {
+    color: #fff;
+    background-color: #298fe3;
+    font-size: .9rem;
+    border: 0;
+    padding: .9rem 3.2rem;
+  }
+}
+</style>
