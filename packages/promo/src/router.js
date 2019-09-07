@@ -5,21 +5,20 @@ import Index from './pages/Index';
 import { JoinForm } from './pages/join';
 import { Notice, NewsReport, NewsExternal } from './pages/news';
 import Contact from './pages/Contact';
+import { NotFound } from './pages/error';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
+      // 홈
       path: '/',
       name: 'index',
       component: Index,
     },
     {
-      path: '/about',
-      name: 'about',
-    },
-    {
+      // 가입 신청
       path: '/join/form',
       name: 'joinForm',
       component: JoinForm,
@@ -47,5 +46,10 @@ export default new Router({
       name: 'contact',
       component: Contact,
     },
+    {
+      path: '*',
+      name: 'notFound',
+      component: NotFound,
+    }
   ],
 });

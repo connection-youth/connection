@@ -49,7 +49,7 @@ export default {
             />
             <img
               class="board__search"
-              :src="require('../assets/icons/search-solid.svg')"
+              :src="require('../assets/icons/search.svg')"
             />
           </div>
         </div>

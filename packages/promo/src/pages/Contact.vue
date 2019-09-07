@@ -10,10 +10,10 @@ export default {
   data() {
     return {
       contacts: [
-        { title: 'Address', icon: 'home-solid', value: '경기도 안산시 단원구 사세충열로 94' },
-        { title: 'Tel.', icon: 'tty-solid', value: '0507-1304-9899' },
-        { title: 'Fax', icon: 'fax-solid', value: '0504-486-9899' },
-        { title: 'Email', icon: 'envelope-solid', value: 'admin@connectionyouth.org' },
+        { title: 'Address', icon: 'address', value: '경기도 안산시 단원구 사세충열로 94' },
+        { title: 'Tel.', icon: 'phone', value: '0507-1304-9899' },
+        { title: 'Fax', icon: 'fax', value: '0504-486-9899' },
+        { title: 'Email', icon: 'mail', value: 'admin@connectionyouth.org' },
       ],
     };
   },

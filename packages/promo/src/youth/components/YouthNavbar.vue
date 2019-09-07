@@ -36,7 +36,7 @@ export default {
       </div>
       <ul
         class="navbar__nav-list"
-        @mouseleave="onLeave(navItem)"
+        @mouseleave="onLeave()"
       >
         <li
           class="navbar__nav-item"
