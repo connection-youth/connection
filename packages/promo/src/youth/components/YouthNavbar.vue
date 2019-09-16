@@ -70,8 +70,20 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+$mobile: 500px !default;
+
+@mixin until($device) {
+  @media screen and (max-width: $device - 1) {
+    @content;
+  }
+}
+
+// TODO: detach scss to variables, mixins
+
 .navbar {
   // TODO: tablet, mobile view (960px and under)
+  // TODO: 모바일, 태블릿 등 규격 재정의
+
   width: 100%;
   background-color: white;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .16);
@@ -81,10 +93,18 @@ export default {
   justify-content: center;
   align-content: center;
 
+  @include until($mobile) {
+    padding: 1.5rem;
+  }
+
   &__content {
     width: 65%;
     display: flex;
     flex-direction: row;
+
+    @include until($mobile) {
+      width: 100%;
+    }
   }
 
   &__brand {
@@ -93,12 +113,20 @@ export default {
 
   &__logo {
     height: 2.5rem;
+
+    @include until($mobile) {
+      height: 2.8rem;
+    }
   }
 
   &__nav-list {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+    @include until($mobile) {
+      display: none;
+    }
   }
 
   &__nav-item {
