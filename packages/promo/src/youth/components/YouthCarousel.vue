@@ -14,13 +14,26 @@ export default {
   created() {
     this.refreshCarousel();
   },
+  destroyed() {
+    window.removeEventListener('resize', this.setWidth);
+  },
+  mounted() {
+    this.mount = true;
+    window.addEventListener('resize', this.setWidth);
+  },
   computed: {
     carousel() {
       return this.carousels[this.current - 1];
     },
+    isMobile() {
+      if (!this.mount) return false;
+      return this.width <= 500;
+    },
   },
   data() {
     return {
+      width: 0,
+      mount: false,
       current: 1,
       intervalId: 0,
     };
@@ -37,51 +50,74 @@ export default {
       this.current = idx;
       this.refreshCarousel();
     },
+    setWidth() {
+      this.width = this.$parent.$el.clientWidth;
+    },
   },
 };
 </script>
 
 <template>
-  <div class="carousel">
-    <transition name="fade" :duration="duration" appear>
-      <img
-        :key="current"
-        class="carousel__image"
-        :src="require(`../../assets/carousel/${current}.png`)"
-      >
-    </transition>
-    <div class="carousel__image-cover">
-      <div class="carousel__content">
-        <div class="carousel__welcome">
-          <h1 class="carousel__welcome-title">Welcome</h1>
-          <p class="carousel__welcome-rest">To Connection</p>
-        </div>
-        <div class="carousel__meta">
-          <span class="carousel__meta-title">
-            {{ carousel.title }}
-          </span>
-          <span class="carousel__meta-date">
-            {{ carousel.date }}
-          </span>
-          <div class="carousel__controller">
-            <figure
-              v-for="idx in carousels.length"
-              :key="idx"
-              class="carousel__circle"
-              :class="{ current: (idx === current) }"
-              @click="moveTo(idx)"
-            />
+  <div class="carousel__wrap">
+    <div class="carousel">
+      <transition name="fade" :duration="duration" appear>
+        <img
+          :key="current"
+          class="carousel__image"
+          :src="require(`../../assets/carousel/${current}.png`)"
+        >
+      </transition>
+      <div class="carousel__image-cover">
+        <div class="carousel__content">
+          <div
+            v-if="!isMobile"
+            class="carousel__welcome"
+          >
+            <h1 class="carousel__welcome-title">Welcome</h1>
+            <p class="carousel__welcome-rest">To Connection</p>
+          </div>
+          <div class="carousel__meta">
+            <span class="carousel__meta-title">
+              {{ carousel.title }}
+            </span>
+            <span class="carousel__meta-date">
+              {{ carousel.date }}
+            </span>
+            <div class="carousel__controller">
+              <figure
+                v-for="idx in carousels.length"
+                :key="idx"
+                class="carousel__circle"
+                :class="{ current: (idx === current) }"
+                @click="moveTo(idx)"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      v-if="isMobile"
+      class="carousel__mobile-welcome"
+    >
+      <h1 class="carousel__mobile-welcome-title">Welcome</h1>
+      <p class="carousel__mobile-welcome-rest">To Connection</p>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import "../../scss/mixins";
+
+@import "../../scss/variables";
+
 .carousel {
   position: relative;
   height: 25rem;
+
+  @include until($mobile) {
+    height: 20rem;
+  }
 
   &__image {
     position: absolute;
@@ -109,6 +145,10 @@ export default {
     margin-left: auto;
     margin-right: auto;
     color: #fff;
+
+    @include until($mobile) {
+      width: 85%;
+    }
   }
 
   &__welcome {
@@ -130,24 +170,41 @@ export default {
     display: flex;
     flex-direction: column;
     padding-bottom: 2rem;
+
+    @include until($mobile) {
+      margin-left: auto;
+      padding-bottom: 1.5rem;
+    }
   }
 
   &__meta-title {
     text-align: right;
     line-height: 1.43;
     font-size: .8rem;
+
+    @include until($mobile) {
+      font-size: 1.1rem;
+    }
   }
 
   &__meta-date {
     text-align: right;
     line-height: 1.5;
     font-size: .65rem;
+
+    @include until($mobile) {
+      font-size: .8rem;
+    }
   }
 
   &__controller {
     margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
+
+    @include until($mobile) {
+      display: none;
+    }
   }
 
   &__circle {
@@ -164,6 +221,21 @@ export default {
       border-radius: 4px;
       background-color: #298fe3;
     }
+  }
+
+  &__mobile-welcome {
+    padding: 1.4rem 1.2rem;
+  }
+
+  &__mobile-welcome-title {
+    font-family: "Futura";
+    font-size: 2.5rem;
+  }
+
+  &__mobile-welcome-rest {
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
 }
 

@@ -88,7 +88,7 @@ export default {
   align-content: center;
 
   @include until($mobile) {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 
   &__content {
@@ -109,7 +109,7 @@ export default {
     height: 2.5rem;
 
     @include until($mobile) {
-      height: 2.8rem;
+      height: 2.5rem;
     }
   }
 
