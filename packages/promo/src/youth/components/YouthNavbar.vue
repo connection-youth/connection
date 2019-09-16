@@ -70,15 +70,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-$mobile: 500px !default;
+@import "../../scss/mixins";
 
-@mixin until($device) {
-  @media screen and (max-width: $device - 1) {
-    @content;
-  }
-}
-
-// TODO: detach scss to variables, mixins
+@import "../../scss/variables";
 
 .navbar {
   // TODO: tablet, mobile view (960px and under)

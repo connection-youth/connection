@@ -5,8 +5,8 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 import App from './App';
 import router from './router';
 
-import './style.scss';
-import './fonts.scss';
+import './scss/style.scss';
+import './scss/fonts.scss';
 import Youth from './youth';
 
 // eslint-disable-next-line import/extensions
