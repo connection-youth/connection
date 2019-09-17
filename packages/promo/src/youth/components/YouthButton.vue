@@ -19,6 +19,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "../../scss/mixins";
+
+@import "../../scss/variables";
+
 .button {
   cursor: pointer;
   display: inline-flex;
@@ -33,6 +37,10 @@ export default {
   line-height: 1.53;
   letter-spacing: .07px;
   transition: .5s background-color ease;
+
+  @include until($mobile) {
+    padding: .4rem 2.5rem;
+  }
 
   &:hover {
     color: white;

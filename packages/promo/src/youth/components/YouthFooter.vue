@@ -11,6 +11,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "../../scss/mixins";
+
+@import "../../scss/variables";
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -24,5 +28,9 @@ export default {
   font-size: 1rem;
   line-height: 1.33;
   color: #ffffff;
+
+  @include until($mobile) {
+    height: 10rem;
+  }
 }
 </style>

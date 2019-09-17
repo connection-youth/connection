@@ -174,12 +174,14 @@ export default {
               <h1 class="section__title">
                 Connection?
               </h1>
-              <h2 class="section__desc">
-                커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다
-              </h2>
-              <p class="section__info">
-                커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
-              </p>
+              <div>
+                <span class="section__desc">
+                  커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
+                </span>
+                <span class="section__info">
+                  커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+                </span>
+              </div>
               <youth-button
                 class="section__button"
                 @click="$router.push({ name: 'about' })"
@@ -357,18 +359,32 @@ export default {
   margin-top: 6.2rem;
   position: relative;
 
+  @include until($mobile) {
+    margin-top: 3rem;
+  }
+
   &__title {
     font-size: 5rem;
     font-family: "Futura";
     font-weight: bold;
     line-height: 1.1;
+
+    @include until($mobile) {
+      font-size: 2.5rem;
+    }
   }
 
   &__desc {
+    display: block;
     font-size: 1.6rem;
     font-weight: normal;
     line-height: 1.5;
     color: #575757;
+
+    @include until($mobile) {
+      display: unset;
+      font-size: 1rem;
+    }
   }
 
   &__desc strong {
@@ -376,15 +392,24 @@ export default {
   }
 
   &__info {
+    display: block;
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.65;
     letter-spacing: .08px;
     color: #575757;
+
+    @include until($mobile) {
+      display: unset;
+    }
   }
 
   &__button {
     margin-top: 2.5rem;
+
+    @include until($mobile) {
+      margin-top: 1rem;
+    }
   }
 }
 
@@ -394,18 +419,34 @@ export default {
   bottom: 0;
   z-index: -1;
 
+  @include until($mobile) {
+    position: initial;
+    bottom: unset;
+    z-index: initial;
+    margin-top: .5rem;
+  }
+
   &__illust-wrap {
     bottom: 5rem;
     width: 65%;
-    // height: 100%;
     margin-left: auto;
     margin-right: auto;
     text-align: right;
     padding-bottom: 4.7rem;
+
+    @include until($mobile) {
+      width: 100%;
+      padding-bottom: 9.9rem;
+    }
   }
 
   &__illust {
     width: 90%;
+
+    @include until($mobile) {
+      width: 100%;
+      margin-right: -20px;
+    }
   }
 }
 </style>
