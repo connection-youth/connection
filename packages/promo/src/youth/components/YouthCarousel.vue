@@ -13,13 +13,7 @@ export default {
   },
   created() {
     this.refreshCarousel();
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.setWidth);
-  },
-  mounted() {
     this.mount = true;
-    window.addEventListener('resize', this.setWidth);
   },
   computed: {
     carousel() {
@@ -27,12 +21,11 @@ export default {
     },
     isMobile() {
       if (!this.mount) return false;
-      return this.width <= 500;
+      return this.windowWidth <= 500;
     },
   },
   data() {
     return {
-      width: 0,
       mount: false,
       current: 1,
       intervalId: 0,
@@ -49,9 +42,6 @@ export default {
     moveTo(idx) {
       this.current = idx;
       this.refreshCarousel();
-    },
-    setWidth() {
-      this.width = this.$parent.$el.clientWidth;
     },
   },
 };

@@ -32,7 +32,17 @@ export default {
         { title: '커넥션 웹페이지 소식', date: '19.07.26' },
       ],
       tab: 0,
+      mount: false,
     };
+  },
+  mounted() {
+    this.mount = true;
+  },
+  computed: {
+    isMobile() {
+      if (!this.mount) return false;
+      return this.windowWidth <= 500;
+    },
   },
   methods: {
     onSelectTab(idx) {
@@ -44,8 +54,8 @@ export default {
 
 <template>
   <div class="index">
-    <div class="fullpage-container">
-      <div class="fullpage-wp" v-fullpage="options" ref="landing">
+    <div :class="{ 'fullpage-container': !this.isMobile, }">
+      <div :class="{ 'fullpage-wp': !this.isMobile }" v-fullpage="options" ref="landing">
         <div class="page-1 page">
           <default-header>
             <youth-carousel :carousels="carousels" />

@@ -15,6 +15,7 @@
     "reset-css": "^4.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
+    "vue-window-size": "^0.2.3",
     "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
