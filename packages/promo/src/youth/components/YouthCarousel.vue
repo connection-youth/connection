@@ -103,10 +103,14 @@ export default {
 
 .carousel {
   position: relative;
-  height: 25rem;
+  height: 100%;
 
   @include until($mobile) {
     height: 20rem;
+  }
+
+  &__wrap {
+    height: calc(100% - 6rem);
   }
 
   &__image {
@@ -115,6 +119,7 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: 0 40%;
     z-index: -1;
   }
 
@@ -123,7 +128,7 @@ export default {
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, #000000 100%);
   }
 
   &__content {
