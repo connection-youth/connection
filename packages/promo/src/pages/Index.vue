@@ -206,12 +206,22 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "../scss/mixins";
+
+@import "../scss/variables";
+
 .fullpage-container {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+}
+
+.page {
+  @include until($mobile) {
+    height: unset !important;
+  }
 }
 
 .index {
@@ -221,6 +231,10 @@ export default {
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
+
+    @include until($mobile) {
+      width: 90%;
+    }
   }
 
   .box-list {
@@ -228,11 +242,24 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @include until($mobile) {
+      padding-top: 0;
+      flex-direction: column;
+    }
   }
 }
 
 .box {
   width: 30%;
+
+  @include until($mobile) {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
 
   &__top {
     display: flex;
@@ -293,6 +320,10 @@ export default {
     flex-direction: column;
     width: 100%;
     height: calc(100% - 3.3rem);
+
+    @include until($mobile) {
+      height: 12.4rem;
+    }
   }
 
   &__gallery-row {
