@@ -12,10 +12,18 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "./scss/mixins";
+
+@import "./scss/variables";
+
 // stylelint-disable-next-line selector-max-id
 #app,
 .content {
   height: 100%;
+
+  @include until($mobile) {
+    overflow-x: hidden;
+  }
 }
 
 * {
