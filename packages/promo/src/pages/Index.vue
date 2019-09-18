@@ -19,17 +19,24 @@ export default {
       ],
       notice: [
         { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
-        { title: '커넥션 웹페이지 공지사항 12345', date: '19.07.26' },
-        { title: '커넥션 웹페이지 공지사항 abcde', date: '19.07.26' },
-        { title: '커넥션 웹페이지 공지사항 ㄱㄴㄷㄹㅁㅂㅅ', date: '19.07.26' },
+        { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
+        { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
+        { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
         { title: '커넥션 웹페이지 공지사항', date: '19.07.26' },
       ],
       news: [
         { title: '커넥션 웹페이지 소식', date: '19.07.26' },
-        { title: '커넥션 웹페이지 소식 12345', date: '19.07.26' },
-        { title: '커넥션 웹페이지 소식 abcde', date: '19.07.26' },
-        { title: '커넥션 웹페이지 소식 ㄱㄴㄷㄹㅁㅂㅅ', date: '19.07.26' },
         { title: '커넥션 웹페이지 소식', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식', date: '19.07.26' },
+        { title: '커넥션 웹페이지 소식', date: '19.07.26' },
+      ],
+      externals: [
+        { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
+        { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
+        { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
+        { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
+        { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
       ],
       tab: 0,
       mount: false,
@@ -43,6 +50,9 @@ export default {
       if (!this.mount) return false;
       return this.windowWidth <= 500;
     },
+    selectedList() {
+      return (this.tab) ? this.externals : this.news;
+    },
   },
   methods: {
     onSelectTab(idx) {
@@ -54,8 +64,8 @@ export default {
 
 <template>
   <div class="index">
-    <div :class="{ 'fullpage-container': !this.isMobile, }">
-      <div :class="{ 'fullpage-wp': !this.isMobile }" v-fullpage="options" ref="landing">
+    <div>
+      <div v-fullpage="options" ref="landing">
         <div class="page-1 page">
           <default-header>
             <youth-carousel :carousels="carousels" />
@@ -128,7 +138,7 @@ export default {
                 <div class="box__list">
                   <div
                     class="box__item"
-                    v-for="(item, key) in news"
+                    v-for="(item, key) in selectedList"
                     :key="key"
                   >
                     <span class="box__item-title">
@@ -212,19 +222,19 @@ export default {
 
 @import "../scss/variables";
 
-.fullpage-container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
+// .fullpage-container {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+// }
 
-.page {
-  @include until($mobile) {
-    height: unset !important;
-  }
-}
+// .page {
+//   @include until($mobile) {
+//     height: unset !important;
+//   }
+// }
 
 .index {
 
@@ -245,9 +255,13 @@ export default {
     flex-direction: row;
     justify-content: space-between;
 
-    @include until($mobile) {
-      padding-top: 0;
+    @include until(1000px) {
+      padding-top: 1.5rem;
       flex-direction: column;
+    }
+
+    @include until(500px) {
+      padding-top: 0;
     }
   }
 }
@@ -255,7 +269,7 @@ export default {
 .box {
   width: 30%;
 
-  @include until($mobile) {
+  @include until(1000px) {
     width: 100%;
 
     &:not(:last-child) {
@@ -323,6 +337,10 @@ export default {
     width: 100%;
     height: calc(100% - 3.3rem);
 
+    @include until(1000px) {
+      height: 15rem;
+    }
+
     @include until($mobile) {
       height: 12.4rem;
     }
@@ -331,15 +349,14 @@ export default {
   &__gallery-row {
     display: flex;
     flex-direction: row;
-    width: 100%;
     height: 100%;
+    width: 100%;
   }
 
   &__image {
     // stylelint-disable-next-line declaration-property-value-blacklist
     border-style: none;
     width: calc(100%/2);
-    height: 100%;
     border: .5px solid #707070;
     object-fit: cover;
     background-color: white;
@@ -415,9 +432,9 @@ export default {
 
 .bottom {
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  z-index: -1;
+  // position: absolute;
+  // bottom: 0;
+  // z-index: -1;
 
   @include until($mobile) {
     position: initial;
@@ -442,6 +459,8 @@ export default {
 
   &__illust {
     width: 90%;
+    margin-top: -5rem;
+    z-index: -1;
 
     @include until($mobile) {
       width: 100%;

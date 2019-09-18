@@ -103,7 +103,7 @@ export default {
 
 .carousel {
   position: relative;
-  height: 100%;
+  height: 25rem;
 
   @include until($mobile) {
     height: 20rem;

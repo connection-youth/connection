@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueWindowSize from 'vue-window-size';
-import VueFullpage from 'fullpage-vue';
+// import VueFullpage from 'fullpage-vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
 import App from './App';
@@ -15,9 +15,9 @@ import 'reset-css';
 import 'fullpage-vue/src/fullpage.css';
 
 Vue.config.productionTip = false;
- 
+
 Vue.use(VueWindowSize);
-Vue.use(VueFullpage);
+// Vue.use(VueFullpage);
 Vue.use(Youth);
 Vue.use(VueGoogleMaps, {
   load: {
