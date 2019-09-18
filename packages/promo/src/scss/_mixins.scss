@@ -1,1 +1,5 @@
-$mobile: 500px !default;
+@mixin until($device) {
+  @media screen and (max-width: $device - 1) {
+    @content;
+  }
+}

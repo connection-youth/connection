@@ -2,7 +2,7 @@
 import DefaultHeader from './DefaultHeader';
 
 export default {
-  name: 'DefaultPage',
+  name: 'DefaultContent',
   components: {
     DefaultHeader,
   },
@@ -41,10 +41,10 @@ export default {
 <style lang="scss" scoped>
 .page {
   height: 100%;
+  position: relative;
 
   &__wrap {
     width: 65%;
-    height: 100%;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;

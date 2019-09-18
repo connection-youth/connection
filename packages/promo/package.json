@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "fullpage-vue": "^1.8.3",
     "reset-css": "^4.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

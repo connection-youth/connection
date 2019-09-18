@@ -64,155 +64,147 @@ export default {
 
 <template>
   <div class="index">
-    <div>
-      <div v-fullpage="options" ref="landing">
-        <div class="page-1 page">
-          <default-header>
-            <youth-carousel :carousels="carousels" />
-          </default-header>
-          <div class="index__wrap">
-            <div class="box-list">
-              <div class="box">
-                <div class="box__top">
-                  <div class="box__tabs">
-                    <span class="box__tab selected">
-                      공지사항
-                      <figure class="box__circle" />
-                    </span>
-                  </div>
-                  <span
-                    class="box__more"
-                    @click="$router.push({ name: 'notice' })"
-                  >
-                    더보기
-                  </span>
-                </div>
-                <div class="box__list">
-                  <div
-                    class="box__item"
-                    v-for="(item, key) in notice"
-                    :key="key"
-                  >
-                    <span class="box__item-title">
-                      {{ item.title }}
-                    </span>
-                    <span class="box__item-date">
-                      {{ item.date }}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="box">
-                <div class="box__top">
-                  <div class="box__tabs">
-                    <span
-                      class="box__tab"
-                      :class="{ selected: (tab === 0) }"
-                      @click="onSelectTab(0)"
-                    >
-                      보도자료
-                      <figure
-                        class="box__circle"
-                        v-if="tab === 0"
-                      />
-                    </span>
-                    <span
-                      class="box__tab"
-                      :class="{ selected: (tab === 1) }"
-                      @click="onSelectTab(1)"
-                    >
-                      외부공시
-                      <figure
-                        class="box__circle"
-                        v-if="tab === 1"
-                      />
-                    </span>
-                  </div>
-                  <span
-                    class="box__more"
-                    @click="$router.push({ name: (tab) ? 'newsExternal' : 'newsReport' })"
-                  >
-                    더보기
-                  </span>
-                </div>
-                <div class="box__list">
-                  <div
-                    class="box__item"
-                    v-for="(item, key) in selectedList"
-                    :key="key"
-                  >
-                    <span class="box__item-title">
-                      {{ item.title }}
-                    </span>
-                    <span class="box__item-date">
-                      {{ item.date }}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="box">
-                <div class="box__top">
-                  <div class="box__tabs">
-                    <span class="box__tab selected">
-                      행사/활동 정보
-                    </span>
-                  </div>
-                  <span
-                    class="box__more"
-                    @click="$router.push({ name: 'newsEvent' })"
-                  >
-                    더보기
-                  </span>
-                </div>
-                <div class="box__gallery">
-                  <div class="box__gallery-row">
-                    <div class="box__image" />
-                    <div class="box__image" />
-                  </div>
-                  <div class="box__gallery-row">
-                    <div class="box__image" />
-                    <div class="box__image" />
-                  </div>
-                </div>
-              </div>
+    <default-header>
+      <youth-carousel :carousels="carousels" />
+    </default-header>
+    <div class="index__wrap">
+      <div class="box-list">
+        <div class="box">
+          <div class="box__top">
+            <div class="box__tabs">
+              <span class="box__tab selected">
+                공지사항
+                <figure class="box__circle" />
+              </span>
+            </div>
+            <span
+              class="box__more"
+              @click="$router.push({ name: 'notice' })"
+            >
+              더보기
+            </span>
+          </div>
+          <div class="box__list">
+            <div
+              class="box__item"
+              v-for="(item, key) in notice"
+              :key="key"
+            >
+              <span class="box__item-title">
+                {{ item.title }}
+              </span>
+              <span class="box__item-date">
+                {{ item.date }}
+              </span>
             </div>
           </div>
         </div>
-        <div class="page-2 page">
-          <div class="index__wrap">
-            <div class="section">
-              <h1 class="section__title">
-                Connection?
-              </h1>
-              <div>
-                <span class="section__desc">
-                  커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
-                </span>
-                <span class="section__info">
-                  커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
-                </span>
-              </div>
-              <youth-button
-                class="section__button"
-                @click="$router.push({ name: 'about' })"
+        <div class="box">
+          <div class="box__top">
+            <div class="box__tabs">
+              <span
+                class="box__tab"
+                :class="{ selected: (tab === 0) }"
+                @click="onSelectTab(0)"
               >
-                더 보러가기
-              </youth-button>
+                보도자료
+                <figure
+                  class="box__circle"
+                  v-if="tab === 0"
+                />
+              </span>
+              <span
+                class="box__tab"
+                :class="{ selected: (tab === 1) }"
+                @click="onSelectTab(1)"
+              >
+                외부공시
+                <figure
+                  class="box__circle"
+                  v-if="tab === 1"
+                />
+              </span>
+            </div>
+            <span
+              class="box__more"
+              @click="$router.push({ name: (tab) ? 'newsExternal' : 'newsReport' })"
+            >
+              더보기
+            </span>
+          </div>
+          <div class="box__list">
+            <div
+              class="box__item"
+              v-for="(item, key) in selectedList"
+              :key="key"
+            >
+              <span class="box__item-title">
+                {{ item.title }}
+              </span>
+              <span class="box__item-date">
+                {{ item.date }}
+              </span>
             </div>
           </div>
-          <div class="bottom">
-            <div class="bottom__illust-wrap">
-              <img
-                class="bottom__illust"
-                :src="require('../assets/index/illust.png')"
-              >
+        </div>
+        <div class="box">
+          <div class="box__top">
+            <div class="box__tabs">
+              <span class="box__tab selected">
+                행사/활동 정보
+              </span>
             </div>
-            <youth-footer>
-              FOOTER
-            </youth-footer>
+            <span
+              class="box__more"
+              @click="$router.push({ name: 'newsEvent' })"
+            >
+              더보기
+            </span>
+          </div>
+          <div class="box__gallery">
+            <div class="box__gallery-row">
+              <div class="box__image" />
+              <div class="box__image" />
+            </div>
+            <div class="box__gallery-row">
+              <div class="box__image" />
+              <div class="box__image" />
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="index__wrap">
+      <div class="section">
+        <h1 class="section__title">
+          Connection?
+        </h1>
+        <div>
+          <span class="section__desc">
+            커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
+          </span>
+          <span class="section__info">
+            커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+          </span>
+        </div>
+        <youth-button
+          class="section__button"
+          @click="$router.push({ name: 'about' })"
+        >
+          더 보러가기
+        </youth-button>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom__illust-wrap">
+        <img
+          class="bottom__illust"
+          :src="require('../assets/index/illust.png')"
+        >
+      </div>
+      <youth-footer>
+        FOOTER
+      </youth-footer>
     </div>
   </div>
 </template>
@@ -222,21 +214,8 @@ export default {
 
 @import "../scss/variables";
 
-// .fullpage-container {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .page {
-//   @include until($mobile) {
-//     height: unset !important;
-//   }
-// }
-
 .index {
+  position: relative;
 
   &__wrap {
     width: 65%;
@@ -386,6 +365,14 @@ export default {
     font-weight: bold;
     line-height: 1.1;
 
+    @include until(780px) {
+      font-size: 4rem;
+    }
+
+    @include until(650px) {
+      font-size: 2.5rem;
+    }
+
     @include until($mobile) {
       font-size: 2.5rem;
     }
@@ -422,7 +409,7 @@ export default {
   }
 
   &__button {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 
     @include until($mobile) {
       margin-top: 1rem;

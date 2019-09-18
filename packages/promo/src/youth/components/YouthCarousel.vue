@@ -119,8 +119,12 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: 0 40%;
+    object-position: 0 50%;
     z-index: -1;
+
+    @include until(650px) {
+      object-position: unset;
+    }
   }
 
   &__image-cover {
@@ -153,6 +157,14 @@ export default {
   &__welcome-title {
     font-size: 5rem;
     font-family: "Futura";
+
+    @include until(780px) {
+      font-size: 4rem;
+    }
+
+    @include until(650px) {
+      font-size: 2.5rem;
+    }
   }
 
   &__welcome-rest {

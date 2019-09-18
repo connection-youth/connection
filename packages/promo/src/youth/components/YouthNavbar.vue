@@ -74,6 +74,8 @@ export default {
 
 @import "../../scss/variables";
 
+$mobile: 650px;
+
 .navbar {
   // TODO: tablet, mobile view (960px and under)
   // TODO: 모바일, 태블릿 등 규격 재정의
@@ -98,6 +100,18 @@ export default {
 
     @include until($mobile) {
       width: 100%;
+    }
+
+    @include until(890px) {
+      width: 80%;
+    }
+
+    @include until(730px) {
+      width: 90%;
+    }
+
+    @include until(650px) {
+      width: 95%;
     }
   }
 

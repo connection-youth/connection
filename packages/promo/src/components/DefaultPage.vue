@@ -22,27 +22,26 @@ export default {
 </script>
 
 <template>
-  <div class="page">
-    <default-content
-      :title="title"
-      :navi="navi"
-    >
-      <div class="page__content">
-        <youth-sidemenu
-          :title="title"
-          :sidemenu="sidemenu"
-        />
-        <div class="page__main">
-          <slot />
-        </div>
+  <default-content
+    :title="title"
+    :navi="navi"
+  >
+    <div class="page__content">
+      <youth-sidemenu
+        :title="title"
+        :sidemenu="sidemenu"
+      />
+      <div class="page__main">
+        <slot />
       </div>
-    </default-content>
-  </div>
+    </div>
+  </default-content>
 </template>
 
 <style lang="scss" scoped>
 .page {
   height: 100%;
+  position: relative;
 
   &__content {
     display: flex;
