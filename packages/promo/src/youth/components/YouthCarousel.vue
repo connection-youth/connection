@@ -103,14 +103,14 @@ export default {
 
 .carousel {
   position: relative;
-  height: 25rem;
+  height: 35rem;
+
+  @media (max-height: 1000px) {
+    height: 25rem;
+  }
 
   @include until($mobile) {
     height: 20rem;
-  }
-
-  &__wrap {
-    height: calc(100% - 6rem);
   }
 
   &__image {
