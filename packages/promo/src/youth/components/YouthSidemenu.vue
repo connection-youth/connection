@@ -34,11 +34,19 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "../../scss/mixins";
+
+@import "../../scss/variables";
+
 .sidemenu {
   flex-shrink: 0;
   width: 13rem;
   border-right: .5px solid #d9d9d9;
   padding-left: .5rem;
+
+  @include until($mobile) {
+    display: none;
+  }
 
   &__list {
     margin-top: .5rem;

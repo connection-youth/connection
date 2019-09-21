@@ -65,6 +65,9 @@ export default {
           </div>
         </li>
       </ul>
+      <div class="navbar__icon">
+        <img :src="require('../../assets/icons/menu.svg')" />
+      </div>
     </div>
   </nav>
 </template>
@@ -99,6 +102,7 @@ $mobile: 650px;
     flex-direction: row;
 
     @include until($mobile) {
+      position: relative;
       width: 100%;
     }
 
@@ -185,6 +189,20 @@ $mobile: 650px;
 
     &:not(:last-child) {
       border-bottom: solid .5px rgba(0, 0, 0, .16);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: .5rem;
+    right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    @include until($mobile) {
+      display: unset;
     }
   }
 }

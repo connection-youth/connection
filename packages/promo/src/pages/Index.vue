@@ -38,6 +38,12 @@ export default {
         { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
         { title: '커넥션 웹페이지 외부공시', date: '19.07.26' },
       ],
+      gallery: [
+        'https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/68717908_534793203729038_2946762845443850240_n.png?_nc_cat=106&_nc_eui2=AeHdyR_fL6IkQVzPsi7SqplIZU6CNyv8F9IrYn9aqnCu2Ka85Zcrm6V4nExbtSSUP_RyK9hEWYj6IuthvwkyVfkDGD30waVDuQL3-QpsRp8R7g&_nc_oc=AQnCo_eAr_ase9nKkFVxkrjN_Ou-8TQFE6aBuibbwI37IoFJskJAK-JTwHyjZhPcWo4&_nc_ht=scontent-icn1-1.xx&oh=3215124ff58b0e0f851982842eb2314b&oe=5E3B8197',
+        '',
+        '',
+        '',
+      ],
       tab: 0,
       mount: false,
     };
@@ -163,12 +169,20 @@ export default {
           </div>
           <div class="box__gallery">
             <div class="box__gallery-row">
-              <div class="box__image" />
-              <div class="box__image" />
+              <div
+                v-for="idx in 2"
+                :key="idx"
+                class="box__image"
+                :style="{ 'background-image': gallery[idx] }"
+              />
             </div>
             <div class="box__gallery-row">
-              <div class="box__image" />
-              <div class="box__image" />
+              <div
+                v-for="idx in 2"
+                :key="idx"
+                class="box__image"
+                :style="{ 'background-image': `url(${gallery[idx + 2]})` }"
+              />
             </div>
           </div>
         </div>
@@ -330,6 +344,10 @@ export default {
     flex-direction: row;
     height: 100%;
     width: 100%;
+
+    &:last-child {
+      border-bottom: 1px solid #707070;
+    }
   }
 
   &__image {
@@ -337,8 +355,13 @@ export default {
     border-style: none;
     width: calc(100%/2);
     border: .5px solid #707070;
-    object-fit: cover;
+    border-bottom: 0;
+    background-size: cover;
     background-color: white;
+
+    &:first-child {
+      border-right: 0;
+    }
   }
 
   &__circle {
