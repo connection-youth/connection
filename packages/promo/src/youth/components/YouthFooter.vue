@@ -1,11 +1,27 @@
 <script>
 export default {
   name: 'YouthFooter',
+  props: {
+    absolute: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  computed: {
+    computedClass() {
+      return {
+        position: (this.absolute) ? 'absolute' : 'initial',
+      };
+    },
+  },
 };
 </script>
 
 <template>
-  <footer class="footer">
+  <footer
+    class="footer"
+    :style="computedClass"
+  >
     <slot />
   </footer>
 </template>
@@ -16,7 +32,6 @@ export default {
 @import "../../scss/variables";
 
 .footer {
-  position: absolute;
   bottom: 0;
   height: 5rem;
   width: 100%;

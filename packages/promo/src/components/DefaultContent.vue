@@ -32,7 +32,7 @@ export default {
       </div>
       <slot />
     </div>
-    <youth-footer>
+    <youth-footer :absolute="false">
       FOOTER
     </youth-footer>
   </div>

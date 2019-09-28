@@ -9,17 +9,43 @@ export default {
   data() {
     return {
       sidemenu: [],
-      form: [
+      fields: [
         [
           { name: 'name', placeholder: '이름' },
           { name: 'tel', placeholder: "전화번호('-' 제외하고 입력)" },
           { name: 'email', placeholder: '이메일' },
         ],
+        [
+          { name: 'area', placeholder: '사는지역' },
+          { name: 'concern', placeholder: '관심분야' },
+        ],
+        [
+          { name: 'record', placeholder: '이력' },
+          { name: 'intro', placeholder: '자기소개' },
+          { name: 'wish', placeholder: '바라는 점' },
+        ],
       ],
+      form: {
+        name: '',
+        tel: '',
+        email: '',
+        area: '',
+        concern: '',
+        record: '',
+        intro: '',
+        wish: '',
+      },
     };
   },
   created() {
     this.sidemenu = navlist.find(nav => nav.name === 'join').dropdown;
+  },
+  methods: {
+    getKeyStyle(field) {
+      return {
+        visibility: (this.form[field]) ? 'visible' : 'hidden',
+      };
+    },
   },
 };
 </script>
@@ -42,34 +68,68 @@ export default {
         <div class="join__row">
           <div
             class="join__field"
-            v-for="(item, key) in form[0]"
+            v-for="(item, key) in fields[0]"
             :key="key"
           >
-            <span class="join__key">{{ item.placeholder }}</span>
-            <input class="join__input" :placeholder="item.placeholder" />
+            <span
+              class="join__key"
+              :style="getKeyStyle(item.name)"
+            >
+              {{ item.placeholder }}
+            </span>
+            <input
+              class="join__input"
+              :placeholder="item.placeholder"
+              v-model="form[item.name]"
+            />
           </div>
         </div>
         <div class="join__row">
-          <div class="join__select">
-            <span class="join__key"></span>
+          <div
+            class="join__select"
+            v-for="(item, idx) in fields[1]"
+            :key="idx"
+          >
+            <span
+              class="join__key"
+              :style="getKeyStyle(item.name)"
+            >
+              {{ item.placeholder }}
+            </span>
             <select>
-              <option disabled value="" selected>사는지역</option>
-            </select>
-          </div>
-          <div class="join__select">
-            <span class="join__key"></span>
-            <select>
-              <option disabled value="" selected>관심분야</option>
+              <option disabled value="" selected>{{ item.placeholder }}</option>
             </select>
           </div>
           <div>
-            <span class="join__key">학교</span>
-            <input class="join__input" :placeholder="학교" />
+            <span
+              class="join__key"
+              :style="getKeyStyle('school')"
+            >학교</span>
+            <input
+              class="join__input"
+              placeholder="학교"
+              v-model="form.school"
+            />
           </div>
         </div>
-        <textarea placeholder="이력" />
-        <textarea placeholder="자기소개" />
-        <textarea placeholder="바라는 점" />
+        <div
+          class="join__textarea-row"
+          v-for="(item, idx) in fields[2]"
+          :key="idx"
+        >
+          <span
+            class="join__key"
+            :style="getKeyStyle(item.name)"
+          >
+            {{ item.placeholder }}
+          </span>
+          <textarea
+            :placeholder="item.placeholder"
+            class="join__textarea"
+            rows="1"
+            v-model="form[item.name]"
+          />
+        </div>
         <div class="join__upload-box">
           <p>포트폴리오 업로드 (선택 사항)</p>
           <div
@@ -89,6 +149,7 @@ export default {
 <style lang="scss" scoped>
 .join {
   margin-top: 1rem;
+  padding-bottom: 5rem;
 
   &__notice {
     width: 100%;
@@ -118,8 +179,11 @@ export default {
   }
 
   &__row {
+    width: 85%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
   }
 
   &__submit-box {
@@ -133,6 +197,54 @@ export default {
     font-size: .9rem;
     border: 0;
     padding: .9rem 3.2rem;
+  }
+
+  &__field {
+    width: 30%;
+  }
+
+  &__key {
+    color: #298fe3;
+    font-size: .6rem;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: .9rem;
+    padding: .3rem;
+    line-height: 1.43;
+    border: 0;
+    border-bottom: 1.3px solid #a1a1a1;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #298fe3;
+    }
+  }
+
+  &__textarea-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  &__textarea {
+    width: 85%;
+    box-sizing: border-box;
+    text-size-adjust: none;
+    font-size: .9rem;
+    padding: .3rem;
+    line-height: 1.43;
+    border: 0;
+    border-bottom: 1.3px solid #a1a1a1;
+    resize: none;
+    font-family: "Noto Sans KR", sans-serif !important;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #298fe3;
+    }
   }
 }
 </style>
