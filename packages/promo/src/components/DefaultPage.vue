@@ -45,7 +45,7 @@ export default {
 
   &__content {
     display: flex;
-    height: 100%;
+    height: -webkit-fill-available;
   }
 
   &__main {

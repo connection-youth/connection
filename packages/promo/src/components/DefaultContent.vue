@@ -13,6 +13,10 @@ export default {
     navi: {
       type: String,
     },
+    absolute: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -32,7 +36,7 @@ export default {
       </div>
       <slot />
     </div>
-    <youth-footer :absolute="false">
+    <youth-footer :absolute="absolute">
       FOOTER
     </youth-footer>
   </div>

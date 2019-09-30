@@ -24,6 +24,7 @@ export default {
   <default-content
     title="Contact Us"
     navi="Contact Us"
+    :absolute="true"
   >
     <div class="contact">
       <div class="contact__info">
