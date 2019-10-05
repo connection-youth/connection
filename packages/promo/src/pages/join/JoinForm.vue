@@ -53,7 +53,7 @@ export default {
 <template>
   <default-page
     title="가입 신청"
-    navi="Connection > Join > 가입 신청"
+    navi="Join > 가입 신청"
     :sidemenu="sidemenu"
   >
     <div class="join">

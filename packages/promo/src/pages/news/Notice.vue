@@ -40,7 +40,7 @@ export default {
 <template>
   <default-board
     title="공지사항"
-    navi="Connection > News > 공지사항"
+    navi="News > 공지사항"
     :sidemenu="sidemenu"
     :list="list"
   />

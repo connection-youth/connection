@@ -25,7 +25,7 @@ export default {
   <div class="board">
     <default-page
       :title="title"
-      :navi="`Connection > News > ${title}`"
+      :navi="`News > ${title}`"
       :sidemenu="sidemenu"
     >
       <div class="board">

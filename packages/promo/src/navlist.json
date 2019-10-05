@@ -13,7 +13,7 @@
       },
       {
         "name": "조직도 및 직원",
-        "routeName": "aboutOrganization"
+        "routeName": "aboutOrg"
       },
       {
         "name": "자문위원 및 멘토",

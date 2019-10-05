@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './pages/Index';
+import { AboutOrg } from './pages/about';
 import { JoinForm } from './pages/join';
 import { Notice, NewsReport, NewsExternal } from './pages/news';
 import Contact from './pages/Contact';
@@ -16,6 +17,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index,
+    },
+    {
+      path: '/about/org',
+      name: 'aboutOrg',
+      component: AboutOrg,
     },
     {
       // 가입 신청
