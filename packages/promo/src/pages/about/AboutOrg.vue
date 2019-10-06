@@ -183,8 +183,7 @@ export default {
   }
 
   &__employees {
-    margin: 0 1.5rem;
-    margin-top: 2rem;
+    margin: 2rem 1.5rem;
     display: grid;
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
