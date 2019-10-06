@@ -13,10 +13,6 @@ export default {
     navi: {
       type: String,
     },
-    absolute: {
-      type: Boolean,
-      default: false,
-    },
   },
 };
 </script>
@@ -36,9 +32,6 @@ export default {
       </div>
       <slot />
     </div>
-    <youth-footer :absolute="absolute">
-      FOOTER
-    </youth-footer>
   </div>
 </template>
 
@@ -48,6 +41,7 @@ export default {
   position: relative;
 
   &__wrap {
+    // height: 100%;
     width: 65%;
     margin-left: auto;
     margin-right: auto;

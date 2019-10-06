@@ -43,6 +43,7 @@ export default {
   width: 13rem;
   border-right: .5px solid #d9d9d9;
   padding-left: .5rem;
+  z-index: -1;
 
   @include until($mobile) {
     display: none;

@@ -77,6 +77,21 @@ export default {
             커넥션의 소중한 가족들입니다.
           </p>
         </div>
+        <div class="about__employees">
+          <div
+            class="about__employees-item"
+            v-for="idx in 20"
+            :key="`emp-${idx}`"
+          >
+            <img
+              class="about__employees-image"
+              src="https://github.com/junhoyeo.png"
+            />
+            <span class="about__employees-name">홍길동</span>
+            <span class="about__employees-position">대표</span>
+            <span class="about__employees-email">abcd@connection.org</span>
+          </div>
+        </div>
       </section>
     </div>
   </default-page>
@@ -164,6 +179,47 @@ export default {
     &-item {
       margin: .5rem auto;
       font-size: .9rem;
+    }
+  }
+
+  &__employees {
+    margin: 0 1.5rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: .8rem 0;
+    }
+
+    &-image {
+      height: auto;
+      width: 80%;
+      border-radius: 50%;
+      border: solid .5px #707070;
+    }
+
+    &-name {
+      color: #575757;
+      margin-top: .8rem;
+      font-size: .9rem;
+      font-weight: 500;
+    }
+
+    &-position,
+    &-email {
+      color: #858585;
+      font-size: .8rem;
+      line-height: 1;
+    }
+
+    &-position {
+      margin-top: .5rem;
     }
   }
 }
