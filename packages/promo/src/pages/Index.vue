@@ -458,8 +458,8 @@ export default {
     width: 65%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -3px;
     text-align: right;
-    padding-bottom: 4.7rem;
 
     @include until($mobile) {
       width: 100%;

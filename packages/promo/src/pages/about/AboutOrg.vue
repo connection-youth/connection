@@ -1,7 +1,8 @@
 <script>
 import DefaultPage from '../../components/DefaultPage';
 import navlist from '../../navlist.json';
-import organization from './organization.json';
+import organization from './data/organization.json';
+import employees from './data/employees.json';
 
 export default {
   components: {
@@ -11,6 +12,7 @@ export default {
     return {
       sidemenu: [],
       organization,
+      employees,
     };
   },
   created() {
@@ -80,16 +82,25 @@ export default {
         <div class="about__employees">
           <div
             class="about__employees-item"
-            v-for="idx in 20"
+            v-for="(item, idx) in employees"
             :key="`emp-${idx}`"
           >
             <img
               class="about__employees-image"
-              src="https://github.com/junhoyeo.png"
+              :src="item.profile"
             />
-            <span class="about__employees-name">홍길동</span>
-            <span class="about__employees-position">대표</span>
-            <span class="about__employees-email">abcd@connection.org</span>
+            <span class="about__employees-name">
+              {{ item.name }}
+            </span>
+            <span class="about__employees-position">
+              {{ item.position }}
+            </span>
+            <a
+              class="about__employees-email"
+              :href="`mailto:${item.email}`"
+            >
+              {{ item.email }}
+            </a>
           </div>
         </div>
       </section>
@@ -197,10 +208,11 @@ export default {
     }
 
     &-image {
-      height: auto;
-      width: 80%;
+      height: 96px;
+      min-width: 96px;
+      min-height: 96px;
       border-radius: 50%;
-      border: solid .5px #707070;
+      border: solid 1px rgba(112, 112, 112, .5);
     }
 
     &-name {
@@ -219,6 +231,15 @@ export default {
 
     &-position {
       margin-top: .5rem;
+      width: inherit;
+      word-break: keep-all;
+      text-align: center;
+    }
+
+    &-email {
+      margin-top: .2rem;
+      text-decoration: none;
+      cursor: pointer;
     }
   }
 }
