@@ -216,9 +216,7 @@ export default {
           :src="require('../assets/index/illust.png')"
         >
       </div>
-      <youth-footer>
-        FOOTER
-      </youth-footer>
+      <youth-footer />
     </div>
   </div>
 </template>
@@ -463,7 +461,7 @@ export default {
 
     @include until($mobile) {
       width: 100%;
-      padding-bottom: 9.9rem;
+      // padding-bottom: 9.9rem;
     }
   }
 
