@@ -73,9 +73,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "../../scss/mixins";
+@import "../scss/mixins";
 
-@import "../../scss/variables";
+@import "../scss/variables";
 
 $mobile: 650px;
 

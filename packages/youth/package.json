@@ -1,0 +1,11 @@
+{
+  "name": "youth",
+  "version": "1.0.0",
+  "description": "ui components for connection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JunhoYeo",
+  "license": "MIT"
+}
