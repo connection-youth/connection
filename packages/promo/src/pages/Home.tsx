@@ -1,13 +1,17 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-`;
+import Layout from '../components/Layout';
+import YouthButton from '../components/youth/YouthButton';
 
 export default class HomePage extends React.Component {
   render() {
     return (
-      <Container />
+      <Layout>
+        <YouthButton>
+          test
+        </YouthButton>
+      </Layout>
     );
   }
 }
