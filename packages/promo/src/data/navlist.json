@@ -1,0 +1,76 @@
+[
+  {
+    "name": "about",
+    "route": "/about",
+    "dropdown": [
+      {
+        "name": "커넥션 소개",
+        "route": "/about"
+      },
+      {
+        "name": "대표 소개",
+        "route": "/about​/repr"
+      },
+      {
+        "name": "조직도 및 직원",
+        "route": "/about/org"
+      },
+      {
+        "name": "자문위원 및 멘토",
+        "route": "/about/mentor"
+      },
+      {
+        "name": "회원",
+        "route": "/about/members"
+      },
+      {
+        "name": "파트너 목록",
+        "route": "/about/partners"
+      }
+    ]
+  },
+  {
+    "name": "join",
+    "route": "/join",
+    "dropdown": [
+      {
+        "name": "가입 안내",
+        "route": "/join"
+      },
+      {
+        "name": "가입 신청",
+        "route": "/join/form"
+      }
+    ]
+  },
+  {
+    "name": "news",
+    "route": "/notice",
+    "dropdown": [
+      {
+        "name": "공지사항",
+        "route": "/notice"
+      },
+      {
+        "name": "소식",
+        "route": "/news"
+      },
+      {
+        "name": "외부 행사 정보",
+        "route": "/news/event"
+      },
+      {
+        "name": "보도자료",
+        "route": "/news/report"
+      },
+      {
+        "name": "외부공시",
+        "route": "/news/external"
+      }
+    ]
+  },
+  {
+    "name": "contact us",
+    "route": "/contact"
+  }
+]
