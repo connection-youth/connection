@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
+import DefaultWelcome, { MobileWelcome } from './Welcome';
+
 const Wrapper = styled.div`
 `;
 
@@ -52,29 +54,6 @@ const Content = styled.div`
   @media (max-width: 500px) {
     width: 85%;
   }
-`;
-
-const Welcome = styled.div`
-  padding-bottom: 2rem;
-`;
-
-const Title = styled.h1`
-  font-size: 5rem;
-  font-family: "Futura";
-
-  @media (max-width: 780px) {
-    font-size: 4rem;
-  }
-
-  @media (max-width: 650px) {
-    font-size: 2.5rem;
-  }
-`;
-
-const Rest = styled.p`
-  font-size: 1.7rem;
-  font-weight: 400;
-  line-height: 1.47;
 `;
 
 const Meta = styled.div`
@@ -138,21 +117,6 @@ const Circle = styled.figure<CircleProps>`
   `};
 `;
 
-const MobileWelcome = styled.div`
-  padding: 1.4rem 1.2rem;
-`;
-
-const MobileTitle = styled.h1`
-  font-family: "Futura";
-  font-size: 2.5rem;
-`;
-
-const MobileRest = styled.p`
-  font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.5;
-`;
-
 interface ICarousel {
   title: string;
   date: string;
@@ -161,10 +125,10 @@ interface ICarousel {
 type CarouselProps = {
   duration: number,
   carousels: ICarousel[],
+  isMobile: boolean;
 };
 
 type CarouselState = {
-  mount: boolean,
   current: number,
   intervalID: number,
 };
@@ -174,7 +138,6 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
     super(props);
 
     this.state = {
-      mount: false,
       current: 0,
       intervalID: 0,
     };
@@ -185,13 +148,10 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
 
   componentDidMount() {
     this.refreshCarousel();
-    this.setState({
-      mount: true,
-    });
   }
 
   public render() {
-    const { carousels } = this.props;
+    const { carousels, isMobile = false } = this.props;
     const { current } = this.state;
     const carousel = carousels[current];
 
@@ -201,10 +161,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
           <Image src={require(`../assets/carousel/${current + 1}.png`)} />
           <ImageCover>
             <Content>
-              <Welcome>
-                <Title>Welcome</Title>
-                <Rest>To Connection</Rest>
-              </Welcome>
+              <DefaultWelcome isMobile={isMobile} />
               <Meta>
                 <MetaTitle>
                   {carousel.title}
@@ -227,36 +184,26 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
             </Content>
           </ImageCover>
         </Container>
-        <MobileWelcome>
-          <MobileTitle>
-            Welcome
-          </MobileTitle>
-          <MobileRest>
-            To Connection
-          </MobileRest>
-        </MobileWelcome>
+        <MobileWelcome isMobile={isMobile} />
       </Wrapper>
     );
   }
 
   private refreshCarousel() {
     const { carousels, duration } = this.props;
-    const { intervalID } = this.state;
-    clearInterval(intervalID);
-    const _intervalID = setInterval(() => {
+    const { intervalID: outdatedID } = this.state;
+    clearInterval(outdatedID);
+
+    const intervalID = setInterval(() => {
       const { current } = this.state;
-      if (current < carousels.length - 1) {
-        this.setState(prevState => ({
-          current: prevState.current + 1,
-        }));
-      } else {
-        this.setState({
-          current: 0,
-        });
-      }
+      this.setState(prevState => ({
+        current: (current < carousels.length - 1) ?
+          prevState.current + 1 : 0,
+      }));
     }, duration);
+
     this.setState({
-      intervalID: _intervalID,
+      intervalID,
     });
   }
 
