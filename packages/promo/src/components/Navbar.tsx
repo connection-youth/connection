@@ -8,8 +8,8 @@ const Container = styled.nav`
   width: 100%;
   background-color: white;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .16);
-  padding-top: 2.5rem;
-  padding-bottom: 2rem;
+  padding-top: 2.6rem;
+  padding-bottom: 2.2rem;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -45,8 +45,11 @@ const Brand = styled.div`
   display: flex;
 `;
 
+const LogoWrap = styled(Link)`
+`;
+
 const Logo = styled.img`
-  height: 2.5rem;
+  height: 2.7rem;
 
   @media (max-width: 650px) {
     height: 2.5rem;
@@ -67,7 +70,7 @@ const NavItem = styled.li`
   position: relative;
   display: flex;
   align-self: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   display: inline-flex;
   font-family: SegoeUI;
   text-transform: uppercase;
@@ -153,9 +156,9 @@ export default class Navbar extends React.Component<NavbarProps, NavbarState> {
       <Container>
         <Content>
           <Brand>
-            <Link to="/">
+            <LogoWrap to="/">
               <Logo src={logo} />
-            </Link>
+            </LogoWrap>
           </Brand>
           <NavList
             onMouseLeave={this.onLeave}
