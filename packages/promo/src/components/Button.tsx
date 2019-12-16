@@ -28,12 +28,16 @@ const StyledButton = styled.button`
 
 type ButtonProps = {
   children: React.ReactNode,
+  className?: string,
   onClick?: () => void,
 }
 
-const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ children, className = '', onClick }) => {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </StyledButton>
   );
