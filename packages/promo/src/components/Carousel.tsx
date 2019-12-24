@@ -146,7 +146,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
     this.moveTo = this.moveTo.bind(this);
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.refreshCarousel();
   }
 
@@ -200,7 +200,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
         current: (current < carousels.length - 1) ?
           prevState.current + 1 : 0,
       }));
-    }, duration);
+    },                             duration);
 
     this.setState({
       intervalID,

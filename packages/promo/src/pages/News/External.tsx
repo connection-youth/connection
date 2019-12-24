@@ -5,7 +5,7 @@ const Container = styled.div`
 `;
 
 export default class ExternalPage extends React.Component {
-  render() {
+  public render() {
     return (
       <Container />
     );

@@ -5,6 +5,11 @@ const Default = {
   Container: styled.div`
     padding-bottom: 2rem;
   `,
+  Rest: styled.p`
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.47;
+  `,
   Title: styled.h1`
     font-size: 5rem;
     font-family: "Futura";
@@ -17,25 +22,20 @@ const Default = {
       font-size: 2.5rem;
     }
   `,
-  Rest: styled.p`
-    font-size: 1.7rem;
-    font-weight: 400;
-    line-height: 1.47;
-  `,
 };
 
 const Mobile = {
   Container: styled.div`
     padding: 1.4rem 1.2rem;
   `,
-  Title: styled.h1`
-    font-family: "Futura";
-    font-size: 2.5rem;
-  `,
   Rest: styled.p`
     font-weight: 400;
     font-size: 1.1rem;
     line-height: 1.5;
+  `,
+  Title: styled.h1`
+    font-family: "Futura";
+    font-size: 2.5rem;
   `,
 };
 
@@ -57,7 +57,7 @@ const DefaultWelcome: React.FC<WelcomeProps> = ({ isMobile }) => {
     );
   }
   return (null);
-}
+};
 
 export const MobileWelcome: React.FC<WelcomeProps> = ({ isMobile }) => {
   if (isMobile) {

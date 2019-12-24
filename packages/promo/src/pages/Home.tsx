@@ -1,11 +1,11 @@
 import * as React from 'react';
 import windowSize from 'react-window-size';
 
+import styled from 'styled-components';
 import Button from '../components/Button';
 import Carousel from '../components/Carousel';
 import Header from '../components/Header';
 import Layout from '../components/Layout';
-import styled from 'styled-components';
 
 import illust from '../assets/illust.png';
 
@@ -127,7 +127,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
     this.isMobile = this.isMobile.bind(this);
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.setState({
       mount: true,
     });
