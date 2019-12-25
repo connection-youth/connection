@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../assets/full-logo.svg';
+import navlist from '../data/navlist.json';
 
 const Container = styled.nav`
   width: 100%;
@@ -149,7 +150,6 @@ export default class Navbar extends React.Component<NavbarProps, NavbarState> {
   }
 
   public render() {
-    const { navlist = [] } = this.props;
     const { hover } = this.state;
 
     return (
