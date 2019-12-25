@@ -10,11 +10,11 @@ const Title: React.FC<TitleProps> = ({ name, path }) => {
   return (
     <Container>
       <Name>
-        {{ name }}
+        {name}
         <Circle />
       </Name>
       <Path>
-        {{ path }}
+        {path}
       </Path>
     </Container>
   );
