@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 type SidemenuItemProps = {
   name: string,
   route: string,
   selected?: boolean,
+  onClick?: () => void,
 };
 
 type SidemenuProps = {
@@ -12,13 +14,16 @@ type SidemenuProps = {
   sidemenu: [SidemenuItemProps],
 };
 
-const SidemenuItem: React.FC<SidemenuItemProps> = ({ name, route, selected = false }) => (
-  <Item selected={selected}>
+const SidemenuItem: React.FC<SidemenuItemProps> = ({ name, route, selected = false, onClick }) => (
+  <Item
+    selected={selected}
+    onClick={onClick}
+  >
     {name}
   </Item>
 );
 
-const Sidemenu: React.FC<SidemenuProps> = ({ title, sidemenu }) => (
+const Sidemenu: React.FC<SidemenuProps & RouteComponentProps> = ({ title, sidemenu, history }) => (
   <Container>
     <List>
       {sidemenu.map((menu, idx) => {
@@ -29,6 +34,7 @@ const Sidemenu: React.FC<SidemenuProps> = ({ title, sidemenu }) => (
             route={route}
             key={`sidemenu-${idx}`}
             selected={name === title}
+            onClick={() => history.push(route)}
           />
         );
       })}
@@ -36,7 +42,7 @@ const Sidemenu: React.FC<SidemenuProps> = ({ title, sidemenu }) => (
   </Container>
 );
 
-export default Sidemenu;
+export default withRouter<SidemenuProps & RouteComponentProps<any>, any>(Sidemenu);
 
 const Container = styled.div`
   flex-shrink: 0;
