@@ -7,14 +7,18 @@ import { Link } from 'react-router-dom';
 type ListboxTabBarProps = {
   route: string;
   tabs: string[];
+  current: string;
 };
 
-const ListboxTabBar: React.FC<ListboxTabBarProps> = ({ route, tabs }) => {
+const ListboxTabBar: React.FC<ListboxTabBarProps> = ({ route, tabs, current }) => {
   return (
     <TopContainer>
       <TabBarContainer>
         {tabs.map((tab, idx) => (
-          <Tab key={`tab-${idx}`}>
+          <Tab
+            key={`tab-${idx}`}
+            active={tab === current}
+          >
             {tab}
           </Tab>
         ))}
