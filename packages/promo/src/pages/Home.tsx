@@ -7,6 +7,7 @@ import Button from '../components/atoms/Button';
 import Carousel from '../components/organisms/Carousel';
 import Layout from '../components/organisms/Layout';
 import Header from '../components/templates/Header';
+import ListboxList from '../components/templates/ListboxList';
 
 import illust from '../assets/illust.png';
 
@@ -143,6 +144,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
           carousels={carousels}
           isMobile={this.isMobile()}
         />
+        <ListboxList />
         <Section>
           <Illust src={illust} />
           <Title>Connection?</Title>

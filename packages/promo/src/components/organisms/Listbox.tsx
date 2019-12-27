@@ -43,7 +43,7 @@ export default Listbox;
 const Box = styled.div`
   width: 30%;
 
-  @include until(1000px) {
+  @media (max-width: 1000px) {
     width: 100%;
 
     &:not(:last-child) {
