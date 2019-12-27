@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import DefaultWelcome, { MobileWelcome } from './Welcome';
+import DefaultWelcome, { MobileWelcome } from '../molecules/Welcome';
 
 const Wrapper = styled.div`
 `;
@@ -158,7 +158,7 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
     return (
       <Wrapper>
         <Container>
-          <Image src={require(`../assets/carousel/${current + 1}.png`)} />
+          <Image src={require(`../../assets/carousel/${current + 1}.png`)} />
           <ImageCover>
             <Content>
               <DefaultWelcome isMobile={isMobile} />

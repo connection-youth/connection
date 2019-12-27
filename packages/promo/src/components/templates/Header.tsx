@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Navbar from './Navbar';
+import Navbar from '../Navbar';
 
 const StyledHeader = styled.header`
   width: 100%;

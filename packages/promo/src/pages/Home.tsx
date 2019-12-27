@@ -2,10 +2,11 @@ import * as React from 'react';
 import windowSize from 'react-window-size';
 
 import styled from 'styled-components';
-import Button from '../components/Button';
-import Carousel from '../components/Carousel';
-import Header from '../components/Header';
-import Layout from '../components/Layout';
+
+import Button from '../components/atoms/Button';
+import Carousel from '../components/organisms/Carousel';
+import Layout from '../components/organisms/Layout';
+import Header from '../components/templates/Header';
 
 import illust from '../assets/illust.png';
 

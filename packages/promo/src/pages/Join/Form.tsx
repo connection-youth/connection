@@ -1,10 +1,9 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
-import Page from '../../components/Page';
-import Sidemenu from '../../components/Sidemenu';
-import Content from '../../components/Content';
-import Section from '../../components/Section';
+import Content from '../../components/atoms/Content';
+import Sidemenu from '../../components/organisms/Sidemenu';
+import Page from '../../components/templates/Page';
+import Section from '../../components/templates/Section';
 
 import navlist from '../../data/navlist.json';
 

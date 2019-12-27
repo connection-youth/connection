@@ -1,9 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Footer from './Footer';
 
-const Container = styled.div`
-`;
+import Footer from '../molecules/Footer';
 
 type LayoutProps = {
   children: React.ReactNode,
@@ -19,3 +17,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 };
 
 export default Layout;
+
+const Container = styled.div`
+`;

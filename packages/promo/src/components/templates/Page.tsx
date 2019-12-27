@@ -1,9 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Layout from './Layout';
-import Navbar from './Navbar';
-import Title from './Title';
+import Navbar from '../Navbar';
+
+import Title from '../atoms/Title';
+import Layout from '../organisms/Layout';
 
 type PageProps = {
   name: string,
