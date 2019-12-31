@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import SidemenuItem, { SidemenuItemProps } from '../molecules/SidemenuItem';
 
-type SidemenuProps = {
+export type SidemenuProps = {
   title: string,
   sidemenu: [SidemenuItemProps],
 };
