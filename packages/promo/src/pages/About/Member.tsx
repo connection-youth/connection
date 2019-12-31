@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import PageWithSidemenu from '../../components/templates/PageWithSidemenu';
+import Layout from '../../components/Layout';
 
 import navlist from '../../data/navlist.json';
 
@@ -9,7 +9,7 @@ export default class MemberPage extends React.Component {
     const { dropdown }: any = navlist.find(nav => nav.name === 'about');
 
     return (
-      <PageWithSidemenu
+      <Layout
         title="회원"
         category="About"
         sidemenu={dropdown}

@@ -3,9 +3,9 @@ import windowSize from 'react-window-size';
 
 import styled from 'styled-components';
 
+import Base from '../components/organisms/Base';
 import Button from '../components/atoms/Button';
 import Carousel from '../components/organisms/Carousel';
-import Layout from '../components/organisms/Layout';
 import Header from '../components/templates/Header';
 import ListboxList from '../components/templates/ListboxList';
 
@@ -137,7 +137,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
 
   public render() {
     return (
-      <Layout>
+      <Base>
         <Header />
         <Carousel
           duration={3300}
@@ -156,7 +156,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
           </Info>
           <StyledButton>더 보러가기</StyledButton>
         </Section>
-      </Layout>
+      </Base>
     );
   }
 

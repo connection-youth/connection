@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Navbar from '../Navbar';
 
 import Title from '../atoms/Title';
-import Layout from '../organisms/Layout';
+import Base from '../organisms/Base';
 
 type PageProps = {
   name: string,
@@ -14,7 +14,7 @@ type PageProps = {
 
 const Page: React.FC<PageProps> = ({ name, path, children }) => {
   return (
-    <Layout>
+    <Base>
       <Navbar />
       <Wrap>
         <Title
@@ -25,7 +25,7 @@ const Page: React.FC<PageProps> = ({ name, path, children }) => {
           {children}
         </Main>
       </Wrap>
-    </Layout>
+    </Base>
   );
 };
 

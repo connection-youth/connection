@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import Footer from '../molecules/Footer';
 
-type LayoutProps = {
+type BaseProps = {
   children: React.ReactNode,
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Base: React.FC<BaseProps> = ({ children }) => {
   return (
     <Container>
       {children}
@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Base;
 
 const Container = styled.div`
 `;
