@@ -2,11 +2,14 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 type ContentProps = {
+  className?: string,
   children?: React.ReactNode,
 };
 
-const Content: React.FC<ContentProps> = ({ children }) => (
-  <Container>
+const Content: React.FC<ContentProps> = ({ className = '', children }) => (
+  <Container
+    className={className}
+  >
     {children}
   </Container>
 );
