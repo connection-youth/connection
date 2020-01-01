@@ -71,13 +71,30 @@ const Contact = {
     display: flex;
     justify-content: space-between;
     margin-top: 3.5rem;
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+      margin-top: 2rem;
+      padding: 0;
+    }
   `,
   List: styled.div`
     margin-top: 1rem;
     margin-left: 1rem;
   `,
+  Section: styled.div`
+    @media (max-width: 700px) {
+      width: 100%;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+  `,
   Title: styled.h1`
     padding: .4rem 1.2rem;
+    padding-bottom: .2rem;
     margin-bottom: .5rem;
     border-top: .5px solid #298fe3;
     border-bottom: .5px solid #d9d9d9;
@@ -93,10 +110,10 @@ const Contact = {
 };
 
 const Section = {
-  WithInfo: styled.div`
+  WithInfo: styled(Contact.Section)`
     width: 46%;
   `,
-  WithMap: styled.div`
+  WithMap: styled(Contact.Section)`
     width: 50%;
     height: 20rem;
   `,
