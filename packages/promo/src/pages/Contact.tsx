@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import Content from '../components/atoms/Content';
+import MapToDimigo from '../components/MapToDimigo';
 import Page from '../components/templates/Page';
 
 const contacts = [
@@ -50,11 +51,14 @@ const ContactPage: React.FC = () => {
                 icon={icon}
                 title={title}
                 value={value}
+                key={`contact-${idx}`}
               />
             )))}
           </Contact.List>
         </Section.WithInfo>
-        <Section.WithMap />
+        <Section.WithMap>
+          <MapToDimigo />
+        </Section.WithMap>
       </Contact.Content>
     </Page>
   );

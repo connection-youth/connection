@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "types": [
+      "daum.maps.d.ts"
+    ]
+  },
   "extends": "../../tsconfig.base.json",
   "include": [
     "types",

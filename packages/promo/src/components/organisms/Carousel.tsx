@@ -130,7 +130,7 @@ type CarouselProps = {
 
 type CarouselState = {
   current: number,
-  intervalID: number,
+  intervalID?: NodeJS.Timeout,
 };
 
 export default class Carousel extends React.Component<CarouselProps, CarouselState> {
@@ -139,7 +139,6 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
 
     this.state = {
       current: 0,
-      intervalID: 0,
     };
 
     this.refreshCarousel = this.refreshCarousel.bind(this);
@@ -192,7 +191,9 @@ export default class Carousel extends React.Component<CarouselProps, CarouselSta
   private refreshCarousel() {
     const { carousels, duration } = this.props;
     const { intervalID: outdatedID } = this.state;
-    clearInterval(outdatedID);
+    if (outdatedID) {
+      clearInterval(outdatedID);
+    }
 
     const intervalID = setInterval(() => {
       const { current } = this.state;
