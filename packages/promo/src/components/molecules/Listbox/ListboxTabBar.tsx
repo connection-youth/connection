@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Tab from '../../atoms/Tab';
 import { Link } from 'react-router-dom';
+import Tab from '../../atoms/Tab';
 
 type ListboxTabBarProps = {
   route: string;

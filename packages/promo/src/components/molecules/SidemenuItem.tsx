@@ -8,7 +8,9 @@ export type SidemenuItemProps = {
   onClick?: () => void,
 };
 
-const SidemenuItem: React.FC<SidemenuItemProps> = ({ name, route, selected = false, onClick }) => (
+const SidemenuItem: React.FC<SidemenuItemProps> = ({
+  name, selected = false, onClick,
+}) => (
   <Item
     selected={selected}
     onClick={onClick}
