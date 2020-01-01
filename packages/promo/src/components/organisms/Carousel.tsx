@@ -19,12 +19,12 @@ const Carousel: React.FC<CarouselProps> = ({ carousels, duration, isMobile = fal
   const [carousel, setCarousel] = useState<ICarousel>(carousels[0]);
   const [intervalID, setIntervalID] = useState<NodeJS.Timeout | undefined>(undefined);
 
-  const moveTo = (idx: number) => {
+  const moveTo = (idx: number): void => {
     setCurrent(idx);
     refreshCarousel();
   };
 
-  const refreshCarousel = () => {
+  const refreshCarousel = (): void => {
     const outdatedID = intervalID;
     if (outdatedID) {
       clearInterval(outdatedID);

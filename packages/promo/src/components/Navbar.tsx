@@ -1,9 +1,103 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../assets/full-logo.svg';
 import navlist from '../data/navlist.json';
+
+interface INavDropdown {
+  name: string;
+  route: string;
+}
+
+interface INavItem {
+  dropdown?: INavDropdown[];
+  name: string;
+  route: string;
+}
+
+interface IConditionalDropdown {
+  navitem: INavItem;
+  hover: string | null;
+}
+
+const ConditionalDropdown: React.FC<IConditionalDropdown> = ({ navitem, hover }) => {
+  if (navitem.dropdown && hover === navitem.name) {
+    return (
+      <NavDropdown>
+        {navitem.dropdown.map((item, key) => {
+          const { route, name } = item;
+          return (
+            <NavDropdownItem
+              to={route}
+              key={key}
+            >
+              {name}
+            </NavDropdownItem>
+          );
+        })}
+      </NavDropdown>
+    );
+  }
+  return (null);
+};
+
+interface INavbarItem extends IConditionalDropdown {
+  onHover: (item: INavItem) => void;
+}
+
+const NavbarItem: React.FC<INavbarItem> = ({ navitem, hover, onHover }) => {
+  return (
+    <NavItem>
+      <NavLink
+        to={navitem.route}
+        onMouseOverCapture={() => onHover(navitem)}
+      >
+        {navitem.name}
+      </NavLink>
+      <ConditionalDropdown
+        navitem={navitem}
+        hover={hover}
+      />
+    </NavItem>
+  );
+};
+
+const Navbar: React.FC = () => {
+  const [hover, setHover] = useState<string | null>(null);
+
+  const onHover = (item: INavItem): void => setHover(item.name);
+
+  const onLeave = (): void => setHover(null);
+
+  return (
+    <Container>
+      <Content>
+        <Brand>
+          <LogoWrap to="/">
+            <Logo src={logo} />
+          </LogoWrap>
+        </Brand>
+        <NavList
+          onMouseLeave={onLeave}
+        >
+          {navlist.map((navitem, idx) => {
+            return (
+              <NavbarItem
+                key={`navbar-item-${idx}`}
+                navitem={navitem}
+                hover={hover}
+                onHover={onHover}
+              />
+            );
+          })}
+        </NavList>
+      </Content>
+    </Container>
+  );
+};
+
+export default Navbar;
 
 const Container = styled.nav`
   width: 100%;
@@ -117,98 +211,3 @@ const NavDropdownItem = styled(Link)`
     border-bottom: solid .5px rgba(0, 0, 0, .16);
   }
 `;
-
-interface INavDropdown {
-  name: string;
-  route: string;
-}
-
-interface INavItem {
-  dropdown?: INavDropdown[];
-  name: string;
-  route: string;
-}
-
-type NavbarProps = {
-  navlist?: INavItem[],
-};
-
-type NavbarState = {
-  hover: string | null,
-};
-
-export default class Navbar extends React.Component<NavbarProps, NavbarState> {
-  constructor(props: NavbarProps) {
-    super(props);
-
-    this.state = {
-      hover: null,
-    };
-
-    this.onHover = this.onHover.bind(this);
-    this.onLeave = this.onLeave.bind(this);
-  }
-
-  public render() {
-    const { hover } = this.state;
-
-    return (
-      <Container>
-        <Content>
-          <Brand>
-            <LogoWrap to="/">
-              <Logo src={logo} />
-            </LogoWrap>
-          </Brand>
-          <NavList
-            onMouseLeave={this.onLeave}
-          >
-            {navlist.map((navitem, idx) => {
-              return (
-                <NavItem key={idx}>
-                  <NavLink
-                    to={navitem.route}
-                    onMouseOverCapture={() => this.onHover(navitem)}
-                  >
-                    {navitem.name}
-                  </NavLink>
-                  {(() => {
-                    if (navitem.dropdown && hover === navitem.name) {
-                      return (
-                        <NavDropdown>
-                          {navitem.dropdown.map((item, key) => {
-                            const { route, name } = item;
-                            return (
-                              <NavDropdownItem
-                                to={route}
-                                key={key}
-                              >
-                                {name}
-                              </NavDropdownItem>
-                            );
-                          })}
-                        </NavDropdown>
-                      );
-                    }
-                  })()}
-                </NavItem>
-              );
-            })}
-          </NavList>
-        </Content>
-      </Container>
-    );
-  }
-
-  private onHover(item: INavItem) {
-    this.setState({
-      hover: item.name,
-    });
-  }
-
-  private onLeave() {
-    this.setState({
-      hover: null,
-    });
-  }
-}
