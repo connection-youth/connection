@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import windowSize from 'react-window-size';
 
 import styled from 'styled-components';
@@ -18,6 +18,52 @@ const carousels = [
   { title: '2022 학생 주도 세미나', date: '2022.07.07' },
   { title: '2023 학생 주도 세미나', date: '2023.07.07' },
 ];
+
+type HomePageProps = {
+  windowWidth: number,
+  windowHeight: number,
+};
+
+const HomePage: React.FC<HomePageProps> = ({ windowWidth }) => {
+  const [mount, setMount] = useState<boolean>(false);
+
+  useEffect(
+    () => {
+      setMount(true);
+    },
+    [],
+  );
+
+  const isMobile = useCallback(
+    () => mount && windowWidth <= 500,
+    [mount, windowWidth],
+  );
+
+  return (
+    <Base>
+      <Header />
+      <Carousel
+        duration={3300}
+        carousels={carousels}
+        isMobile={isMobile()}
+      />
+      <ListboxList />
+      <Section>
+        <Illust src={illust} />
+        <Title>Connection?</Title>
+        <Desc>
+          커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
+        </Desc>
+        <Info>
+          커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+        </Info>
+        <StyledButton>더 보러가기</StyledButton>
+      </Section>
+    </Base>
+  );
+};
+
+export default windowSize(HomePage);
 
 const Wrapper = styled.section`
   width: 65%;
@@ -108,66 +154,3 @@ const Illust = styled.img`
     width: 100%;
   }
 `;
-
-type HomePageProps = {
-  windowWidth: number,
-  windowHeight: number,
-};
-
-type HomePageState = {
-  mount: boolean,
-};
-
-class HomePage extends React.Component<HomePageProps, HomePageState> {
-  constructor(props: HomePageProps) {
-    super(props);
-
-    this.state = {
-      mount: false,
-    };
-
-    this.isMobile = this.isMobile.bind(this);
-  }
-
-  public componentDidMount() {
-    this.setState({
-      mount: true,
-    });
-  }
-
-  public render() {
-    return (
-      <Base>
-        <Header />
-        <Carousel
-          duration={3300}
-          carousels={carousels}
-          isMobile={this.isMobile()}
-        />
-        <ListboxList />
-        <Section>
-          <Illust src={illust} />
-          <Title>Connection?</Title>
-          <Desc>
-            커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
-          </Desc>
-          <Info>
-            커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
-          </Info>
-          <StyledButton>더 보러가기</StyledButton>
-        </Section>
-      </Base>
-    );
-  }
-
-  private isMobile() {
-    const { windowWidth } = this.props;
-    const { mount } = this.state;
-    if (!mount) {
-      return false;
-    }
-    return windowWidth <= 500;
-  }
-}
-
-export default windowSize(HomePage);
