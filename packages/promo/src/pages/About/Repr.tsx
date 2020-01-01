@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 
 import navlist from '../../data/navlist.json';
 
-export default class RepPage extends React.Component {
+export default class ReprPage extends React.Component {
   public render() {
     const { dropdown }: any = navlist.find(nav => nav.name === 'about');
 

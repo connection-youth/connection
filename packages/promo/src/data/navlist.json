@@ -9,7 +9,7 @@
       },
       {
         "name": "대표 소개",
-        "route": "/about​/repr"
+        "route": "/about/repr"
       },
       {
         "name": "조직도 및 직원",
@@ -45,11 +45,11 @@
   },
   {
     "name": "news",
-    "route": "/notice",
+    "route": "/news/notice",
     "dropdown": [
       {
         "name": "공지사항",
-        "route": "/notice"
+        "route": "/news/notice"
       },
       {
         "name": "소식",

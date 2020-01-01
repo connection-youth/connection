@@ -7,12 +7,12 @@ class Router extends React.Component {
   public render() {
     return (
       <div>
-        <Route exact={true} path="/" component={Home} />
+        <Route exact path="/" component={Home} />
 
         {/* 커넥션 소개 */}
         <Route exact path="/about" component={About.Info} />
         {/* 대표 소개 */}
-        <Route path="/about/rep" component={About.Rep} />
+        <Route path="/about/repr" component={About.Repr} />
         {/* 조직도 및 직원 */}
         <Route path="/about/org" component={About.Org} />
         {/* 자문위원 및 멘토 */}

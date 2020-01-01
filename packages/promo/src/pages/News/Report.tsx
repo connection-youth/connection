@@ -1,13 +1,19 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
-const Container = styled.div`
-`;
+import Layout from '../../components/Layout';
 
-export default class ReportPage extends React.Component {
-  public render() {
-    return (
-      <Container />
-    );
-  }
-}
+import navlist from '../../data/navlist.json';
+
+const ReportPage: React.FC = () => {
+  const { dropdown }: any = navlist.find(nav => nav.name === 'news');
+
+  return (
+    <Layout
+      title="보도자료"
+      category="News"
+      sidemenu={dropdown}
+    />
+  );
+};
+
+export default ReportPage;

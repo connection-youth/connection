@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 type ContentProps = {
-  children: React.ReactNode,
+  children?: React.ReactNode,
 };
 
 const Content: React.FC<ContentProps> = ({ children }) => (

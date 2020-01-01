@@ -1,2 +1,7 @@
-export { default as Form } from './Form';
-export { default as Info } from './Info';
+import Form from './Form';
+import Info from './Info';
+
+export default {
+  Form,
+  Info,
+};

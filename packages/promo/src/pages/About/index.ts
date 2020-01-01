@@ -1,6 +1,15 @@
-export { default as Info } from './Info';
-export { default as Member } from './Member';
-export { default as Mentor } from './Mentor';
-export { default as Org } from './Org';
-export { default as Partners } from './Partners';
-export { default as Rep } from './Rep';
+import Info from './Info';
+import Member from './Member';
+import Mentor from './Mentor';
+import Org from './Org';
+import Partners from './Partners';
+import Repr from './Repr';
+
+export default {
+  Info,
+  Member,
+  Mentor,
+  Org,
+  Partners,
+  Repr,
+};

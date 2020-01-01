@@ -1,5 +1,13 @@
-export { default as Event } from './Event';
-export { default as External } from './External';
-export { default as News } from './News';
-export { default as Notice } from './Notice';
-export { default as Report } from './Report';
+import Event from './Event';
+import External from './External';
+import News from './News';
+import Notice from './Notice';
+import Report from './Report';
+
+export default {
+  Event,
+  External,
+  News,
+  Notice,
+  Report,
+};

@@ -1,13 +1,17 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
-const Container = styled.div`
-`;
+import Content from '../components/atoms/Content';
+import Page from '../components/templates/Page';
 
-export default class ContactPage extends React.Component {
-  public render() {
-    return (
-      <Container />
-    );
-  }
-}
+const ContactPage: React.FC = () => {
+  return (
+    <Page
+      name="Contact Us"
+      path="Contact Us"
+    >
+      <Content />
+    </Page>
+  );
+};
+
+export default ContactPage;
