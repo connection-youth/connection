@@ -1,7 +1,96 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import DefaultWelcome, { MobileWelcome } from '../molecules/Welcome';
+
+interface ICarousel {
+  title: string;
+  date: string;
+}
+
+type CarouselProps = {
+  carousels: ICarousel[],
+  duration: number,
+  isMobile?: boolean;
+};
+
+const Carousel: React.FC<CarouselProps> = ({ carousels, duration, isMobile = false }) => {
+  const [current, setCurrent] = useState<number>(0);
+  const [carousel, setCarousel] = useState<ICarousel>(carousels[0]);
+  const [intervalID, setIntervalID] = useState<NodeJS.Timeout | undefined>(undefined);
+
+  const moveTo = (idx: number) => {
+    setCurrent(idx);
+    refreshCarousel();
+  };
+
+  const refreshCarousel = () => {
+    const outdatedID = intervalID;
+    if (outdatedID) {
+      clearInterval(outdatedID);
+    }
+
+    setIntervalID(
+      setInterval(
+        () => {
+          setCurrent(
+            prevCurrent =>
+            (prevCurrent < carousels.length - 1) ?
+            prevCurrent + 1 : 0,
+          );
+        },
+        duration,
+      ),
+    );
+  };
+
+  useEffect(
+    refreshCarousel,
+    [],
+  );
+
+  useEffect(
+    () => {
+      setCarousel(carousels[current]);
+    },
+    [carousels, current],
+  );
+
+  return (
+    <Wrapper>
+      <Container>
+        <Image src={require(`../../assets/carousel/${current + 1}.png`)} />
+        <ImageCover>
+          <Content>
+            <DefaultWelcome isMobile={isMobile} />
+            <Meta>
+              <MetaTitle>
+                {carousel.title}
+              </MetaTitle>
+              <MetaDate>
+                {carousel.date}
+              </MetaDate>
+              <Controller>
+                {[...Array(carousels.length)].map((_, idx) => {
+                  return (
+                    <Circle
+                      key={`circle-${idx}`}
+                      current={idx === current}
+                      onClick={() => moveTo(idx)}
+                    />
+                  );
+                })}
+              </Controller>
+            </Meta>
+          </Content>
+        </ImageCover>
+      </Container>
+      <MobileWelcome isMobile={isMobile} />
+    </Wrapper>
+  );
+};
+
+export default Carousel;
 
 const Wrapper = styled.div`
 `;
@@ -116,102 +205,3 @@ const Circle = styled.figure<CircleProps>`
     background-color: #298fe3;
   `};
 `;
-
-interface ICarousel {
-  title: string;
-  date: string;
-}
-
-type CarouselProps = {
-  duration: number,
-  carousels: ICarousel[],
-  isMobile: boolean;
-};
-
-type CarouselState = {
-  current: number,
-  intervalID?: NodeJS.Timeout,
-};
-
-export default class Carousel extends React.Component<CarouselProps, CarouselState> {
-  constructor(props: CarouselProps) {
-    super(props);
-
-    this.state = {
-      current: 0,
-    };
-
-    this.refreshCarousel = this.refreshCarousel.bind(this);
-    this.moveTo = this.moveTo.bind(this);
-  }
-
-  public componentDidMount() {
-    this.refreshCarousel();
-  }
-
-  public render() {
-    const { carousels, isMobile = false } = this.props;
-    const { current } = this.state;
-    const carousel = carousels[current];
-
-    return (
-      <Wrapper>
-        <Container>
-          <Image src={require(`../../assets/carousel/${current + 1}.png`)} />
-          <ImageCover>
-            <Content>
-              <DefaultWelcome isMobile={isMobile} />
-              <Meta>
-                <MetaTitle>
-                  {carousel.title}
-                </MetaTitle>
-                <MetaDate>
-                  {carousel.date}
-                </MetaDate>
-                <Controller>
-                  {[...Array(carousels.length)].map((_, idx) => {
-                    return (
-                      <Circle
-                        key={`circle-${idx}`}
-                        current={idx === current}
-                        onClick={() => this.moveTo(idx)}
-                      />
-                    );
-                  })}
-                </Controller>
-              </Meta>
-            </Content>
-          </ImageCover>
-        </Container>
-        <MobileWelcome isMobile={isMobile} />
-      </Wrapper>
-    );
-  }
-
-  private refreshCarousel() {
-    const { carousels, duration } = this.props;
-    const { intervalID: outdatedID } = this.state;
-    if (outdatedID) {
-      clearInterval(outdatedID);
-    }
-
-    const intervalID = setInterval(() => {
-      const { current } = this.state;
-      this.setState(prevState => ({
-        current: (current < carousels.length - 1) ?
-          prevState.current + 1 : 0,
-      }));
-    },                             duration);
-
-    this.setState({
-      intervalID,
-    });
-  }
-
-  private moveTo(idx: number) {
-    this.setState({
-      current: idx,
-    });
-    this.refreshCarousel();
-  }
-}
