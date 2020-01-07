@@ -18,4 +18,6 @@ const Container = styled.footer`
   font-size: 1rem;
   line-height: 1.33;
   color: #ffffff;
+  position: absolute;
+  bottom: 0;
 `;

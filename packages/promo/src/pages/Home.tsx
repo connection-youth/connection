@@ -4,7 +4,7 @@ import windowSize from 'react-window-size';
 import styled from 'styled-components';
 
 import Button from '../components/atoms/Button';
-import Base from '../components/organisms/Base';
+import Footer from '../components/molecules/Footer';
 import Carousel from '../components/organisms/Carousel';
 import Header from '../components/templates/Header';
 import ListboxList from '../components/templates/ListboxList';
@@ -40,30 +40,44 @@ const HomePage: React.FC<HomePageProps> = ({ windowWidth }) => {
   );
 
   return (
-    <Base>
-      <Header />
-      <Carousel
-        duration={3300}
-        carousels={carousels}
-        isMobile={isMobile()}
-      />
-      <ListboxList />
-      <Section>
-        <Illust src={illust} />
-        <Title>Connection?</Title>
-        <Desc>
-          커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
-        </Desc>
-        <Info>
-          커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
-        </Info>
-        <StyledButton>더 보러가기</StyledButton>
-      </Section>
-    </Base>
+    <Container>
+      <Content>
+        <Header />
+        <Carousel
+          duration={3300}
+          carousels={carousels}
+          isMobile={isMobile()}
+        />
+        <ListboxList />
+        <Section>
+          <Illust src={illust} />
+          <Title>Connection?</Title>
+          <Desc>
+            커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
+          </Desc>
+          <Info>
+            커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+          </Info>
+          <StyledButton>더 보러가기</StyledButton>
+        </Section>
+      </Content>
+      <Footer />
+    </Container>
   );
 };
 
 export default windowSize(HomePage);
+
+// todo: wrap as component with container, content
+
+const Container = styled.div`
+  position: relative;
+  min-height: 100vh;
+`;
+
+const Content = styled.div`
+  padding-bottom: 5rem;
+`;
 
 const Wrapper = styled.section`
   width: 65%;
