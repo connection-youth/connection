@@ -1,7 +1,6 @@
-import * as React from 'react';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+export const Button = styled.button`
   cursor: pointer;
   display: inline-flex;
   overflow: hidden;
@@ -25,22 +24,5 @@ const StyledButton = styled.button`
     padding: .4rem 2.5rem;
   }
 `;
-
-type ButtonProps = {
-  children: React.ReactNode,
-  className?: string,
-  onClick?: () => void,
-};
-
-const Button: React.FC<ButtonProps> = ({ children, className = '', onClick }) => {
-  return (
-    <StyledButton
-      className={className}
-      onClick={onClick}
-    >
-      {children}
-    </StyledButton>
-  );
-};
 
 export default Button;

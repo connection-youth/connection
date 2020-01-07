@@ -1,25 +1,10 @@
-import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 type CircleProps = {
-  className?: string,
-  size: number,
-};
-
-const Circle: React.FC<CircleProps> = ({ className, size }) => (
-  <Figure
-    className={className}
-    size={size}
-  />
-);
-
-export default Circle;
-
-type FigureProps = {
   size: number;
 };
 
-const Figure = styled.figure<FigureProps>`
+const Circle = styled.figure<CircleProps>`
   display: inline-block;
   vertical-align: text-top;
   border-radius: 50%;
@@ -30,3 +15,5 @@ const Figure = styled.figure<FigureProps>`
     height: ${size}px;
   `};
 `;
+
+export default Circle;
