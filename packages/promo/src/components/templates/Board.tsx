@@ -29,6 +29,24 @@ const Board: React.FC<BoardProps> = () => {
           onChange={onChangeQuery}
         />
       </Filter>
+      <Content>
+        <Total>전체 132건</Total>
+        <Table.Container>
+          <Table.Head>
+            <Table.Row>
+              {['번호', '제목', '카테고리', '첨부', '등록자', '등록일', '조회수']
+                .map((heading, idx) => (
+                  <Table.Heading
+                    key={`heading-${idx}`}
+                  >
+                    {heading}
+                  </Table.Heading>
+                )
+              )}
+            </Table.Row>
+          </Table.Head>
+        </Table.Container>
+      </Content>
     </Container>
   );
 };
@@ -60,3 +78,54 @@ const StyledSearch = styled(Search)`
   width: 300px;
   margin-left: 1px;
 `;
+
+const Content = styled.div`
+`;
+
+const Total = styled.p`
+  font-size: .85rem;
+  margin: 0.5rem 0;
+  margin-top: 1rem;
+  color: black;
+`;
+
+const Table = {
+  Container: styled.table`
+    width: 100%;
+    font-size: .8rem;
+    color: #575757;
+  `,
+  Head: styled.thead`
+    width: 100%;
+    background-color: #f2f2f2;
+    border-top: .5px solid #707070;
+    border-bottom: .5px solid #d9d9d9;
+  `,
+  Heading: styled.th`
+    padding: .5rem 0;
+    text-align: center;
+    font-weight: 600;
+
+    &:first-child {
+      padding-left: .3rem;
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+    }
+
+    &:nth-child(4) {
+      width: 8%;
+    }
+
+    &:nth-child(5) {
+      width: 10%;
+    }
+
+    &:last-child {
+      padding-right: .3rem;
+    }
+  `,
+  Row: styled.tr`
+  `,
+};

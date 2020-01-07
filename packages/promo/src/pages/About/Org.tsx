@@ -186,7 +186,7 @@ const Item = {
     color: #575757;
     margin-top: .8rem;
     font-size: .9rem;
-    font-weight: 500;
+    font-weight: 600;
   `,
   Position: styled.span`
     color: #858585;
