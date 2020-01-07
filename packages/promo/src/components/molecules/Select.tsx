@@ -2,14 +2,20 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 type SelectProps = {
-  className: string,
-  options: string[],
+  className?: string;
+  name?: string;
+  options: string[];
 };
 
-const Select: React.FC<SelectProps> = ({ className, options }) => {
+const Select: React.FC<SelectProps> = ({
+  className = '',
+  name = '',
+  options,
+}) => {
   return (
     <Wrapper className={className}>
       <StyledSelect>
+        {name ? <Option disabled value="" selected>{name}</Option> : (null)}
         {options.map((option, idx) => (
           <Option key={`option-${idx}`}>
             {option}

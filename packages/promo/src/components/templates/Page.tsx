@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import Navbar from '../Navbar';
 
-import Title from '../atoms/Title';
 import Footer from '../molecules/Footer';
+import Title from '../molecules/Title';
 
 type PageProps = {
   name: string,
