@@ -50,4 +50,5 @@ const Circle = styled.figure`
   height: 8px;
   border-radius: 50%;
   background-color: #298fe3;
+  margin-left: 5px;
 `;
