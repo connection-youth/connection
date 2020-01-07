@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import Section from '../../components/templates/Section';
 
+import employeeData from '../../data/employees.json';
 import organizationData from '../../data/organization.json';
 
 const organizations = organizationData as any;
+const employees = employeeData as any;
 
 const OrgPage: React.FC = () => (
   <Layout
@@ -63,6 +65,28 @@ const OrgPage: React.FC = () => (
       title="직원"
       desc="커넥션의 소중한 가족들입니다."
     />
+    <Employees.Container>
+      {employees.map((item: any, idx: number) => (
+        <Item.Container
+          key={`emp-${idx}`}
+        >
+          <Item.Image
+            src={item.image ? require(`../../assets/profiles/${item.name}.jpg`) : ''}
+          />
+          <Item.Name>
+            {item.name}
+          </Item.Name>
+          <Item.Position>
+            {item.position}
+          </Item.Position>
+          <Item.Email
+            href={`mailto:${item.email}`}
+          >
+            {item.email}
+          </Item.Email>
+        </Item.Container>
+      ))}
+    </Employees.Container>
   </Layout>
 );
 
@@ -123,5 +147,54 @@ const Chart = {
     display: flex;
     justify-content: space-between;
     align-items: self-end;
+  `,
+};
+
+const Employees = {
+  Container: styled.div`
+    margin: 2rem 1.5rem;
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+  `,
+};
+
+const Item = {
+  Container: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .8rem 0;
+  `,
+  Email: styled.a`
+    color: #858585;
+    font-size: .8rem;
+    line-height: 1;
+    margin-top: .2rem;
+    text-decoration: none;
+    cursor: pointer;
+  `,
+  Image: styled.img`
+    height: 98px;
+    width: 98px;
+    border-radius: 49px;
+    border: solid .5px #707070;
+    border: solid 1px rgba(112, 112, 112, .5);
+  `,
+  Name: styled.span`
+    color: #575757;
+    margin-top: .8rem;
+    font-size: .9rem;
+    font-weight: 500;
+  `,
+  Position: styled.span`
+    color: #858585;
+    font-size: .8rem;
+    line-height: 1;
+    margin-top: .5rem;
+    width: inherit;
+    word-break: keep-all;
+    text-align: center;
   `,
 };

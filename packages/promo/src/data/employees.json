@@ -1,0 +1,79 @@
+
+[
+  {
+    "name": "이제우",
+    "position": "대표",
+    "email": "kuzeceo@kuzeent.com",
+    "image": true
+  },
+  {
+    "name": "여동엽",
+    "position": "부대표",
+    "email": "dongyeop@lukasit.kr"
+  },
+  {
+    "name": "이수현",
+    "position": "이사"
+  },
+  {
+    "name": "이원준",
+    "position": "이사"
+  },
+  {
+    "name": "박재성",
+    "position": "이사"
+  },
+  {
+    "name": "김상민",
+    "position": "운영부 부장",
+    "email": "plantstoen@gmail.com"
+  },
+  {
+    "name": "여준호",
+    "position": "운영부 커뮤니티 운영팀 팀장",
+    "email": "hanaro0704@gmail.com",
+    "image": true
+  },
+  {
+    "name": "오영준",
+    "position": "운영부 대외협력팀 매니저",
+    "email": "0118oyj@gmail.com"
+  },
+  {
+    "name": "한원희",
+    "position": "행사부 부장"
+  },
+  {
+    "name": "오재호",
+    "position": "행사부 교육운영팀 팀장"
+  },
+  {
+    "name": "김수겸",
+    "position": "행사부 대회운영팀 팀장",
+    "email": "0606sg@gmail.com",
+    "image": true
+  },
+  {
+    "name": "이승현",
+    "position": "기술부 디자인팀 팀장"
+  },
+  {
+    "name": "김석영",
+    "position": "기술부 영상팀 팀장",
+    "email": "lotbell7223@naver.com"
+  },
+  {
+    "name": "김한표",
+    "position": "기술부 영상팀 팀장",
+    "email": "brianscience@naver.com",
+    "image": true
+  },
+  {
+    "name": "손지민",
+    "position": "기술부 개발팀 팀장"
+  },
+  {
+    "name": "박경민",
+    "position": "비즈쿨 학생창업협의회 담당자"
+  }
+]
