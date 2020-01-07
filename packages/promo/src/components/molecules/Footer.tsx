@@ -53,7 +53,7 @@ const Container = styled.footer`
   position: absolute;
   bottom: 0;
   align-items: flex-start;
-  font-family: SegoeUI;
+  font-family: 'SegoeUI';
   flex-direction: column;
 `;
 
@@ -72,7 +72,7 @@ const Top = styled.div`
 
 const Text = styled.span`
   position: relative;
-  font-family: SegoeUI;
+  font-family: 'SegoeUI';
   font-size: .9rem;
   font-weight: 300;
   line-height: 1.33;

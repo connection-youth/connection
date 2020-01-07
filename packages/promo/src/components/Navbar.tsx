@@ -167,7 +167,7 @@ const NavItem = styled.li`
   align-self: center;
   font-size: 1.2rem;
   display: inline-flex;
-  font-family: SegoeUI;
+  font-family: 'SegoeUI';
   text-transform: uppercase;
   margin-left: 3rem;
   cursor: pointer;
