@@ -1,13 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Search from '../molecules/Search';
 import Select from '../molecules/Select';
 
+interface IPost {
+  author: string;
+  category: string;
+  created: string;
+  file: string | null;
+  title: string;
+  views: number;
+}
+
+const examplePosts: IPost[] = [
+  {
+    author: '관리자',
+    category: '카테고리',
+    created: '2019-07-27',
+    file: null,
+    title: '커넥션 공지사항 커넥션 공지사항 커넥션 공지사항 커넥션 공지사항',
+    views: 2,
+  },
+  {
+    author: '관리자',
+    category: '카테고리',
+    created: '2019-07-27',
+    file: null,
+    title: '커넥션 공지사항 커넥션 공지사항 커넥션 공지사항 커넥션 공지사항',
+    views: 2,
+  },
+];
+
 type BoardProps = {};
 
 const Board: React.FC<BoardProps> = () => {
   const [query, setQuery] = useState<string>('');
+  const [posts, setPosts] = useState<IPost[]>([]);
+
+  useEffect(
+    () => {
+      setPosts(examplePosts);
+    },
+    [],
+  );
 
   const onChangeQuery = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value);
@@ -41,10 +77,39 @@ const Board: React.FC<BoardProps> = () => {
                   >
                     {heading}
                   </Table.Heading>
-                )
+                ),
               )}
             </Table.Row>
           </Table.Head>
+          <Table.Body>
+            {posts.map(({ author, category, created, file, title, views }: IPost, idx: number) => (
+              <Post.Container
+                key={`post-${idx}`}
+              >
+                <Post.Field>
+                  {idx + 1}
+                </Post.Field>
+                <Post.Field>
+                  {title}
+                </Post.Field>
+                <Post.Field>
+                  {category}
+                </Post.Field>
+                <Post.Field>
+                  {file ? '' : '-'}
+                </Post.Field>
+                <Post.Field>
+                  {author}
+                </Post.Field>
+                <Post.Field>
+                  {created}
+                </Post.Field>
+                <Post.Field>
+                  {views}
+                </Post.Field>
+              </Post.Container>
+            ))}
+          </Table.Body>
         </Table.Container>
       </Content>
     </Container>
@@ -90,9 +155,11 @@ const Total = styled.p`
 `;
 
 const Table = {
+  Body: styled.tbody`
+  `,
   Container: styled.table`
     width: 100%;
-    font-size: .8rem;
+    font-size: .78rem;
     color: #575757;
   `,
   Head: styled.thead`
@@ -127,5 +194,19 @@ const Table = {
     }
   `,
   Row: styled.tr`
+  `,
+};
+
+const Post = {
+  Container: styled.tr`
+    padding: .4rem 0;
+    text-align: center;
+    cursor: pointer;
+  `,
+  Field: styled.td`
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    border-bottom: .5px solid #d9d9d9;
+    text-align: center;
   `,
 };
