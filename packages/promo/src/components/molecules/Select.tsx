@@ -15,7 +15,7 @@ const Select: React.FC<SelectProps> = ({
   return (
     <Wrapper className={className}>
       <StyledSelect>
-        {name ? <Option disabled value="" selected>{name}</Option> : (null)}
+        {name && <Option value="" disabled selected>{name}</Option>}
         {options.map((option, idx) => (
           <Option key={`option-${idx}`}>
             {option}

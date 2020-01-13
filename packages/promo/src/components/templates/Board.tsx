@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Search from '../molecules/Search';
 import Select from '../molecules/Select';
+import Controller from '../organisms/Controller';
 
 interface IPost {
   author: string;
@@ -111,6 +112,9 @@ const Board: React.FC<BoardProps> = () => {
             ))}
           </Table.Body>
         </Table.Container>
+        <ControllerWrap>
+          <Controller />
+        </ControllerWrap>
       </Content>
     </Container>
   );
@@ -202,11 +206,21 @@ const Post = {
     padding: .4rem 0;
     text-align: center;
     cursor: pointer;
+
+    &:not(:last-child) {
+      border-bottom: .5px solid #d9d9d9;
+    }
   `,
   Field: styled.td`
     padding-top: .8rem;
     padding-bottom: .8rem;
-    border-bottom: .5px solid #d9d9d9;
     text-align: center;
   `,
 };
+
+const ControllerWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+`;
