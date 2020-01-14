@@ -11,6 +11,10 @@ export const Controller: React.FC = () => (
     >
       1
     </PageLink>
+    <PageLink>2</PageLink>
+    <PageLink>3</PageLink>
+    <PageLink>4</PageLink>
+    <PageLink>5</PageLink>
     <NextPost
       src={nextPostIcon}
     />
@@ -33,7 +37,7 @@ const RoundStyle = css`
 `;
 
 type PageLinkProps = {
-  current: boolean;
+  current?: boolean;
 };
 
 const PageLink = styled.span<PageLinkProps>`
@@ -42,9 +46,10 @@ const PageLink = styled.span<PageLinkProps>`
   border-radius: 12.5px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  line-height: 1.4;
 
-  ${({ current }) => current && css`
+  ${({ current = false }) => current && css`
     color: white;
     background-color: #298fe3;
   `};
