@@ -4,6 +4,17 @@ import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import Section from '../../components/templates/Section';
 
+interface IFormField {
+  name: string;
+  placeholder: string;
+}
+
+const firstRowFields: IFormField[] = [
+  { name: 'name', placeholder: '이름' },
+  { name: 'tel', placeholder: "전화번호('-' 제외하고 입력)" },
+  { name: 'email', placeholder: '이메일' },
+];
+
 const FormTitle: React.FC = () => (
   <Title>
     <span>커넥션</span>
@@ -26,7 +37,55 @@ const FormPage: React.FC = () => (
     <Section
       title={<FormTitle />}
       desc={<FormDesc />}
-    />
+    >
+      <Form>
+        <FormRow>
+          {firstRowFields.map((field: IFormField, idx: number) => (
+            <FormField
+              key={`first-row-field-${idx}`}
+            >
+              <FormKey>
+                {field.placeholder}
+              </FormKey>
+              <FormInput
+                placeholder={field.placeholder}
+              />
+            </FormField>
+          ))}
+        </FormRow>
+        <FormRow>
+          <FormSelect>
+            <option
+              value=""
+              disabled
+              selected
+            >
+              사는지역
+            </option>
+          </FormSelect>
+          <FormSelect>
+            <option
+              value=""
+              disabled
+              selected
+            >
+              관심분야
+            </option>
+          </FormSelect>
+          <FormField>
+            <FormKey>
+              학교
+            </FormKey>
+            <FormInput
+              placeholder="학교"
+            />
+          </FormField>
+        </FormRow>
+        <FormTextarea placeholder="이력" />
+        <FormTextarea placeholder="자기소개" />
+        <FormTextarea placeholder="바라는 점" />
+      </Form>
+    </Section>
   </Layout>
 );
 
@@ -44,4 +103,25 @@ const Title = styled.h2`
 const Desc = styled.p`
   margin-top: .3rem;
   font-size: .8rem;
+`;
+
+const Form = styled.form`
+`;
+
+const FormRow = styled.div`
+`;
+
+const FormField = styled.div`
+`;
+
+const FormKey = styled.span`
+`;
+
+const FormInput = styled.input`
+`;
+
+const FormSelect = styled.select`
+`;
+
+const FormTextarea = styled.textarea`
 `;

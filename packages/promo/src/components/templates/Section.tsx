@@ -16,8 +16,8 @@ const Section: React.FC<SectionProps> = ({ title, desc, children }) => (
           {React.isValidElement(desc) ? desc : <Desc>{desc}</Desc>}
         </>
       ))()}
-      {children}
     </Header>
+    {children}
   </Container>
 );
 
