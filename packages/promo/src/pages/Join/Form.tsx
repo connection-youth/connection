@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '../../components/Layout';
@@ -40,64 +40,77 @@ const FormDesc: React.FC = () => (
   </Desc>
 );
 
-const FormPage: React.FC = () => (
-  <Layout
-    title="가입 신청"
-    category="Join"
-  >
-    <Section
-      title={<FormTitle />}
-      desc={<FormDesc />}
+const FormPage: React.FC = () => {
+  const [filename, setFilename] = useState<string>('');
+
+  return (
+    <Layout
+      title="가입 신청"
+      category="Join"
     >
-      <Form>
-        <FormRow>
-          {FormFields[0].map((field: IFormField, idx: number) => (
-            <FormField
-              key={`first-row-field-${idx}`}
-            >
+      <Section
+        title={<FormTitle />}
+        desc={<FormDesc />}
+      >
+        <Form>
+          <FormRow>
+            {FormFields[0].map((field: IFormField, idx: number) => (
+              <FormField
+                key={`first-row-field-${idx}`}
+              >
+                <FormKey>
+                  {field.placeholder}
+                </FormKey>
+                <FormInput
+                  placeholder={field.placeholder}
+                />
+              </FormField>
+            ))}
+          </FormRow>
+          <FormRow>
+            {FormFields[1].map((field: IFormField, idx: number) => (
+              <FormSelect
+                key={`second-row-field-${idx}`}
+                defaultValue=""
+              >
+                <option
+                  value=""
+                  disabled
+                >
+                  {field.placeholder}
+                </option>
+              </FormSelect>
+            ))}
+            <FormField>
               <FormKey>
-                {field.placeholder}
+                학교
               </FormKey>
               <FormInput
-                placeholder={field.placeholder}
+                placeholder="학교"
               />
             </FormField>
-          ))}
-        </FormRow>
-        <FormRow>
-          {FormFields[1].map((field: IFormField, idx: number) => (
-            <FormSelect
-              key={`second-row-field-${idx}`}
-              defaultValue=""
-            >
-              <option
-                value=""
-                disabled
-              >
-                {field.placeholder}
-              </option>
-            </FormSelect>
-          ))}
-          <FormField>
-            <FormKey>
-              학교
-            </FormKey>
-            <FormInput
-              placeholder="학교"
+          </FormRow>
+          {FormFields[2].map((field: IFormField, idx: number) => (
+            <FormTextarea
+              key={`last-row-field-${idx}`}
+              placeholder={field.placeholder}
+              rows={1}
             />
-          </FormField>
-        </FormRow>
-        {FormFields[2].map((field: IFormField, idx: number) => (
-          <FormTextarea
-            key={`last-row-field-${idx}`}
-            placeholder={field.placeholder}
-            rows={1}
-          />
-        ))}
-      </Form>
-    </Section>
-  </Layout>
-);
+          ))}
+        </Form>
+        <UploadContainer>
+          <UploadLabel>
+            포트폴리오 업로드 (선택 사항)
+          </UploadLabel>
+          <UploadButton />
+          <UploadFileName>
+            {filename}
+          </UploadFileName>
+        </UploadContainer>
+      </Section>
+    </Layout>
+  );
+};
 
 export default FormPage;
 
@@ -173,4 +186,16 @@ const FormTextarea = styled.textarea`
     outline: none;
     border-bottom-color: #298fe3;
   }
+`;
+
+const UploadContainer = styled.div`
+`;
+
+const UploadLabel = styled.p`
+`;
+
+const UploadButton = styled.button`
+`;
+
+const UploadFileName = styled.span`
 `;
