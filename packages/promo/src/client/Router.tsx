@@ -15,8 +15,6 @@ const Router: React.FC = () => (
     <Route path="/about/org" component={About.Org} />
     {/* 자문위원 및 멘토 */}
     <Route path="/about/mentor" component={About.Mentor} />
-    {/* 회원 */}
-    <Route path="/about/members" component={About.Member} />
     {/* 파트너 목록 */}
     <Route path="/about/partners" component={About.Partners} />
 
@@ -33,8 +31,6 @@ const Router: React.FC = () => (
     <Route path="/news/event" component={News.Event} />
     {/* 보도자료 */}
     <Route path="/news/report" component={News.Report} />
-    {/* 외부공시 */}
-    <Route path="/news/external" component={News.External} />
 
     {/* 연락 */}
     <Route exact path="/contact" component={Contact} />

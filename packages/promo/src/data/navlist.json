@@ -20,10 +20,6 @@
         "route": "/about/mentor"
       },
       {
-        "name": "회원",
-        "route": "/about/members"
-      },
-      {
         "name": "파트너 목록",
         "route": "/about/partners"
       }
@@ -57,7 +53,7 @@
       },
       {
         "name": "외부 행사 정보",
-        "route": "/news/event"
+        "newtab": "https://www.youth.go.kr/youth"
       },
       {
         "name": "보도자료",

@@ -40,8 +40,40 @@ const FormDesc: React.FC = () => (
   </Desc>
 );
 
+interface IFormModel {
+  name: string;
+  tel: string;
+  email: string;
+  area: string;
+  concern: string;
+  record: string;
+  intro: string;
+  wish: string;
+  [key: string]: string;
+}
+
+const defaultFormModel = {
+  area: '',
+  concern: '',
+  email: '',
+  intro: '',
+  name: '',
+  record: '',
+  tel: '',
+  wish: '',
+};
+
 const FormPage: React.FC = () => {
   const [filename, setFilename] = useState<string>('');
+  const [formModel, setFormModel] = useState<IFormModel>(defaultFormModel);
+
+  const onChangeInputText = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setFormModel((prevState: IFormModel) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
 
   return (
     <Layout
@@ -62,6 +94,9 @@ const FormPage: React.FC = () => {
                   {field.placeholder}
                 </FormKey>
                 <FormInput
+                  value={formModel[field.name]}
+                  // tslint:disable-next-line
+                  onChange={(event) => onChangeInputText(field.name, event)}
                   placeholder={field.placeholder}
                 />
               </FormField>

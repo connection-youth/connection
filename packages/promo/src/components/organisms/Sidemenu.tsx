@@ -5,22 +5,31 @@ import styled from 'styled-components';
 import SidemenuItem, { SidemenuItemProps } from '../molecules/SidemenuItem';
 
 export type SidemenuProps = {
-  title: string,
-  sidemenu: [SidemenuItemProps],
+  title: string;
+  sidemenu: [SidemenuItemProps];
 };
 
 const Sidemenu: React.FC<SidemenuProps & RouteComponentProps> = ({ title, sidemenu, history }) => (
   <Container>
     <List>
       {sidemenu.map((menu, idx) => {
-        const { name, route } = menu;
+        const { name, route = '', newtab } = menu;
+        const onClickSidemenuItem = () => {
+          if (newtab) {
+            const win = window.open(newtab, '_blank');
+            win?.focus();
+          } else {
+            history.push(route);
+          }
+        };
+
         return (
           <SidemenuItem
             name={name}
             route={route}
             key={`sidemenu-${idx}`}
             selected={name === title}
-            onClick={() => history.push(route)}
+            onClick={onClickSidemenuItem}
           />
         );
       })}

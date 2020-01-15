@@ -2,10 +2,11 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 export type SidemenuItemProps = {
-  name: string,
-  route: string,
-  selected?: boolean,
-  onClick?: () => void,
+  name: string;
+  route?: string;
+  newtab?: string;
+  selected?: boolean;
+  onClick?: () => void;
 };
 
 const SidemenuItem: React.FC<SidemenuItemProps> = ({

@@ -7,7 +7,8 @@ import navlist from '../data/navlist.json';
 
 interface INavDropdown {
   name: string;
-  route: string;
+  route?: string;
+  newtab?: string;
 }
 
 interface INavItem {
@@ -26,11 +27,19 @@ const ConditionalDropdown: React.FC<IConditionalDropdown> = ({ navitem, hover })
     return (
       <NavDropdown>
         {navitem.dropdown.map((item, key) => {
-          const { route, name } = item;
+          const { route = '', name, newtab } = item;
+          const onClickNav = () => {
+            if (newtab) {
+              const win = window.open(newtab, '_blank');
+              win?.focus();
+            }
+          };
+
           return (
             <NavDropdownItem
               to={route}
               key={key}
+              onClick={onClickNav}
             >
               {name}
             </NavDropdownItem>
