@@ -9,10 +9,21 @@ interface IFormField {
   placeholder: string;
 }
 
-const firstRowFields: IFormField[] = [
-  { name: 'name', placeholder: '이름' },
-  { name: 'tel', placeholder: "전화번호('-' 제외하고 입력)" },
-  { name: 'email', placeholder: '이메일' },
+const FormFields: IFormField[][] = [
+  [
+    { name: 'name', placeholder: '이름' },
+    { name: 'tel', placeholder: "전화번호('-' 제외하고 입력)" },
+    { name: 'email', placeholder: '이메일' },
+  ],
+  [
+    { name: 'area', placeholder: '사는지역' },
+    { name: 'concern', placeholder: '관심분야' },
+  ],
+  [
+    { name: 'record', placeholder: '이력' },
+    { name: 'intro', placeholder: '자기소개' },
+    { name: 'wish', placeholder: '바라는 점' },
+  ],
 ];
 
 const FormTitle: React.FC = () => (
@@ -40,7 +51,7 @@ const FormPage: React.FC = () => (
     >
       <Form>
         <FormRow>
-          {firstRowFields.map((field: IFormField, idx: number) => (
+          {FormFields[0].map((field: IFormField, idx: number) => (
             <FormField
               key={`first-row-field-${idx}`}
             >
@@ -54,26 +65,19 @@ const FormPage: React.FC = () => (
           ))}
         </FormRow>
         <FormRow>
-          <FormSelect
-            defaultValue=""
-          >
-            <option
-              value=""
-              disabled
+          {FormFields[1].map((field: IFormField, idx: number) => (
+            <FormSelect
+              key={`second-row-field-${idx}`}
+              defaultValue=""
             >
-              사는지역
-            </option>
-          </FormSelect>
-          <FormSelect
-            defaultValue=""
-          >
-            <option
-              value=""
-              disabled
-            >
-              관심분야
-            </option>
-          </FormSelect>
+              <option
+                value=""
+                disabled
+              >
+                {field.placeholder}
+              </option>
+            </FormSelect>
+          ))}
           <FormField>
             <FormKey>
               학교
@@ -83,18 +87,13 @@ const FormPage: React.FC = () => (
             />
           </FormField>
         </FormRow>
-        <FormTextarea
-          placeholder="이력"
-          rows={1}
-        />
-        <FormTextarea
-          placeholder="자기소개"
-          rows={1}
-        />
-        <FormTextarea
-          placeholder="바라는 점"
-          rows={1}
-        />
+        {FormFields[2].map((field: IFormField, idx: number) => (
+          <FormTextarea
+            key={`last-row-field-${idx}`}
+            placeholder={field.placeholder}
+            rows={1}
+          />
+        ))}
       </Form>
     </Section>
   </Layout>
@@ -168,6 +167,7 @@ const FormTextarea = styled.textarea`
   border-bottom: 1.3px solid #a1a1a1;
   resize: none;
   font-family: "Noto Sans KR", sans-serif !important;
+  margin-bottom: 1.5rem;
 
   &:focus {
     outline: none;
