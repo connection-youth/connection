@@ -54,20 +54,22 @@ const FormPage: React.FC = () => (
           ))}
         </FormRow>
         <FormRow>
-          <FormSelect>
+          <FormSelect
+            defaultValue=""
+          >
             <option
               value=""
               disabled
-              selected
             >
               사는지역
             </option>
           </FormSelect>
-          <FormSelect>
+          <FormSelect
+            defaultValue=""
+          >
             <option
               value=""
               disabled
-              selected
             >
               관심분야
             </option>
@@ -81,9 +83,18 @@ const FormPage: React.FC = () => (
             />
           </FormField>
         </FormRow>
-        <FormTextarea placeholder="이력" />
-        <FormTextarea placeholder="자기소개" />
-        <FormTextarea placeholder="바라는 점" />
+        <FormTextarea
+          placeholder="이력"
+          rows={1}
+        />
+        <FormTextarea
+          placeholder="자기소개"
+          rows={1}
+        />
+        <FormTextarea
+          placeholder="바라는 점"
+          rows={1}
+        />
       </Form>
     </Section>
   </Layout>
@@ -106,22 +117,60 @@ const Desc = styled.p`
 `;
 
 const Form = styled.form`
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const FormRow = styled.div`
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 `;
 
 const FormField = styled.div`
+  width: 30%;
 `;
 
 const FormKey = styled.span`
+  color: #298fe3;
+  font-size: .6rem;
 `;
 
 const FormInput = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  font-size: .9rem;
+  padding: .3rem;
+  line-height: 1.43;
+  border: 0;
+  border-bottom: 1.3px solid #a1a1a1;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: #298fe3;
+  }
 `;
 
 const FormSelect = styled.select`
 `;
 
 const FormTextarea = styled.textarea`
+  width: 85%;
+  box-sizing: border-box;
+  text-size-adjust: none;
+  font-size: .9rem;
+  padding: .3rem;
+  line-height: 1.43;
+  border: 0;
+  border-bottom: 1.3px solid #a1a1a1;
+  resize: none;
+  font-family: "Noto Sans KR", sans-serif !important;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: #298fe3;
+  }
 `;
