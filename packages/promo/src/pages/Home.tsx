@@ -68,7 +68,9 @@ const HomePage: React.FC<HomePageProps> = ({ windowWidth }) => {
 
 export default windowSize(HomePage);
 
-// todo: wrap as component with container, content
+/**
+ * @todo: wrap as component with container, content
+ */
 
 const Container = styled.div`
   position: relative;

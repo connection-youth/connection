@@ -9,6 +9,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "yarn promo",
     "promo": "yarn workspace promo start",
     "lint:ts": "tslint packages/**/*.{ts,tsx} --fix"
   },

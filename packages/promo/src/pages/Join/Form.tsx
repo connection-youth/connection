@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import SelectSection from './SelectSection';
+
 import Layout from '../../components/Layout';
 import Section from '../../components/templates/Section';
 
@@ -25,13 +27,6 @@ const FormFields: IFormField[][] = [
     { name: 'wish', placeholder: '바라는 점' },
   ],
 ];
-
-const FormTitle: React.FC = () => (
-  <Title>
-    <span>커넥션</span>
-    {' '}멤버 가입 신청 페이지입니다.
-  </Title>
-);
 
 const FormDesc: React.FC = () => (
   <Desc>
@@ -64,8 +59,11 @@ const defaultFormModel = {
 };
 
 const FormPage: React.FC = () => {
+  const [network, setNetwork] = useState<string | undefined>();
   const [filename, setFilename] = useState<string>('');
   const [formModel, setFormModel] = useState<IFormModel>(defaultFormModel);
+
+  const onSelectNetwork = (id: string) => setNetwork(id);
 
   const onChangeInputText = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -75,11 +73,26 @@ const FormPage: React.FC = () => {
     }));
   };
 
+  /**
+   * @todo: apply useMemo hook
+   */
+
+  const FormTitle: React.FC = () => (
+    <Title>
+      <span>{network}</span>
+      {' '}멤버 가입 신청 페이지입니다.
+    </Title>
+  );
+
   return (
     <Layout
       title="가입 신청"
       category="Join"
     >
+      <SelectSection
+        current={network}
+        onClick={onSelectNetwork}
+      />
       <Section
         title={<FormTitle />}
         desc={<FormDesc />}
