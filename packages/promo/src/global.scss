@@ -6,3 +6,12 @@ body {
 body {
   margin: 0;
 }
+
+button,
+input,
+select {
+
+  &:focus {
+    outline: none;
+  }
+}
