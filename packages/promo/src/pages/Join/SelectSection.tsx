@@ -79,5 +79,5 @@ const Desc = styled.p`
 
 const NetworkList = styled.div`
   margin-top: 1rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3.5rem;
 `;

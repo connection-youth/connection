@@ -93,69 +93,80 @@ const FormPage: React.FC = () => {
         current={network}
         onClick={onSelectNetwork}
       />
-      <Section
-        title={<FormTitle />}
-        desc={<FormDesc />}
-      >
-        <Form>
-          <FormRow>
-            {FormFields[0].map((field: IFormField, idx: number) => (
-              <FormField
-                key={`first-row-field-${idx}`}
-              >
-                <FormKey>
-                  {field.placeholder}
-                </FormKey>
-                <FormInput
-                  value={formModel[field.name]}
-                  // tslint:disable-next-line
-                  onChange={(event) => onChangeInputText(field.name, event)}
+      {/**
+        * @todo: detach FormSection component
+        */}
+      {(() => {
+        if (!network) {
+          return (null);
+        }
+
+        return (
+          <Section
+            title={<FormTitle />}
+            desc={<FormDesc />}
+          >
+            <Form>
+              <FormRow>
+                {FormFields[0].map((field: IFormField, idx: number) => (
+                  <FormField
+                    key={`first-row-field-${idx}`}
+                  >
+                    <FormKey>
+                      {field.placeholder}
+                    </FormKey>
+                    <FormInput
+                      value={formModel[field.name]}
+                      // tslint:disable-next-line
+                      onChange={(event) => onChangeInputText(field.name, event)}
+                      placeholder={field.placeholder}
+                    />
+                  </FormField>
+                ))}
+              </FormRow>
+              <FormRow>
+                {FormFields[1].map((field: IFormField, idx: number) => (
+                  <FormSelect
+                    key={`second-row-field-${idx}`}
+                    defaultValue=""
+                  >
+                    <option
+                      value=""
+                      disabled
+                    >
+                      {field.placeholder}
+                    </option>
+                  </FormSelect>
+                ))}
+                <FormField>
+                  <FormKey>
+                    학교
+                  </FormKey>
+                  <FormInput
+                    placeholder="학교"
+                  />
+                </FormField>
+              </FormRow>
+              {FormFields[2].map((field: IFormField, idx: number) => (
+                <FormTextarea
+                  key={`last-row-field-${idx}`}
                   placeholder={field.placeholder}
+                  rows={1}
                 />
-              </FormField>
-            ))}
-          </FormRow>
-          <FormRow>
-            {FormFields[1].map((field: IFormField, idx: number) => (
-              <FormSelect
-                key={`second-row-field-${idx}`}
-                defaultValue=""
-              >
-                <option
-                  value=""
-                  disabled
-                >
-                  {field.placeholder}
-                </option>
-              </FormSelect>
-            ))}
-            <FormField>
-              <FormKey>
-                학교
-              </FormKey>
-              <FormInput
-                placeholder="학교"
-              />
-            </FormField>
-          </FormRow>
-          {FormFields[2].map((field: IFormField, idx: number) => (
-            <FormTextarea
-              key={`last-row-field-${idx}`}
-              placeholder={field.placeholder}
-              rows={1}
-            />
-          ))}
-        </Form>
-        <UploadContainer>
-          <UploadLabel>
-            포트폴리오 업로드 (선택 사항)
-          </UploadLabel>
-          <UploadButton />
-          <UploadFileName>
-            {filename}
-          </UploadFileName>
-        </UploadContainer>
-      </Section>
+              ))}
+            </Form>
+            <UploadContainer>
+              <UploadLabel>
+                포트폴리오 업로드 (선택 사항)
+              </UploadLabel>
+              <UploadButton />
+              <UploadFileName>
+                {filename}
+              </UploadFileName>
+            </UploadContainer>
+          </Section>
+        );
+      })()}
     </Layout>
   );
 };
@@ -237,6 +248,7 @@ const FormTextarea = styled.textarea`
 `;
 
 const UploadContainer = styled.div`
+  margin-bottom: 5rem;
 `;
 
 const UploadLabel = styled.p`
