@@ -25,8 +25,12 @@ const Router: React.FC = () => (
 
     {/* 소식 */}
     <Route exact path="/news" component={News.News} />
+
     {/* 공지사항 */}
-    <Route path="/news/notice" component={News.Notice} />
+    <Route exact path="/news/notice" component={News.Notice} />
+    {/* 공지사항 - 글 확인 */}
+    <Route path="/news/notice/view" component={News.NoticeView} />
+
     {/* 외부 행사 정보 */}
     <Route path="/news/event" component={News.Event} />
     {/* 보도자료 */}
