@@ -115,10 +115,12 @@ const Table = {
     color: #575757;
   `,
   Head: styled.thead`
+    border-top: 1px solid #707070;
   `,
   Row: styled.tr`
   `,
   Heading: styled.th`
+    background-color: #f2f2f2;
   `,
   Data: styled.td`
   `,

@@ -5,7 +5,12 @@ import Search from '../molecules/Search';
 import Select from '../molecules/Select';
 import Controller from '../organisms/Controller';
 
+/**
+ * @todo: merge IPost with IContent, proper struct declares
+ */
+
 interface IPost {
+  id?: number;
   author: string;
   category: string;
   created: string;
@@ -33,9 +38,12 @@ const examplePosts: IPost[] = [
   },
 ];
 
-type BoardProps = {};
+type BoardProps = {
+  onClick?: (id: number) => void;
+};
 
-const Board: React.FC<BoardProps> = () => {
+// tslint:disable-next-line:no-empty
+const Board: React.FC<BoardProps> = ({ onClick = () => {} }) => {
   const [query, setQuery] = useState<string>('');
   const [posts, setPosts] = useState<IPost[]>([]);
 
@@ -83,9 +91,15 @@ const Board: React.FC<BoardProps> = () => {
             </Table.Row>
           </Table.Head>
           <Table.Body>
-            {posts.map(({ author, category, created, file, title, views }: IPost, idx: number) => (
+            {posts.map((
+              {
+                id = 0, author, category, created, file, title, views,
+              }: IPost,
+              idx: number,
+            ) => (
               <Post.Container
                 key={`post-${idx}`}
+                onClick={() => onClick(id)}
               >
                 <Post.Field>
                   {idx + 1}
