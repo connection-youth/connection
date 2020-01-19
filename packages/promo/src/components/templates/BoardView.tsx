@@ -120,6 +120,7 @@ const Table = {
   Row: styled.tr`
   `,
   Heading: styled.th`
+    display: flex;
     background-color: #f2f2f2;
   `,
   Data: styled.td`
