@@ -128,7 +128,7 @@ const Content = styled.div`
 `;
 
 const Total = styled.p`
-  font-size: .85rem;
+  font-size: .9rem;
   margin: 0.5rem 0;
   margin-top: 1rem;
   color: black;
@@ -139,7 +139,7 @@ const Table = {
   `,
   Container: styled.table`
     width: 100%;
-    font-size: .78rem;
+    font-size: .9rem;
     color: #575757;
   `,
   Head: styled.thead`

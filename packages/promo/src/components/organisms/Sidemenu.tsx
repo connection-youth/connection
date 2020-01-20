@@ -41,7 +41,7 @@ export default withRouter<SidemenuProps & RouteComponentProps<any>, any>(Sidemen
 
 const Container = styled.div`
   flex-shrink: 0;
-  width: 13rem;
+  width: 10.5rem;
   border-right: .5px solid #d9d9d9;
   padding-left: .5rem;
 `;
