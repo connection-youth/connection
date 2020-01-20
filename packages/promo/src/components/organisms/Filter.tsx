@@ -4,9 +4,13 @@ import styled from 'styled-components';
 import Search from '../molecules/Search';
 import Select from '../molecules/Select';
 
-type FilterProps = {};
+type FilterProps = {
+  className?: string;
+};
 
-export const Filter: React.FC<FilterProps> = () => {
+export const Filter: React.FC<FilterProps> = ({
+  className = '',
+}) => {
   const [query, setQuery] = useState<string>('');
 
   const onChangeQuery = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -14,7 +18,9 @@ export const Filter: React.FC<FilterProps> = () => {
   };
 
   return (
-    <FilterContainer>
+    <FilterContainer
+      className={className}
+    >
       <FilterSelect
         name="카테고리"
         options={[]}
@@ -36,7 +42,6 @@ export default Filter;
 const FilterContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 1rem;
 `;
 
 const FilterSelect = styled(Select)`

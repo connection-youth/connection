@@ -54,7 +54,7 @@ const Board: React.FC<BoardProps> = ({ onClick = () => {} }) => {
 
   return (
     <Container>
-      <Filter />
+      <StyledFilter />
       <Content>
         <Total>전체 132건</Total>
         <Table.Container>
@@ -118,6 +118,10 @@ const Board: React.FC<BoardProps> = ({ onClick = () => {} }) => {
 export default Board;
 
 const Container = styled.div`
+`;
+
+const StyledFilter = styled(Filter)`
+  margin-top: 1rem;
 `;
 
 const Content = styled.div`

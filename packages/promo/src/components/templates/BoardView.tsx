@@ -1,6 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import Filter from '../organisms/Filter';
+
+import homeButton from '../../assets/icons/home.svg';
+import listButton from '../../assets/icons/list.svg';
+
 export interface IContent {
   id: number;
   date: string;
@@ -16,10 +21,45 @@ type BoardViewProps = {
   content: IContent;
 };
 
+const TopNav: React.FC = () => (
+  <TopContainer>
+    <NavButtonRow>
+      <NavButton
+        src={homeButton}
+      />
+      <NavButton
+        src={listButton}
+      />
+    </NavButtonRow>
+    <Filter />
+  </TopContainer>
+);
+
+const TopContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+`;
+
+const NavButtonRow = styled.div`
+  display: flex;
+`;
+
+const NavButton = styled.img`
+  height: 35px;
+  width: 35px;
+
+  &:not(:last-child) {
+    margin-right: 7.6px;
+  }
+`;
+
 export const BoardView: React.FC<BoardViewProps> = ({ content }) => {
   const { id, date, title, author, views, category, file = '', article } = content;
   return (
     <Container>
+      <TopNav />
       <ViewHead>
         <SideInfo>{id}/130</SideInfo>
         <SideInfo>{date}</SideInfo>
