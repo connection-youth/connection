@@ -73,11 +73,9 @@ const Info = styled.div`
 const Name = styled.span`
   font-size: 1.2rem;
   font-weight: bold;
-  color: #575757;
 `;
 
 const Desc = styled.span`
   font-size: 0.9rem;
   margin-top: 0.3rem;
-  color: #575757;
 `;

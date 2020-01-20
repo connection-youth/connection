@@ -29,7 +29,6 @@ const Container = styled.section`
 
 const Header = styled.div`
   width: 100%;
-  color: #575757;
   line-height: 1.55;
   padding-bottom: .8rem;
   border-bottom: .5px solid #707070;

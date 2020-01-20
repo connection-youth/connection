@@ -160,6 +160,7 @@ const MetaTitle = styled.span`
   text-align: right;
   line-height: 1.43;
   font-size: .8rem;
+  color: white;
 
   @media (max-width: 500px) {
     font-size: 1.1rem;
@@ -170,6 +171,7 @@ const MetaDate = styled.span`
   text-align: right;
   line-height: 1.5;
   font-size: .65rem;
+  color: white;
 
   @media (max-width: 500px) {
     font-size: .8rem;

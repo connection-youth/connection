@@ -140,7 +140,6 @@ const Table = {
   Container: styled.table`
     width: 100%;
     font-size: .9rem;
-    color: #575757;
   `,
   Head: styled.thead`
     width: 100%;

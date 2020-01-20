@@ -175,7 +175,6 @@ export default FormPage;
 
 const Title = styled.h2`
   font-size: 1.2rem;
-  color: #575757;
 
   span {
     color: #298fe3;

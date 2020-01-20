@@ -29,7 +29,6 @@ type ItemProps = {
 const Item = styled.li<ItemProps>`
   padding-top: .8rem;
   padding-bottom: .8rem;
-  color: #575757;
   font-size: 1rem;
   line-height: 1.47;
   cursor: pointer;

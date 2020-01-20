@@ -13,6 +13,7 @@ export const Button = styled.button`
   font-size: .9rem;
   line-height: 1.53;
   letter-spacing: .07px;
+  background-color: white;
   transition: .5s background-color ease;
 
   &:hover {

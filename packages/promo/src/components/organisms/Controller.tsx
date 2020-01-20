@@ -42,7 +42,6 @@ type PageLinkProps = {
 
 const PageLink = styled.span<PageLinkProps>`
   ${RoundStyle}
-  color: #575757;
   border-radius: 12.5px;
   display: flex;
   justify-content: center;

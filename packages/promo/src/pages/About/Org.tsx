@@ -113,6 +113,10 @@ const Chart = {
 
     &.bottom {
       background-color: #37bad6;
+
+      span {
+        color: white;
+      }
     }
   `,
   Col: styled.div`
@@ -138,7 +142,6 @@ const Chart = {
   List: styled.div`
     display: flex;
     flex-direction: column;
-    color: #575757;
     margin-top: .5rem;
   `,
   Row: styled.div`
@@ -183,7 +186,6 @@ const Item = {
     border: solid 1px rgba(112, 112, 112, .5);
   `,
   Name: styled.span`
-    color: #575757;
     margin-top: .8rem;
     font-size: .9rem;
     font-weight: 600;

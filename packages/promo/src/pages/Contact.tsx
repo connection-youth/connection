@@ -100,7 +100,6 @@ const Contact = {
     border-bottom: .5px solid #d9d9d9;
     font-size: 1.5rem;
     line-height: 1.48;
-    color: #575757;
     font-weight: 400;
 
     span {
@@ -131,7 +130,6 @@ const Item = {
   `,
   Row: styled.span`
     line-height: 1.43;
-    color: #575757;
     font-weight: normal;
   `,
   Title: styled.span`

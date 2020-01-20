@@ -105,6 +105,7 @@ const Text = styled.span`
 
   strong {
     font-weight: 700;
+    color: white;
   }
 `;
 

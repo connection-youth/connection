@@ -9,10 +9,12 @@ const Default = {
     font-size: 1.7rem;
     font-weight: 400;
     line-height: 1.47;
+    color: white;
   `,
   Title: styled.h1`
     font-size: 5rem;
     font-family: "Futura";
+    color: white;
 
     @media (max-width: 780px) {
       font-size: 4rem;

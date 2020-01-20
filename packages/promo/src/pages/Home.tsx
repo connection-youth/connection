@@ -131,7 +131,6 @@ const Desc = styled.span`
   font-size: 1.6rem;
   font-weight: normal;
   line-height: 1.5;
-  color: #575757;
 
   strong {
     font-weight: bold;
@@ -149,7 +148,6 @@ const Info = styled.span`
   font-weight: normal;
   line-height: 1.65;
   letter-spacing: .08px;
-  color: #575757;
 
   @media (max-width: 500px) {
     display: unset;

@@ -180,7 +180,6 @@ const Table = {
   Container: styled.table`
     width: 100%;
     font-size: 0.9rem;
-    color: #575757;
   `,
   Head: styled.thead`
     border-top: 1px solid #707070;

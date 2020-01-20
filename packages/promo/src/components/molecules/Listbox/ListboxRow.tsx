@@ -32,14 +32,12 @@ const RowContainer = styled.li`
 
 const Title = styled.span`
   cursor: pointer;
-  color: #575757;
   font-size: .8rem;
   font-weight: 500;
   line-height: 1.5;
 `;
 
 const Date = styled.span`
-  color: #575757;
   font-size: .8rem;
   font-weight: normal;
   line-height: 1.5;

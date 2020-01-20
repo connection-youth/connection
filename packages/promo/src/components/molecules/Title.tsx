@@ -30,7 +30,6 @@ const Container = styled.div`
 `;
 
 const Name = styled.h1`
-  color: #575757;
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.48;
