@@ -45,7 +45,7 @@ const Input = styled.input`
   border: .5px solid #a4a4a4;
   color: #a4a4a4;
   background-color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.47;
   margin-left: .204rem;
 
@@ -58,6 +58,6 @@ const Icon = styled.img`
   position: absolute;
   right: 0.7rem;
   top: 0.6rem;
-  height: 1rem;
-  width: 1rem;
+  height: 0.9rem;
+  width: 0.9rem;
 `;

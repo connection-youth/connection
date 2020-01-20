@@ -49,7 +49,7 @@ const StyledSelect = styled.select`
   border-radius: 0;
   -webkit-appearance: none;
   color: #a4a4a4;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.47;
   outline: none;
 `;

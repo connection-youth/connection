@@ -43,15 +43,15 @@ const FilterSelect = styled(Select)`
   margin-left: 0.25rem;
 
   &:first-child {
-    width: 150px;
+    width: 100px;
   }
 
   &:nth-child(2) {
-    width: 100px;
+    width: 80px;
   }
 `;
 
 const FilterSearch = styled(Search)`
-  width: 300px;
+  width: 250px;
   margin-left: 1px;
 `;
