@@ -6,6 +6,52 @@ import Filter from '../organisms/Filter';
 import homeButton from '../../assets/icons/home.svg';
 import listButton from '../../assets/icons/list.svg';
 
+type NavButtonsProps = {
+  className?: string;
+};
+
+const NavButtons: React.FC<NavButtonsProps> = ({ className = '' }) => (
+  <NavButtonRow
+    className={className}
+  >
+    <NavButton
+      src={homeButton}
+    />
+    <NavButton
+      src={listButton}
+    />
+  </NavButtonRow>
+);
+
+const NavButtonRow = styled.div`
+  display: flex;
+`;
+
+const NavButton = styled.img`
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 7.6px;
+  }
+`;
+
+const TopNav: React.FC = () => (
+  <TopContainer>
+    <NavButtons />
+    <Filter />
+  </TopContainer>
+);
+
+const TopContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+`;
+
 export interface IContent {
   id: number;
   date: string;
@@ -20,41 +66,6 @@ export interface IContent {
 type BoardViewProps = {
   content: IContent;
 };
-
-const TopNav: React.FC = () => (
-  <TopContainer>
-    <NavButtonRow>
-      <NavButton
-        src={homeButton}
-      />
-      <NavButton
-        src={listButton}
-      />
-    </NavButtonRow>
-    <Filter />
-  </TopContainer>
-);
-
-const TopContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-`;
-
-const NavButtonRow = styled.div`
-  display: flex;
-`;
-
-const NavButton = styled.img`
-  height: 35px;
-  width: 35px;
-
-  &:not(:last-child) {
-    margin-right: 7.6px;
-  }
-`;
 
 export const BoardView: React.FC<BoardViewProps> = ({ content }) => {
   const { id, date, title, author, views, category, file = '', article } = content;
@@ -109,6 +120,8 @@ export const BoardView: React.FC<BoardViewProps> = ({ content }) => {
 
       <Article>
         {article}
+
+        <BottomNavButtons />
       </Article>
 
       <Table.Container>
@@ -154,6 +167,13 @@ const SideInfo = styled.span`
 
 const Article = styled.div`
   padding: 3rem 0.5rem;
+  position: relative;
+`;
+
+const BottomNavButtons = styled(NavButtons)`
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
 `;
 
 const Table = {
