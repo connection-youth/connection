@@ -40,6 +40,7 @@ const TopContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
+  margin-bottom: 3rem;
 `;
 
 const NavButtonRow = styled.div`
@@ -71,9 +72,9 @@ export const BoardView: React.FC<BoardViewProps> = ({ content }) => {
             <Table.Heading>
               제목
             </Table.Heading>
-            <Table.Data>
+            <Table.Title>
               {title}
-            </Table.Data>
+            </Table.Title>
             <Table.Heading>
               등록자
             </Table.Heading>
@@ -99,9 +100,9 @@ export const BoardView: React.FC<BoardViewProps> = ({ content }) => {
             <Table.Heading>
               첨부파일
             </Table.Heading>
-            <Table.Data>
+            <Table.File>
               {file}
-            </Table.Data>
+            </Table.File>
           </Table.Row>
         </Table.Head>
       </Table.Container>
@@ -140,29 +141,48 @@ const Container = styled.div`
 `;
 
 const ViewHead = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 const SideInfo = styled.span`
+  color: black;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Article = styled.div`
+  padding: 3rem 0.5rem;
 `;
 
 const Table = {
   Container: styled.table`
     width: 100%;
-    font-size: .78rem;
+    font-size: 0.9rem;
     color: #575757;
   `,
   Head: styled.thead`
     border-top: 1px solid #707070;
   `,
   Row: styled.tr`
+    border-bottom: 1px solid #d9d9d9;
   `,
   Heading: styled.th`
     display: flex;
     background-color: #f2f2f2;
+    font-weight: 600;
+    padding: 0.6rem 0.5rem;
   `,
   Data: styled.td`
+    padding: 0.6rem 0.5rem;
+  `,
+  Title: styled.td`
+    font-weight: 600;
+    padding: 0.6rem 0.5rem;
+  `,
+  File: styled.td`
+    color: #298fe3;
+    padding: 0.6rem 0.5rem;
   `,
 };

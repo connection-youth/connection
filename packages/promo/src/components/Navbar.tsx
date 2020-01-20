@@ -124,7 +124,7 @@ const Container = styled.nav`
 `;
 
 const Content = styled.div`
-  width: 65%;
+  width: 70%;
   display: flex;
   flex-direction: row;
 

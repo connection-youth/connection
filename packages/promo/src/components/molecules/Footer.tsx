@@ -58,7 +58,7 @@ const Container = styled.footer`
 `;
 
 const Wrapper = styled.div`
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
 
   @media (max-width: 840px) {

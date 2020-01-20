@@ -87,7 +87,7 @@ const Content = styled.div`
 `;
 
 const Wrapper = styled.section`
-  width: 65%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;

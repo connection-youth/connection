@@ -194,7 +194,7 @@ const Form = styled.form`
 `;
 
 const FormRow = styled.div`
-  width: 85%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -229,7 +229,7 @@ const FormSelect = styled.select`
 `;
 
 const FormTextarea = styled.textarea`
-  width: 85%;
+  width: 70%;
   box-sizing: border-box;
   text-size-adjust: none;
   font-size: .9rem;

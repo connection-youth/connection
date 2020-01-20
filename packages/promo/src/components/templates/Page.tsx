@@ -45,7 +45,7 @@ const Content = styled.div`
 `;
 
 const Wrap = styled.div`
-  width: 65%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;

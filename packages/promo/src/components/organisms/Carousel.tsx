@@ -134,14 +134,14 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  width: 65%;
+  width: 70%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
   color: #fff;
 
   @media (max-width: 500px) {
-    width: 85%;
+    width: 70%;
   }
 `;
 
