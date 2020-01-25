@@ -3,41 +3,64 @@
   {
     "name": "이제우",
     "position": "대표",
+    "task": "커넥션 총괄, 업무 일정 관리",
     "email": "kuzeceo@kuzeent.com",
     "image": true
   },
   {
     "name": "여동엽",
     "position": "부대표",
+    "task": "대표 보조, 지방 네트워크 관리",
     "email": "dongyeop@lukasit.kr"
   },
   {
     "name": "이수현",
-    "position": "이사"
+    "position": "이사",
+    "task": "기획이사, 마케팅 담당"
   },
   {
     "name": "이원준",
-    "position": "이사"
+    "position": "이사",
+    "task": "활동 기획"
   },
   {
     "name": "박재성",
-    "position": "이사"
+    "position": "이사",
+    "task": "활동 기획"
   },
   {
     "name": "김상민",
     "position": "운영부 부장",
+    "task": "운영부 총괄, 예산 심의, 인사담당",
     "email": "plantstoen@gmail.com"
   },
   {
-    "name": "여준호",
-    "position": "운영부 커뮤니티 운영팀 팀장",
-    "email": "hanaro0704@gmail.com",
+    "name": "김태원",
+    "position": "운영부 경영기획팀 팀장",
+    "task": "운영부 경영기획팀 총괄, 예산 집행 관리 및 승인",
     "image": true
+  },
+  {
+    "name": "박경민",
+    "position": "운영부 커뮤니티 운영팀 매니저",
+    "task": "비즈쿨 청소년 창업자 커뮤니티 <StartUs> 담당자"
   },
   {
     "name": "오영준",
     "position": "운영부 대외협력팀 매니저",
+    "task": "협력기관 모색",
     "email": "0118oyj@gmail.com"
+  },
+  {
+    "name": "정재한",
+    "position": "활동부 정책팀 팀장",
+    "task": "활동부 정책팀 총괄"
+  },
+  {
+    "name": "김세연",
+    "position": "",
+    "task": "정관 등 단체 문서 관리, 정책 제안 보조",
+    "image": true
   },
   {
     "name": "한원희",
@@ -45,7 +68,7 @@
   },
   {
     "name": "오재호",
-    "position": "행사부 교육운영팀 팀장"
+    "position": "행사부 행사운영팀 팀장"
   },
   {
     "name": "김수겸",
@@ -55,25 +78,43 @@
   },
   {
     "name": "이승현",
-    "position": "기술부 디자인팀 팀장"
+    "position": "기술부 디자인팀 팀장",
+    "task": "기술부 디자인팀 총괄, 디자인 업무"
+  },
+  {
+    "name": "김한경",
+    "position": "기술부 디자인팀 부팀장",
+    "task": "팀장 보조, 디자인"
+  },
+  {
+    "name": "손지민",
+    "position": "기술부 디자인팀 매니저",
+    "task": "디자인"
+  },
+  {
+    "name": "이승건",
+    "position": "기술부 디자인팀 매니저",
+    "task": "디자인"
   },
   {
     "name": "김석영",
     "position": "기술부 영상팀 팀장",
-    "email": "lotbell7223@naver.com"
+    "task": "기술부 영상팀 총괄 및 영상 제작",
+    "email": "lotbell7223@naver.com",
+    "image": true
   },
   {
     "name": "김한표",
-    "position": "기술부 영상팀 팀장",
+    "position": "기술부 영상팀 부팀장",
+    "task": "팀장 보조, 영상 제작(모션그래픽)",
     "email": "brianscience@naver.com",
     "image": true
   },
   {
-    "name": "손지민",
-    "position": "기술부 개발팀 팀장"
-  },
-  {
-    "name": "박경민",
-    "position": "비즈쿨 학생창업협의회 담당자"
+    "name": "여준호",
+    "position": "운영부 커뮤니티 운영팀 팀장",
+    "task": "기술부 개발팀 총괄",
+    "email": "hanaro0704@gmail.com",
+    "image": true
   }
 ]

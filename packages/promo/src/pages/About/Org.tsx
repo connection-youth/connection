@@ -7,8 +7,16 @@ import Section from '../../components/templates/Section';
 import employeeData from '../../data/employees.json';
 import organizationData from '../../data/organization.json';
 
+interface IEmployee {
+  name: string;
+  position: string;
+  task: string;
+  email?: string;
+  image?: boolean;
+}
+
 const organizations = organizationData as any;
-const employees = employeeData as any;
+const employees = employeeData as IEmployee[];
 
 const OrgPage: React.FC = () => (
   <Layout
@@ -66,26 +74,32 @@ const OrgPage: React.FC = () => (
       desc="커넥션의 소중한 가족들입니다."
     />
     <Employees.Container>
-      {employees.map((item: any, idx: number) => (
-        <Item.Container
-          key={`emp-${idx}`}
-        >
-          <Item.Image
-            src={item.image ? require(`../../assets/profiles/${item.name}.jpg`) : ''}
-          />
-          <Item.Name>
-            {item.name}
-          </Item.Name>
-          <Item.Position>
-            {item.position}
-          </Item.Position>
-          <Item.Email
-            href={`mailto:${item.email}`}
+      {employees.map((item: any, idx: number) => {
+        const { image = false, name, position, task, email = '' } = item;
+        return (
+          <Item.Container
+            key={`emp-${idx}`}
           >
-            {item.email}
-          </Item.Email>
-        </Item.Container>
-      ))}
+            <Item.Image
+              src={image ? require(`../../assets/profiles/${item.name}.jpg`) : ''}
+            />
+            <Item.Name>
+              {name}
+            </Item.Name>
+            <Item.Position>
+              {position}
+            </Item.Position>
+            <Item.Task>
+              {task}
+            </Item.Task>
+            <Item.Email
+              href={`mailto:${email}`}
+            >
+              {email}
+            </Item.Email>
+          </Item.Container>
+        );
+      })}
     </Employees.Container>
   </Layout>
 );
@@ -191,6 +205,15 @@ const Item = {
     font-weight: 600;
   `,
   Position: styled.span`
+    color: #858585;
+    font-size: .8rem;
+    line-height: 1;
+    margin-top: .5rem;
+    width: inherit;
+    word-break: keep-all;
+    text-align: center;
+  `,
+  Task: styled.span`
     color: #858585;
     font-size: .8rem;
     line-height: 1;
