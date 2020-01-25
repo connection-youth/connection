@@ -57,7 +57,7 @@ const HomePage: React.FC<IHomePageProps> = ({ history, windowWidth }) => {
             커넥션은 <strong>청소년 창업</strong> 및 <strong>활동 네트워크</strong>입니다.
           </Desc>
           <Info>
-            커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 5월 출범하였습니다.
+            커넥션은 창업과 여러 활동을 하는 청소년들 간의 네트워크를 구축하고, 지원하기 위해 2019년 4월 출범하였습니다.
           </Info>
           <StyledButton
             onClick={() => history.push('/about')}
