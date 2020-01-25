@@ -58,7 +58,7 @@
   },
   {
     "name": "김세연",
-    "position": "",
+    "position": "활동부 정책팀 매니저",
     "task": "정관 등 단체 문서 관리, 정책 제안 보조",
     "image": true
   },
@@ -89,7 +89,8 @@
   {
     "name": "손지민",
     "position": "기술부 디자인팀 매니저",
-    "task": "디자인"
+    "task": "디자인",
+    "image": true
   },
   {
     "name": "이승건",

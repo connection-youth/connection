@@ -198,6 +198,7 @@ const Item = {
     border-radius: 49px;
     border: solid .5px #707070;
     border: solid 1px rgba(112, 112, 112, .5);
+    object-fit: cover;
   `,
   Name: styled.span`
     margin-top: .8rem;
