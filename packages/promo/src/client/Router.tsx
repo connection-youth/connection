@@ -35,6 +35,8 @@ const Router: React.FC = () => (
     <Route path="/news/event" component={News.Event} />
     {/* 보도자료 */}
     <Route path="/news/report" component={News.Report} />
+    {/* 외부공시 */}
+    <Route path="/news/external" component={News.External} />
 
     {/* 연락 */}
     <Route exact path="/contact" component={Contact} />

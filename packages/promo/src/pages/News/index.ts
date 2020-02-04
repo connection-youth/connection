@@ -1,4 +1,5 @@
 import Event from './Event';
+import External from './External';
 import News from './News';
 
 import Notice from './Notice';
@@ -12,4 +13,5 @@ export default {
   Notice,
   NoticeView,
   Report,
+  External,
 };
