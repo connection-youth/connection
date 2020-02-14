@@ -83,20 +83,20 @@ const OrgPage: React.FC = () => (
             <Item.Image
               src={image ? require(`../../assets/profiles/${item.name}.jpg`) : ''}
             />
-            <Item.Name>
-              {name}
-            </Item.Name>
-            <Item.Position>
-              {position}
-            </Item.Position>
-            <Item.Task>
-              {task}
-            </Item.Task>
-            <Item.Email
-              href={`mailto:${email}`}
-            >
-              {email}
-            </Item.Email>
+            <Item.Meta>
+              <Item.Info>
+                <Item.Name>
+                  {name}
+                </Item.Name>
+                <Item.Position>{position}</Item.Position>
+                <Item.Task>{task ? ` / ${task}` : ''}</Item.Task>
+              </Item.Info>
+              <Item.Email
+                href={`mailto:${email}`}
+              >
+                {email}
+              </Item.Email>
+            </Item.Meta>
           </Item.Container>
         );
       })}
@@ -169,28 +169,33 @@ const Chart = {
 
 const Employees = {
   Container: styled.div`
-    margin: 2rem 1.5rem;
-    display: grid;
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   `,
 };
 
 const Item = {
   Container: styled.div`
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: .8rem 0;
+    margin: .8rem 1.5rem;
   `,
   Email: styled.a`
     color: #858585;
     font-size: .8rem;
     line-height: 1;
-    margin-top: .2rem;
+    margin-top: 0.3rem;
     text-decoration: none;
+    display: block;
     cursor: pointer;
+    transition: color 0.3s ease-in;
+
+    &:hover,
+    &:focus {
+      color: #298fe3;
+    }
   `,
   Image: styled.img`
     height: 98px;
@@ -202,8 +207,14 @@ const Item = {
   `,
   Name: styled.span`
     margin-top: .8rem;
-    font-size: .9rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    margin-right: .3rem;
+  `,
+  Meta: styled.div`
+    margin-left: 1rem;
+  `,
+  Info: styled.div`
   `,
   Position: styled.span`
     color: #858585;

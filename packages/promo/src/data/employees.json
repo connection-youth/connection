@@ -11,7 +11,8 @@
     "name": "여동엽",
     "position": "부대표",
     "task": "대표 보조, 지방 네트워크 관리",
-    "email": "dongyeop@lukasit.kr"
+    "email": "dongyeop@lukasit.kr",
+    "image": true
   },
   {
     "name": "이수현",
@@ -21,7 +22,8 @@
   {
     "name": "이원준",
     "position": "이사",
-    "task": "활동 기획"
+    "task": "활동 기획",
+    "image": true
   },
   {
     "name": "박재성",
@@ -81,7 +83,8 @@
   {
     "name": "이승현",
     "position": "기술부 디자인팀 팀장",
-    "task": "기술부 디자인팀 총괄, 디자인 업무"
+    "task": "기술부 디자인팀 총괄, 디자인 업무",
+    "image": true
   },
   {
     "name": "김한경",
@@ -115,7 +118,7 @@
   },
   {
     "name": "여준호",
-    "position": "운영부 커뮤니티 운영팀 팀장",
+    "position": "기술부 개발팀 팀장",
     "task": "기술부 개발팀 총괄",
     "email": "hanaro0704@gmail.com",
     "image": true
