@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "552b2c8e8069f54d0354f5bc58ea82cb",
+    "revision": "c2ebfffb91ef608fdbd553bb222a9022",
     "url": "/connection/index.html"
   },
   {
-    "revision": "9b987ccf10a46cb208f2",
+    "revision": "254b0cb127507110f5a9",
     "url": "/connection/static/css/2.117ce29f.chunk.css"
   },
   {
-    "revision": "12ebef85e900a763d3b6",
+    "revision": "b412fb8fcbae1dbb8d67",
     "url": "/connection/static/css/main.2662940e.chunk.css"
   },
   {
-    "revision": "9b987ccf10a46cb208f2",
-    "url": "/connection/static/js/2.492f5d8e.chunk.js"
+    "revision": "254b0cb127507110f5a9",
+    "url": "/connection/static/js/2.59111ffc.chunk.js"
   },
   {
     "revision": "fd228f9b9a68ce6b23a6cf8b0a38a0e3",
-    "url": "/connection/static/js/2.492f5d8e.chunk.js.LICENSE"
+    "url": "/connection/static/js/2.59111ffc.chunk.js.LICENSE"
   },
   {
-    "revision": "12ebef85e900a763d3b6",
-    "url": "/connection/static/js/main.556583da.chunk.js"
+    "revision": "b412fb8fcbae1dbb8d67",
+    "url": "/connection/static/js/main.6de13609.chunk.js"
   },
   {
     "revision": "226852f66b326bf3a26a",
@@ -144,12 +144,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/connection/static/media/손지민.b63f9978.jpg"
   },
   {
+    "revision": "442dfdcb80fa0d0714c274954ef22814",
+    "url": "/connection/static/media/여동엽.442dfdcb.jpg"
+  },
+  {
     "revision": "4a72c147d9b03758071b624795645c4f",
     "url": "/connection/static/media/여준호.4a72c147.jpg"
   },
   {
     "revision": "18d5fe14fe23b4e9cc407d7f9fdfc72c",
     "url": "/connection/static/media/오재호.18d5fe14.jpg"
+  },
+  {
+    "revision": "45f8311d4acaef71539e316f53f67b27",
+    "url": "/connection/static/media/이승현.45f8311d.jpg"
+  },
+  {
+    "revision": "848a68e73712775cc165f39893a4eca5",
+    "url": "/connection/static/media/이원준.848a68e7.jpg"
   },
   {
     "revision": "35909d1df239c1853acf12b448f393f2",
