@@ -3,17 +3,18 @@ import styled from 'styled-components';
 
 type SectionProps = {
   title: React.ReactNode,
-  desc: React.ReactNode,
+  desc?: React.ReactNode,
   children?: React.ReactNode,
 };
 
-const Section: React.FC<SectionProps> = ({ title, desc, children }) => (
+const Section: React.FC<SectionProps> = ({ title, desc = '', children }) => (
   <Container>
     <Header>
       {(() => (
         <>
           {React.isValidElement(title) ? title : <Title>{title}</Title>}
-          {React.isValidElement(desc) ? desc : <Desc>{desc}</Desc>}
+          {React.isValidElement(desc) ? desc :
+            desc ? <Desc>{desc}</Desc> : (null)}
         </>
       ))()}
     </Header>

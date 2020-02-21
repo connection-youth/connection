@@ -96,7 +96,7 @@ export default InfoPage;
 
 const Content = styled.div`
   line-height: 1.5;
-  margin: 2rem 1.5rem;
+  margin: 2rem 0;
 
   strong {
     color: #298fe3;
