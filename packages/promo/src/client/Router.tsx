@@ -11,11 +11,11 @@ const Router: React.FC = () => (
     <Route exact path="/about" component={About.Info} />
     {/* 대표 소개 */}
     <Route path="/about/repr" component={About.Repr} />
-    {/* 조직도 및 직원 */}
+    {/* 조직도 및 운영진 */}
     <Route path="/about/org" component={About.Org} />
     {/* 자문위원 및 멘토 */}
     <Route path="/about/mentor" component={About.Mentor} />
-    {/* 파트너 목록 */}
+    {/* 파트너 */}
     <Route path="/about/partners" component={About.Partners} />
 
     {/* 가입 안내 */}

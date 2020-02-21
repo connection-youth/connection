@@ -12,7 +12,7 @@
         "route": "/about/repr"
       },
       {
-        "name": "조직도 및 직원",
+        "name": "조직도 및 운영진",
         "route": "/about/org"
       },
       {
@@ -20,7 +20,7 @@
         "route": "/about/mentor"
       },
       {
-        "name": "파트너 목록",
+        "name": "파트너",
         "route": "/about/partners"
       }
     ]

@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 
 const PartnerPage: React.FC = () => (
   <Layout
-    title="파트너 목록"
+    title="파트너"
     category="About"
   />
 );

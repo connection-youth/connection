@@ -20,7 +20,7 @@ const employees = employeeData as IEmployee[];
 
 const OrgPage: React.FC = () => (
   <Layout
-    title="조직도 및 직원"
+    title="조직도 및 운영진"
     category="About"
   >
     <Section
@@ -70,7 +70,7 @@ const OrgPage: React.FC = () => (
       </Chart.Row>
     </Chart.Container>
     <Section
-      title="직원"
+      title="운영진"
       desc="커넥션의 소중한 가족들입니다."
     />
     <Employees.Container>
