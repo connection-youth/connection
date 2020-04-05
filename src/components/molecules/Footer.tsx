@@ -15,7 +15,7 @@ const Footer = () => (
       <Contact>
         <Text>
           <strong>TEL</strong>
-          {' '}0507-1304-9899
+          {' '}070-4680-0380
         </Text>
         <Text>
           <strong>FAX</strong>
